@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'Sus datos no se encuentran en el sistema o no se encuentra activo, por favor comuniquese con el administrador.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

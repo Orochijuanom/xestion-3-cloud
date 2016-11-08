@@ -77,3 +77,7 @@ Route::get('/cloud/form/13', function() {
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

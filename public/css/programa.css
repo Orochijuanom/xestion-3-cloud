@@ -1,0 +1,75 @@
+input[type="text"]{
+outline: none;
+	text-align: center;
+	color: #000;
+	border:none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+}
+.nombreempresa{
+	width: 100%;
+	height: 100%;
+	font-size: 16px;
+}
+.codigo{
+	font-size: 12px;
+	float: right;
+	width: 70%;
+}
+.centrado{
+	font-size: 12px;
+	
+	width: 100%;
+}
+input[type="date"]{
+	border: none;
+}
+.campo{
+	border:none;
+	font-size: 12px;
+	width: 100%;
+	height: 100%
+}
+.estado{
+	border: none;
+	float: right;
+	width: 100%;
+	height: 20px;
+}
+.numeros{
+		border: none;
+	float: right;
+	width: 100%;
+}
+.sign-up input[type="submit"],[type="button"] {
+	float:left;
+    background:#50b308;
+    color: #fff;
+	border: 2px solid #fff;
+    font-size: 18px;
+	margin: 2px;
+    padding: 10px;
+    width: max 85%;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    margin-top:24px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 9px;
+	
+}
+.sign-up input[type="submit"]:hover{
+	color: #fff;
+	background:#263383;
+	border-radius: 9px;
+
+}
