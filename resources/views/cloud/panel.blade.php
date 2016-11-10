@@ -29,7 +29,10 @@
 	<div class="container">
 	  <div class="nav-collapse">
 		<ul class="nav">
-			<li class=""><a href="admin.php">Se ha registrado correctamente</a></li>
+			@if(Auth::user()->admin == 1)
+				<li class=""><a href="/cloud/admin">ADMINISTRADOR XESTION3</a></li>
+			@endif
+		
 			 
 	
 		</ul>

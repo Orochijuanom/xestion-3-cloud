@@ -29,7 +29,7 @@
 	<div class="container">
 	  <div class="nav-collapse">
 		<ul class="nav">
-			<li class=""><a href="admin.php">ADMINISTRADOR XESTION3</a></li>
+			<li class=""><a href="/cloud/panel">PANEL XESTION3</a></li>
 			 
 	
 		</ul>
@@ -113,7 +113,7 @@
                     @endif
                     </td>
 
-				    <td><a href='actualizar.php?id=$arreglo[0]'><img src='/images/actualizar.gif' class='img-rounded'></td>
+				    <td><a href='/cloud/user/{{$user->id}}'><img src='/images/actualizar.gif' class='img-rounded'></td>
 					<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='/images/eliminar.png' class='img-rounded'/></a></td>
 						
 

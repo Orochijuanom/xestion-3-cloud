@@ -24,6 +24,13 @@ Route::get('/cloud/admin', function() {
     return view('cloud.admin')->with('users', $users);
 });
 
+Route::get('/cloud/user/{user_id}', function($user_id) {
+    $user = App\User::find($user_id);
+    return view('cloud.admin_edit')->withUser($user);
+});
+
+Route::put('/cloud/user/{user_id}', 'UserController@update');
+
 Route::get('/cloud', function() {
     return view('cloud.index');
 });
