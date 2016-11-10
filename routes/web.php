@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/cloud/panel', function() {
+    return view('cloud.panel');    
+});
+
+Route::get('/cloud/admin', function() {
+    $users = App\User::all();
+    return view('cloud.admin')->with('users', $users);
+});
+
 Route::get('/cloud', function() {
     return view('cloud.index');
 });
