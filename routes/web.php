@@ -35,9 +35,15 @@ Route::get('/cloud', function() {
     return view('cloud.index');
 });
 
+/** FORMULARIO 1 **/
 Route::get('/cloud/form/1', function() {
     return view('cloud.1');
 });
+
+Route::post('/cloud/form/1', 't1Controller@form1'); 
+
+/** END FORM 1 **/
+
 
 Route::get('/cloud/form/2', function() {
     return view('cloud.2');
