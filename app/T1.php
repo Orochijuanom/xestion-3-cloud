@@ -8,7 +8,7 @@ class T1 extends Model
 {
     protected $table = 't1';
 
-    protected $fillable = ['logo','nombre_empresa', 'codigo', 'version', 'fecha'];
+    protected $fillable = ['logo','nombre_empresa'];
 
     public function detalles()
     {

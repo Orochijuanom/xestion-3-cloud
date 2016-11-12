@@ -17,9 +17,9 @@ class CreateT1Table extends Migration
             $table->increments('id');
             $table->string('logo');
             $table->string('nombre_empresa');
-            $table->string('codigo');
-            $table->string('version');
-            $table->timestamp('fecha');                                    
+            //$table->string('codigo');
+            //$table->string('version');
+            //$table->timestamp('fecha');                                    
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

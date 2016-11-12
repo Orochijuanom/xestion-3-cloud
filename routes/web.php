@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/cloud/create_empresa',function(){
+    return view('cloud.create_empresa');
+});
+
+Route::post('/cloud/create_empresa','t1Controller@create_empresa');
+
+
 Route::get('/cloud/panel', function() {
     return view('cloud.panel');    
 });
@@ -36,17 +43,25 @@ Route::get('/cloud', function() {
 });
 
 /** FORMULARIO 1 **/
-Route::get('/cloud/form/1', function() {
-    return view('cloud.1');
+Route::get('/cloud/form/l1', function() {
+    $empresas = App\T1::all();    
+    return view('cloud.l1')->with('empresas',$empresas);
+});
+
+
+Route::get('/cloud/form/1/{id}', function($id) {
+    $empresa = App\T1::find($id);
+    return view('cloud.1')->with('empresa',$empresa);
 });
 
 Route::post('/cloud/form/1', 't1Controller@form1'); 
 
 /** END FORM 1 **/
 
-/** FORMULARIO 2 **/
-Route::get('/cloud/form/2', function() {
-    return view('cloud.2');
+
+Route::get('/cloud/form/2/{id}', function($id) {
+    $empresa = App\T1::find($id);
+    return view('cloud.2')->with('empresa',$empresa);
 });
 
 Route::post('/cloud/form/2', 't1Controller@form2'); 
@@ -128,6 +143,8 @@ Route::post('/cloud/form/10', 't1Controller@form10');
 Route::get('/cloud/form/11', function() {
     return view('cloud.11');
 });
+Route::post('/cloud/form/11', 't11Controller@form11');
+
 
 Route::post('/cloud/form/11', 't1Controller@form11'); 
 /** END FORM 11 **/
