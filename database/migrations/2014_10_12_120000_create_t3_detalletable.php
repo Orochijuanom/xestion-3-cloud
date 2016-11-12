@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateT1Table extends Migration
+class CreateT3DetalleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -45,6 +45,6 @@ class CreateT1Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t1');
+        Schema::dropIfExists('t3_detalle');
     }
 }

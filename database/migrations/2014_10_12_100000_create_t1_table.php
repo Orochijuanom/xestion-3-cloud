@@ -21,6 +21,7 @@ class CreateT1Table extends Migration
             $table->string('version');
             $table->timestamp('fecha');                                    
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

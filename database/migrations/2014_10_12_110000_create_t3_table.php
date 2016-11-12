@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateT1Table extends Migration
+class CreateT3Table extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class CreateT1Table extends Migration
     {
         Schema::create('t3', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('fecha_actualizacion');
+            $table->string('fecha_actualizacion');
             $table->string('motivo_actualizacion');
             $table->string('responsable_actualizacion');
             $table->string('revisado_por');
@@ -26,6 +26,7 @@ class CreateT1Table extends Migration
                   ->onDelete('restrict');
                                                                                     
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -36,6 +37,6 @@ class CreateT1Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t1');
+        Schema::dropIfExists('t3');
     }
 }

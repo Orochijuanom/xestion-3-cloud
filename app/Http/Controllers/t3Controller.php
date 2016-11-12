@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\T1;
+use App\T3;
+use App\T3Detalle;
 
 class t3Controller extends Controller
 {
-    public function form1(Request $request)
+    public function form3(Request $request)
     {
         $this->validate($request, [
             'nombre_empresa' => 'required',            
@@ -21,7 +24,7 @@ class t3Controller extends Controller
             'version' => $request['version'],
             'logo' => 'default'
         ]);
-
+        
         //Creamos el registro de la actualizacion
         $t3 = T3::create([
             'fecha_actualizacion' =>  $request["fecha_actualizacion"],
@@ -38,7 +41,13 @@ class t3Controller extends Controller
                     'norma' =>  $request["norma"][$i],
                     'fecha_publicacion' => $request['fecha_publicacion'][$i],
                     'emisor' => $request['emisor'][$i],
-                    'articulo' => $request['articulo'][$i],                    
+                    'articulo' => $request['articulo'][$i],
+                    'descripcion_obligacion' => $request['descripcion_obligacion'][$i],
+                    'palabra_clave' => $request['palabra_clave'][$i],
+                    'aplica' => $request['aplica'][$i],
+                    'cumple' => $request['cumple'][$i],
+                    'como_cumple' => $request['como_cumple'][$i],
+                    'responsable_cumplimiento' => $request['responsable_cumplimiento'][$i],                                                            
                     't3_id' => $t3->id
                 ]);
                 
