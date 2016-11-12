@@ -78,6 +78,9 @@ Route::get('/cloud/form/7', function() {
     return view('cloud.7');
 });
 
+Route::post('/cloud/form/7', 't7Controller@form7');
+
+
 Route::get('/cloud/form/8', function() {
     return view('cloud.8');
 });

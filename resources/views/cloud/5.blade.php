@@ -1,5 +1,5 @@
 <head>
-	            <link href="../css/programa.css" rel="stylesheet" type="text/css"/>
+	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
           .thumb {
             height: 70px;
