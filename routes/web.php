@@ -49,9 +49,14 @@ Route::get('/cloud/form/2', function() {
     return view('cloud.2');
 });
 
+
+/** FORMULARIO 3 **/
 Route::get('/cloud/form/3', function() {
     return view('cloud.3');
 });
+
+Route::post('/cloud/form/3', 't3Controller@form3');
+/** END FORM 3 **/
 
 Route::get('/cloud/form/4', function() {
     return view('cloud.4');
