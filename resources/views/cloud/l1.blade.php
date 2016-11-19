@@ -58,8 +58,7 @@
 	@endforeach
 	
 </table>
-<div class="sign-up"><a href="{{url('/cloud/create_empresa')}}"/>NUEVO</a></div>
-<div class="sign-up"><input type="submit" value="Guardar"/></div>
+<div class="sign-up"><a href="{{url('/cloud/create_empresa')}}"/>Nuevo</a></div>
 <div class="sign-up"><input type="submit" value="Editar"/></div>
 <div class="sign-up"><input type="submit" value="Eliminar"/></div>
 

@@ -46,8 +46,7 @@
 	@endforeach
 	
 </table>
-<div class="sign-up"><a href="/cloud/form/1/{{$empresa_id}}"/>NUEVO</a></div>
-<div class="sign-up"><input type="submit" value="Guardar"/></div>
+<div class="sign-up"><a href="/cloud/form/1/{{$empresa_id}}"/>Nuevo</a></div>
 <div class="sign-up"><input type="submit" value="Editar"/></div>
 <div class="sign-up"><input type="submit" value="Eliminar"/></div>
 

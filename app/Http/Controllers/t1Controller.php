@@ -36,7 +36,7 @@ class t1Controller extends Controller
     {
         //Registramos el form1 equivalente a la versión y código
         
-        $empresa = T1::create([
+        $t1 = T1::create([
             'codigo' => $request['codigo'],            
             'version' => $request['version'],
             'fecha' => $request['fecha'],
@@ -56,7 +56,7 @@ class t1Controller extends Controller
                 'meta' => $request['meta'][$i],
                 'ficha_indicador' => $request['ficha_indicador'][$i],
                 'responsable' => $request['responsable'][$i],
-                'empresa_id' => $empresa->id
+                't1_id' => $t1->id
             ]);                            
         }
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
