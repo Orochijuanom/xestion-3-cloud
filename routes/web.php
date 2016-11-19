@@ -107,11 +107,27 @@ Route::post('/cloud/form/5', 't1Controller@form5');
 /** END FORM 5 **/
 
 /** FORMULARIO 6 **/
-Route::get('/cloud/form/6', function() {
-    return view('cloud.6');
+Route::get('/cloud/form/t6/{empresa_id}', function($empresa_id) {
+    $t6 = App\T6::where('empresa_id','=',$empresa_id)->get();    
+    return view('cloud.t6')
+                    ->with('t6s',$t6)
+                    ->with('empresa_id',$empresa_id);
 });
 
-Route::post('/cloud/form/6', 't1Controller@form6'); 
+Route::get('/cloud/form/6/{id}', function($id) {
+    $empresa = App\empresa::find($id);
+    return view('cloud.6')->with('empresa', $empresa);
+});
+
+Route::post('/cloud/form/6', 't6Controller@form6'); 
+
+Route::get('/cloud/form/6/ver/{id}', function($id) {
+    $t6 = App\T6::where('id',  '=', $id)
+                    ->with('empresa')
+                    ->with('t6Detalles')
+                    ->first();
+    return view('cloud.6_ver')->with('t6', $t6);
+});
 /** END FORM 6 **/
 
 /** FORMULARIO 7 **/
@@ -123,11 +139,27 @@ Route::post('/cloud/form/7', 't7Controller@form7');
 /** END FORM 7 **/
 
 /** FORMULARIO 8 **/
-Route::get('/cloud/form/8', function() {
-    return view('cloud.8');
+Route::get('/cloud/form/t8/{empresa_id}', function($empresa_id) {
+    $t8 = App\T8::where('empresa_id','=',$empresa_id)->get();    
+    return view('cloud.t8')
+                    ->with('t8s',$t8)
+                    ->with('empresa_id',$empresa_id);
 });
 
-Route::post('/cloud/form/8', 't1Controller@form8'); 
+Route::get('/cloud/form/8/{id}', function($id) {
+    $empresa = App\empresa::find($id);
+    return view('cloud.8')->with('empresa', $empresa);
+});
+
+Route::post('/cloud/form/6', 't8Controller@form8'); 
+
+Route::get('/cloud/form/8/ver/{id}', function($id) {
+    $t8 = App\T8::where('id',  '=', $id)
+                    ->with('empresa')
+                    ->with('t8Detalles')
+                    ->first();
+    return view('cloud.8_ver')->with('t8', $t8);
+});
 /** END FORM 8 **/
 
 /** FORMULARIO 9 **/

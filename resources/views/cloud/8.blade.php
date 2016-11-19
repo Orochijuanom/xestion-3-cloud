@@ -1,5 +1,5 @@
 <head>
-	            <link href="../css/programa.css" rel="stylesheet" type="text/css"/>
+	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
           .thumb {
             height: 70px;
@@ -18,6 +18,26 @@
 </head>
 
 <body>
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
+	<ul>
+		@foreach ($errors->all() as $error)
+			<li>{{ $error }}</li>
+		@endforeach
+	</ul>
+</div>
+@endif
+
+@if (Session::get('flash_message'))
+<div class="alert alert-success">
+	{{Session::get('flash_message')}}
+	<br><br>            
+</div>
+@endif
+<form method="POST" action="{{ url('/cloud/form/8') }}">
+{{ csrf_field() }}
+
 <table cellspacing="0" border="0">
 	<colgroup width="19"></colgroup>
 	<colgroup width="57"></colgroup>
@@ -565,7 +585,8 @@
 <div class="sign-up"><input type="submit" value="Editar"/></div>
 <div class="sign-up"><input type="submit" value="Eliminar"/></div>
 <input type="button" value="Imprime esta 
-pagina" onclick="window.print()"> 
+pagina" onclick="window.print()">
+</form> 
 <!-- ************************************************************************** --> <script>
               function archivo(evt) {
                   var files = evt.target.files; // FileList object

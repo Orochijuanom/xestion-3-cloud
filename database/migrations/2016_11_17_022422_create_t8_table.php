@@ -18,9 +18,9 @@ class CreateT8Table extends Migration
             $table->string('codigo');
             $table->string('version');
             $table->date('fecha');
-            $table->integer('t1_id')->unsigned();
-            $table->foreign('t1_id')
-                  ->references('id')->on('t1')
+            $table->integer('empresa_id')->unsigned();
+            $table->foreign('empresa_id')
+                  ->references('id')->on('empresa')
                   ->onUpdate('no action')
                   ->onDelete('restrict');
             $table->timestamps();

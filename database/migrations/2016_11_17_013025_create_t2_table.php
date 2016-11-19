@@ -22,9 +22,9 @@ class CreateT2Table extends Migration
             $table->date('fecha_asignacion_presupuesto');
             $table->string('responsable_planificacion_presupuesto');
             $table->string('cargo');
-            $table->integer('t1_id')->unsigned();
-            $table->foreign('t1_id')
-                  ->references('id')->on('t1')
+            $table->integer('empresa_id')->unsigned();
+            $table->foreign('empresa_id')
+                  ->references('id')->on('empresa')
                   ->onUpdate('no action')
                   ->onDelete('restrict');
             $table->timestamps();

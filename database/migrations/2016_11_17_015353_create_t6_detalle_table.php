@@ -15,8 +15,7 @@ class CreateT6DetalleTable extends Migration
     {
         Schema::create('t6_detalle', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('n');
-            $table->date('fecha');
+            $table->date('fecha_t6');
             $table->string('nombre_quien_reporta');
             $table->string('area_proyecto');
             $table->string('descripcion_solicitud');
