@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Empresa;
 use App\T1;
 use App\T1Detalle;
 class t1Controller extends Controller
@@ -23,15 +24,26 @@ class t1Controller extends Controller
         \Storage::disk('public')->put($nombre,  \File::get($file));
         
 
-        $empresa = T1::create([
+        $empresa = Empresa::create([
             'nombre_empresa' => $request['nombre_empresa'],            
             'logo' => $nombre
         ]);
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
     }
+
+
     public function form1(Request $request)
     {
-                    
+        //Registramos el form1 equivalente a la versión y código
+        
+        $empresa = T1::create([
+            'codigo' => $request['codigo'],            
+            'version' => $request['version'],
+            'fecha' => $request['fecha'],
+            'empresa_id' => $request['empresa_id']
+        ]);
+
+
         for ($i=0; $i < 9; $i++){                                
             T1Detalle::create([
                 'politica_sistema_gestion' =>  $request["politica_sistema_gestion"][$i],            
@@ -44,7 +56,7 @@ class t1Controller extends Controller
                 'meta' => $request['meta'][$i],
                 'ficha_indicador' => $request['ficha_indicador'][$i],
                 'responsable' => $request['responsable'][$i],
-                't1_id' => $request['t1_id']
+                'empresa_id' => $empresa->id
             ]);                            
         }
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');

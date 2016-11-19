@@ -44,14 +44,21 @@ Route::get('/cloud', function() {
 
 /** FORMULARIO 1 **/
 Route::get('/cloud/form/l1', function() {
-    $empresas = App\T1::all();    
+    $empresas = App\Empresa::all();    
     return view('cloud.l1')->with('empresas',$empresas);
 });
 
+Route::get('/cloud/form/t1/{empresa_id}', function($empresa_id) {
+    $t1 = App\T1::where('empresa_id','=',$empresa_id)->get();    
+    return view('cloud.t1')
+                    ->with('t1s',$t1)
+                    ->with('empresa_id',$empresa_id);
+});
 
 Route::get('/cloud/form/1/{id}', function($id) {
-    $empresa = App\T1::find($id);
+    $empresa = App\Empresa::find($id);
     return view('cloud.1')->with('empresa',$empresa);
+                            
 });
 
 Route::post('/cloud/form/1', 't1Controller@form1'); 

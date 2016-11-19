@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class T1 extends Model
 {
     protected $table = 't1';
+    protected $fillable = ['codigo','version', 'fecha','empresa_id'];
 
-    protected $fillable = ['logo','nombre_empresa'];
-
-    public function detalles()
+    public function T1Detalles()
     {
-        return $this->hasMany('App\T1Detalle');
-    }
+        return $this->hasMany('App\T1Detalles');
+    }                                                 
 }
