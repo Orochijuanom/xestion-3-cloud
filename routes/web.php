@@ -151,7 +151,7 @@ Route::get('/cloud/form/8/{id}', function($id) {
     return view('cloud.8')->with('empresa', $empresa);
 });
 
-Route::post('/cloud/form/6', 't8Controller@form8'); 
+Route::post('/cloud/form/8', 't8Controller@form8'); 
 
 Route::get('/cloud/form/8/ver/{id}', function($id) {
     $t8 = App\T8::where('id',  '=', $id)

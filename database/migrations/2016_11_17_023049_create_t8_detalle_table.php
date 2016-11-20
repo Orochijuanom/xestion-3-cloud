@@ -27,6 +27,7 @@ class CreateT8DetalleTable extends Migration
             $table->string('cardiovascular');
             $table->string('trabajo_alturas');
             $table->string('test_fobias_trabajo_alturas');
+            $table->string('otro');
             $table->string('espirometria');
             $table->string('audiometria');
             $table->string('optometria');
