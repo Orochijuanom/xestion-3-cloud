@@ -28,7 +28,7 @@ class CreateT10DetalleTable extends Migration
             $table->string('acceso');
             $table->string('proteccion');
             $table->string('sitio_consulta_documento');
-            $table->string('sitio_cosulta_registro_fisico');
+            $table->string('sitio_consulta_registro_fisico');
             $table->string('sitio_consulta_registro_digital');
             $table->string('tiempo_retencion');
             $table->string('disposicion_final');

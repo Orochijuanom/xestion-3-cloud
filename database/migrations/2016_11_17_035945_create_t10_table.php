@@ -20,7 +20,7 @@ class CreateT10Table extends Migration
             $table->date('fecha');
             $table->integer('empresa_id')->unsigned();
             $table->foreign('empresa_id')
-                  ->references('id')->on('t1')
+                  ->references('id')->on('empresa')
                   ->onUpdate('no action')
                   ->onDelete('restrict');
             $table->timestamps();
