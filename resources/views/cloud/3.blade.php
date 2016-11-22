@@ -33,10 +33,10 @@
 	<colgroup width="131"></colgroup>
 	<colgroup width="261"></colgroup>
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 height="61" align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">LOGO DE LA EMPRESA</font><input type="file" id="files" name="files[]" />
+		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 height="61" align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial"><img style="width:200px; heigth:200px;" src="{{asset("images/C.png")}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" size=3><b><input class="nombreempresa" placeholder="NOMBRE DE LA EMPREA" type="text" required name="nombre_empresa" ></b></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" size=3><b>{{$empresa->nombre_empresa}} <input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></b></font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" />  </font></b></td>
 	</tr>
 	<tr>

@@ -94,13 +94,14 @@ Route::get('/cloud/form/l1', function() {
 /** FORMULARIO 3 **/
     //Ruta que muestra los formularios T3 creados por el usuario
     Route::get('/cloud/form/t3/{empresa_id}', function($empresa_id) {
-        $t3 = App\T1::where('empresa_id','=',$empresa_id)->get();    
+        $t3 = App\T3::where('empresa_id','=',$empresa_id)->get();    
         return view('cloud.t3')
                         ->with('t3s',$t3)
                         ->with('empresa_id',$empresa_id);
     });
-    Route::get('/cloud/form/3', function() {
-        return view('cloud.3');
+    Route::get('/cloud/form/3/{id}', function($id) {
+        $empresa = App\Empresa::find($id);
+        return view('cloud.3')->with('empresa',$empresa);
     });
 
     Route::post('/cloud/form/3', 't3Controller@form3');

@@ -20,6 +20,9 @@ class CreateT3Table extends Migration
             $table->string('responsable_actualizacion');
             $table->string('revisado_por');
             $table->integer('empresa_id')->unsigned();
+            $table->string('codigo');
+            $table->string('version');
+            $table->string('fecha');
             $table->foreign('empresa_id')
                   ->references('id')->on('empresa')
                   ->onUpdate('no action')
