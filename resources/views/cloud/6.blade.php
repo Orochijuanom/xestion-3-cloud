@@ -152,10 +152,7 @@
 </table>
 <!-- ************************************************************************** -->
 <hr>
-<div class="sign-up"><input type="submit" value="Nuevo"/></div>
 <div class="sign-up"><input type="submit" value="Guardar"/></div>
-<div class="sign-up"><input type="submit" value="Editar"/></div>
-<div class="sign-up"><input type="submit" value="Eliminar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
 </form>

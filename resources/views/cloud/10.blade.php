@@ -164,10 +164,8 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom><font color="#000000">POLITICA</font></td>
 	</tr>
 </table>
-<div class="sign-up"><input type="submit" value="Nuevo"/></div>
 <div class="sign-up"><input type="submit" value="Guardar"/></div>
-<div class="sign-up"><input type="submit" value="Editar"/></div>
-<div class="sign-up"><input type="submit" value="Eliminar"/></div>
+
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
 </form>
