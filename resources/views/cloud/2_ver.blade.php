@@ -33,8 +33,9 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="{{ url('/cloud/form/2') }}">
+<form method="POST" action="/cloud/form/2/{{$t2->id}}">
 {{ csrf_field() }}
+{{ method_field('PUT') }}
 <table cellspacing="0" border="0">
 	<colgroup width="276"></colgroup>
 	<colgroup width="150"></colgroup>
@@ -45,18 +46,18 @@
 	<colgroup width="155"></colgroup>
 	<colgroup width="206"></colgroup>
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 height="100" align="center" valign=middle sdnum="1033;0;General_)"><b><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" />
+		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 height="100" align="center" valign=middle sdnum="1033;0;General_)"><b><img style="width:200px; heigth:200px;" src="/images/{{$t2->empresa->logo}}" />
         <br />
         <output id="list"></output></font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2> Codigo:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" >   </font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>{{$t2->empresa->nombre_empresa}}<input type="hidden" value="{{$t2->id}}" name="empresa_id" /></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2> Codigo:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t2->codigo}}">   </font></b></td>
 	</tr>
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Versión:<input class="codigo" placeholder="version" type="text" required name="version"> </font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Versión:<input class="codigo" placeholder="version" type="text" required name="version" value="{{$t2->version}}"> </font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>PRESUPUESTO DEL SISTEMA DE GESTION </font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Fecha:<input class="codigo" placeholder="fecha" type="date" required name="fecha" ></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Fecha:<input class="codigo" placeholder="fecha" type="date" required name="fecha" value="{{$t2->fecha}}"></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="20" align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><br></font></b></td>
@@ -70,7 +71,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="30" align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="centrado" placeholder="Presupuesto" type="text" required name="presupuesto_anio"></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="codigo" placeholder="fecha" type="date" required name="fecha_asignacion_presupuesto" value="{{ date('Y-m-d') }}"></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="codigo" placeholder="fecha" type="date" required name="fecha_asignacion_presupuesto"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><br><input class="centrado" placeholder="Nombre" type="text" required name="responsable_planificacion_presupuesto"></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><br><input class="centrado" placeholder="Cargo" type="text" required name="cargo_planificacion"></font></b></td>
 	</tr>
@@ -86,17 +87,17 @@
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308" sdnum="1033;0;General_)"><b><font face="Arial" size=2>% Ejecución Acumulado</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#50b308" sdnum="1033;0;General_)"><b><font face="Arial" size=2> Presupuesto Ejecutado</font></b></td>
 	</tr>
-	@for($i=0; $i < 11; $i++)
+	@foreach($t2->t2Detalles as $t2Detalle)
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="37" align="left" valign=middle sdnum="1033;0;General_)"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="actividad[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;&quot;$&quot; #,##0;[RED]&quot;$&quot; #,##0"><b><font face="Arial" size=2 color="#0000FF"><textarea class="campo" placeholder=""  name="presupuesto[]"></textarea></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="ejecucion_primer_semestre[]"></textarea><br></font></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="37" align="left" valign=middle sdnum="1033;0;General_)"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="actividad[]">{{$t2Detalle->actividad}}</textarea><br></font></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;&quot;$&quot; #,##0;[RED]&quot;$&quot; #,##0"><b><font face="Arial" size=2 color="#0000FF"><textarea class="campo" placeholder=""  name="presupuesto[]">{{$t2Detalle->presupuesto}}</textarea></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="ejecucion_primer_semestre[]">{{$t2Detalle->ejecucion_primer_semestre}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" bgcolor="#50b308" sdnum="1033;0;0.00%"><font face="Arial" size=2 color="#000000"></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="ejecucion_segundo_semestre[]"></textarea><br></font></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="ejecucion_segundo_semestre[]">{{$t2Detalle->ejecucion_segundo_semestre}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" bgcolor="#50b308" sdnum="1033;0;0.00%"><font face="Arial" size=2 color="#000000"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle sdval="0" sdnum="1033;0;0"><b><font face="Arial" size=2></font></b></td>
 	</tr>
-	@endfor
+	@endforeach
 	<tr>
 		<td style="border-top: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="24" align="center" valign=top bgcolor="#50b308" sdnum="1033;0;General_)"><b><font face="Arial" size=2>NOTAS DE  AJUSTE PRESUPUESTAL</font></b></td>
 		</tr>
@@ -105,52 +106,52 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2>Cargo responsable del  ajuste</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=6 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;0%"><b><font face="Arial" size=2>Motivo del ajuste presupuestal</font></b></td>
 	</tr>
-	@for($i=0; $i < 4; $i++)
+	@foreach($t2->t2Notas as $t2Nota)
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_nota[]" value="{{ date('Y-m-d') }}"></textarea><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo[]"></textarea><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=6 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;0%"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="motivo[]"></textarea><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_nota[]">{{$t2Nota->fecha_nota}}</textarea><br></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo[]">{{$t2Nota->cargo}}</textarea><br></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=6 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;0%"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="motivo[]">{{$t2Nota->motivo}}</textarea><br></font></b></td>
 	</tr>
-	@endfor
+	@endforeach
 	<tr>
 		<td style="border-top: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="20" align="center" valign=top bgcolor="#50b308" sdnum="1033;0;General_)"><b><font face="Arial" size=2>REVISION DEL PRESUPUESTO</font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=2 height="67" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Fecha de revisión del presupuesto</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_revision_presupuesto_primer_semestre" value="{{ date('Y-m-d') }}"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_revision_presupuesto_primer_semestre" value="{{$t2->fecha_revision_presupuesto_primer_semestre}}"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Responsable revisión de presupuesto:</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Apellidos y NombreS</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Cargo</font></b></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="responsable_revision_presupuesto_primer_semestre"></textarea><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo_responsable_revision_primer_semestre"></textarea><br></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="responsable_revision_presupuesto_primer_semestre">{{$t2->responsable_revision_presupuesto_primer_semestre}}</textarea><br></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo_responsable_revision_primer_semestre">{{$t2->cargo_responsable_revision_primer_semestre}}</textarea><br></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="" align="left" valign=top bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2>ANALISIS PRIMER SEMESTRE</font></b></td>
 		
 	</tr>
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="92" align="left" valign=top bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="analisis_revision_primer_semestre"></textarea></font></b></td>
+        <td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="92" align="left" valign=top bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="analisis_revision_primer_semestre">{{$t2->analisis_revision_primer_semestre}}</textarea></font></b></td>
 		
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=2 height="67" align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Fecha de revisión del presupuesto</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_revision_presupuesto_segundo_semestre" value="{{ date('Y-m-d') }}"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_revision_presupuesto_segundo_semestre" value="{{$t2->fecha_revision_presupuesto_segundo_semestre}}"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Responsable revisión de presupuesto:</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Apellidos y NombreS</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Cargo</font></b></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="responsable_revision_presupuesto_segundo_semestre"></textarea><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo_responsable_revision_segundo_semestre"></textarea><br></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="responsable_revision_presupuesto_segundo_semestre">{{$t2->responsable_revision_presupuesto_segundo_semestre}}</textarea><br></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo_responsable_revision_segundo_semestre">{{$t2->cargo_responsable_revision_segundo_semestre}}</textarea><br></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="" align="left" valign=top bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2>ANALISIS SEGUNDO SEMESTRE</font></b></td>
 		
 	</tr>
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="92" align="left" valign=top bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="analisis_revision_segundo_semestre"></textarea></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="92" align="left" valign=top bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="analisis_revision_segundo_semestre">{{$t2->analisis_revision_segundo_semestre}}</textarea></font></b></td>
 		
 	</tr>
 </table>

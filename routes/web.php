@@ -65,13 +65,29 @@ Route::post('/cloud/form/1', 't1Controller@form1');
 
 /** END FORM 1 **/
 
-
-Route::get('/cloud/form/2/{id}', function($id) {
-    $empresa = App\T1::find($id);
-    return view('cloud.2')->with('empresa',$empresa);
+/** FORMULARIO 2 **/
+Route::get('/cloud/form/t2/{empresa_id}', function($empresa_id) {
+    $t2 = App\T2::where('empresa_id','=',$empresa_id)->get();    
+    return view('cloud.t2')
+                    ->with('t2s',$t2)
+                    ->with('empresa_id',$empresa_id);
 });
 
-Route::post('/cloud/form/2', 't1Controller@form2'); 
+Route::get('/cloud/form/2/{id}', function($id) {
+    $empresa = App\empresa::find($id);
+    return view('cloud.2')->with('empresa', $empresa);
+});
+
+Route::post('/cloud/form/2', 't2Controller@form2'); 
+
+Route::get('/cloud/form/2/ver/{id}', function($id) {
+    $t2 = App\T2::where('id',  '=', $id)
+                    ->with('empresa')
+                    ->with('t2Detalles')
+                    ->with('t2Notas')
+                    ->first();
+    return view('cloud.2_ver')->with('t2', $t2);
+}); 
 /** END FORM 2 **/
 
 /** FORMULARIO 3 **/

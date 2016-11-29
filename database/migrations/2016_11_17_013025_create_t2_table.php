@@ -21,7 +21,15 @@ class CreateT2Table extends Migration
             $table->string('presupuesto_anio');
             $table->date('fecha_asignacion_presupuesto');
             $table->string('responsable_planificacion_presupuesto');
-            $table->string('cargo');
+            $table->string('cargo_planificacion');
+            $table->date('fecha_revision_presupuesto_primer_semestre');
+            $table->string('responsable_revision_presupuesto_primer_semestre');
+            $table->string('cargo_responsable_revision_primer_semestre');
+            $table->text('analisis_revision_primer_semestre');
+            $table->date('fecha_revision_presupuesto_segundo_semestre');
+            $table->string('responsable_revision_presupuesto_segundo_semestre');
+            $table->string('cargo_responsable_revision_segundo_semestre');
+            $table->text('analisis_revision_segundo_semestre');
             $table->integer('empresa_id')->unsigned();
             $table->foreign('empresa_id')
                   ->references('id')->on('empresa')
