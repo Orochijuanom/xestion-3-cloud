@@ -124,11 +124,13 @@ Route::post('/cloud/form/4-4', 't1Controller@form4-4');
 /** END FORM 4-4 **/
 
 /** FORMULARIO 5 **/
-Route::get('/cloud/form/5', function() {
-    return view('cloud.5');
+Route::get('/cloud/form/5/{id}', function($id) {
+    $empresa = App\Empresa::find($id);
+    return view('cloud.5')
+        ->with('empresa',$empresa);
 });
 
-Route::post('/cloud/form/5', 't1Controller@form5'); 
+Route::post('/cloud/form/5', 't5Controller@form5'); 
 /** END FORM 5 **/
 
 /** FORMULARIO 6 **/
