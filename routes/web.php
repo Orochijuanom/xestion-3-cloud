@@ -42,28 +42,42 @@ Route::get('/cloud', function() {
     return view('cloud.index');
 });
 
-/** FORMULARIO 1 **/
+
+//Ruta que muestra las empresas del usuario
 Route::get('/cloud/form/l1', function() {
     $empresas = App\Empresa::all();    
     return view('cloud.l1')->with('empresas',$empresas);
 });
 
-Route::get('/cloud/form/t1/{empresa_id}', function($empresa_id) {
-    $t1 = App\T1::where('empresa_id','=',$empresa_id)->get();    
-    return view('cloud.t1')
-                    ->with('t1s',$t1)
+/** FORMULARIO 1 **/
+
+    //Ruta que muestra los formularios T1 creados por el usuario
+    Route::get('/cloud/form/t1/{empresa_id}', function($empresa_id) {
+        $t1 = App\T1::where('empresa_id','=',$empresa_id)->get();    
+        return view('cloud.t1')
+                        ->with('t1s',$t1)
+                        ->with('empresa_id',$empresa_id);
+    });
+
+    //Ruta que carga el formulario para registrar la información
+    Route::get('/cloud/form/1/{id}', function($id) {
+        $empresa = App\Empresa::find($id);
+        return view('cloud.1')->with('empresa',$empresa);
+                                
+    });
+    //Ruta post que guarda la información
+    Route::post('/cloud/form/1', 't1Controller@form1'); 
+
+/** END FORM 1 **/
+
+/** FORMULARIO 2 **/
+Route::get('/cloud/form/t2/{empresa_id}', function($empresa_id) {
+    $t2 = App\T2::where('empresa_id','=',$empresa_id)->get();    
+    return view('cloud.t2')
+                    ->with('t2s',$t2)
                     ->with('empresa_id',$empresa_id);
 });
 
-Route::get('/cloud/form/1/{id}', function($id) {
-    $empresa = App\Empresa::find($id);
-    return view('cloud.1')->with('empresa',$empresa);
-                            
-});
-
-Route::post('/cloud/form/1', 't1Controller@form1'); 
-
-/** END FORM 1 **/
 
 /** FORMULARIO 2 **/
 Route::get('/cloud/form/t2/{empresa_id}', function($empresa_id) {
@@ -87,15 +101,25 @@ Route::get('/cloud/form/2/ver/{id}', function($id) {
                     ->with('t2Notas')
                     ->first();
     return view('cloud.2_ver')->with('t2', $t2);
-}); 
+});
 /** END FORM 2 **/
 
-/** FORMULARIO 3 **/
-Route::get('/cloud/form/3', function() {
-    return view('cloud.3');
-});
 
-Route::post('/cloud/form/3', 't3Controller@form3');
+
+/** FORMULARIO 3 **/
+    //Ruta que muestra los formularios T3 creados por el usuario
+    Route::get('/cloud/form/t3/{empresa_id}', function($empresa_id) {
+        $t3 = App\T3::where('empresa_id','=',$empresa_id)->get();    
+        return view('cloud.t3')
+                        ->with('t3s',$t3)
+                        ->with('empresa_id',$empresa_id);
+    });
+    Route::get('/cloud/form/3/{id}', function($id) {
+        $empresa = App\Empresa::find($id);
+        return view('cloud.3')->with('empresa',$empresa);
+    });
+
+    Route::post('/cloud/form/3', 't3Controller@form3');
 /** END FORM 3 **/
 
 /** FORMULARIO 4 **/
@@ -115,11 +139,13 @@ Route::post('/cloud/form/4-4', 't1Controller@form4-4');
 /** END FORM 4-4 **/
 
 /** FORMULARIO 5 **/
-Route::get('/cloud/form/5', function() {
-    return view('cloud.5');
+Route::get('/cloud/form/5/{id}', function($id) {
+    $empresa = App\Empresa::find($id);
+    return view('cloud.5')
+        ->with('empresa',$empresa);
 });
 
-Route::post('/cloud/form/5', 't1Controller@form5'); 
+Route::post('/cloud/form/5', 't5Controller@form5'); 
 /** END FORM 5 **/
 
 /** FORMULARIO 6 **/

@@ -8,7 +8,11 @@
           }
         </style>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<<<<<<< HEAD
 	<title>PRESUPUESTO DEL SISTEMA DE GESTION</title>
+=======
+	<title>objetivos y programas de gestión HSE</title>
+>>>>>>> origin/master
 	
 	<style type="text/css">
 		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Arial"; font-size:x-small }
@@ -47,11 +51,11 @@
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><div class="sign-up"><a href="/cloud/form/2/ver/{{$t2->id}}"/>Ver</a></div><br></font></td>		
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><div class="sign-up"><a href="/cloud/form/2/ver/{{$t2->id}}"/>Eliminar</a></div><br></font></td>					
 	</tr>
-	@endforeach
+	@endforeach	
 	
 </table>
-<div class="sign-up"><a href="/cloud/form/2/{{$empresa_id}}"/>Nuevo</a></div>
 
+<div class="sign-up"><a href="/cloud/form/2/{{$empresa_id}}"/>Nuevo</a></div>
 <input type="button" value="Imprime esta pagina" onclick="window.print()">
 
 </body>
