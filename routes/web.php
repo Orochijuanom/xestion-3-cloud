@@ -139,6 +139,13 @@ Route::post('/cloud/form/4-4', 't1Controller@form4-4');
 /** END FORM 4-4 **/
 
 /** FORMULARIO 5 **/
+Route::get('/cloud/form/t5/{empresa_id}', function($empresa_id) {
+        $t5 = App\T5::where('empresa_id','=',$empresa_id)->get();    
+        return view('cloud.t5')
+                        ->with('t5s',$t5)
+                        ->with('empresa_id',$empresa_id);
+    });
+
 Route::get('/cloud/form/5/{id}', function($id) {
     $empresa = App\Empresa::find($id);
     return view('cloud.5')
@@ -256,11 +263,19 @@ Route::post('/cloud/form/12', 't1Controller@form12');
 /** END FORM 12 **/
 
 /** FORMULARIO 13 **/
-Route::get('/cloud/form/13', function() {
-    return view('cloud.13');
-});
+    Route::get('/cloud/form/t13/{empresa_id}', function($empresa_id) {
+        $empleados = App\Empleados::where('empresa_id','=',$empresa_id)->get();    
+        return view('cloud.t13')
+                        ->with('empleados',$empleados)
+                        ->with('empresa_id',$empresa_id);
+    });
 
-Route::post('/cloud/form/13', 't1Controller@form13'); 
+    Route::get('/cloud/form/13/{id}', function($id) {
+        $empresa = App\empresa::find($id);
+        return view('cloud.13')->with('empresa',$empresa);
+    });
+
+Route::post('/cloud/form/13', 'EmpleadosController@crearempleado'); 
 /** END FORM 13 **/
 
 
