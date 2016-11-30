@@ -20,16 +20,29 @@ class CreateT2Table extends Migration
             $table->date('fecha');
             $table->string('presupuesto_anio');
             $table->date('fecha_asignacion_presupuesto');
-            $table->string('responsable_planificacion_presupuesto');
-            $table->string('cargo_planificacion');
+            $table->integer('responsable_planificacion_presupuesto')->unsigned();
             $table->date('fecha_revision_presupuesto_primer_semestre');
-            $table->string('responsable_revision_presupuesto_primer_semestre');
-            $table->string('cargo_responsable_revision_primer_semestre');
+            $table->integer('responsable_revision_presupuesto_primer_semestre')->unsigned();
             $table->text('analisis_revision_primer_semestre');
             $table->date('fecha_revision_presupuesto_segundo_semestre');
-            $table->string('responsable_revision_presupuesto_segundo_semestre');
-            $table->string('cargo_responsable_revision_segundo_semestre');
+            $table->integer('responsable_revision_presupuesto_segundo_semestre')->unsigned();
             $table->text('analisis_revision_segundo_semestre');
+
+            $table->foreign('responsable_planificacion_prespuesto', 'planificacion-empleado')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
+            $table->foreign('reponsable_revision_presupuesto_primer_semestre', 'responsable-rev1-empleado')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
+           $table->foreign('responsable_revision_presupuesto_segundo_semestre', 'responsable-rev2-empleado')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+            
             $table->integer('empresa_id')->unsigned();
             $table->foreign('empresa_id')
                   ->references('id')->on('empresa')
