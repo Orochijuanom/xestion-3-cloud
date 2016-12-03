@@ -15,20 +15,15 @@ class CreateT7Table extends Migration
     {
         Schema::create('t7', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('comite');
-            $table->string('sede_proyecto');
-            $table->string('fecha_reunion_comite');
-            $table->string('abiertos');
-            $table->string('cerrados');
-            $table->string('fecha_prox_reunion');
-            $table->string('evidencia_reunion');
-            
-            $table->integer('t1_id')->unsigned();
-            $table->foreign('t1_id')
-                  ->references('id')->on('t1')
+            $table->string('codigo');
+            $table->string('version');
+            $table->timestamp('fecha');
+            $table->integer('empresa_id')->unsigned();
+            $table->foreign('empresa_id')
+                  ->references('id')->on('empresa')
                   ->onUpdate('no action')
                   ->onDelete('restrict');
-                                                                                    
+                
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

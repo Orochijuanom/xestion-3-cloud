@@ -180,8 +180,16 @@ Route::get('/cloud/form/6/ver/{id}', function($id) {
 /** END FORM 6 **/
 
 /** FORMULARIO 7 **/
-Route::get('/cloud/form/7', function() {
-    return view('cloud.7');
+Route::get('/cloud/form/t7/{empresa_id}', function($empresa_id) {
+    $t7 = App\T7::where('empresa_id','=',$empresa_id)->get();    
+    return view('cloud.t7')
+                    ->with('t7s',$t7)
+                    ->with('empresa_id',$empresa_id);
+});
+
+Route::get('/cloud/form/7/{id}', function($id) {
+    $empresa = App\Empresa::find($id);
+    return view('cloud.7')->with('empresa',$empresa);
 });
 
 Route::post('/cloud/form/7', 't7Controller@form7');

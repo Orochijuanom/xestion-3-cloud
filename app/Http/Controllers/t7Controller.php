@@ -14,14 +14,21 @@ class t7Controller extends Controller
             'nombre_empresa' => 'required',            
             'codigo' => 'required',
             'version' => 'required',
-            'fecha' => 'required'
+            'fecha' => 'required',
+            'comite' => 'required',
+            'sede_proyecto' => 'required',
+            'fecha_reunion_comite' => 'required',
+            'abiertos' => 'required',
+            'cerrados' => 'required',
+            'fecha_prox_reunion' => 'required',
+            'evidencia_reunion' => 'required',
+            'empresa_id' => 'required'
         ]);
         //Creamos la empresa
-        $empresa = T1::create([
-            'nombre_empresa' => $request['nombre_empresa'],
+        $t7 = T7::create([            
             'codigo' => $request['codigo'],
             'version' => $request['version'],
-            'logo' => 'default'
+            'empresa_id' => $request['empresa_id'],
         ]);
         
         //Registramos el detalle de la actualizacion        
@@ -35,7 +42,7 @@ class t7Controller extends Controller
                     'cerrados' => $request['cerrados'][$i],
                     'fecha_prox_reunion' => $request['fecha_prox_reunion'][$i],
                     'evidencia_reunion' => $request['evidencia_reunion'][$i],
-                    't1_id' => $empresa->id
+                    't7_id' => $t7->id
                 ]);
                 
             }                          

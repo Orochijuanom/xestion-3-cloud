@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class T7 extends Model
 {
     protected $table = 't7';
+    protected $fillable = ['codigo','version', 'fecha','empresa_id'];
 
-    protected $fillable = ['comite','sede_proyecto','fecha_reunion_comite','abiertos','cerrados','fecha_prox_reunion','evidencia_reunion','t1_id'];
+    public function T1Detalles()
+    {
+        return $this->hasMany('App\T7Detalles');
+    }
+    
 }
