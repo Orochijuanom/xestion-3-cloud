@@ -253,13 +253,20 @@ Route::get('/cloud/form/10/ver/{id}', function($id) {
 /** END FORM 10 **/
 
 /** FORMULARIO 11 **/
-Route::get('/cloud/form/11', function() {
-    return view('cloud.11');
+Route::get('/cloud/form/t11/{empresa_id}', function($empresa_id) {
+    $t11 = App\T11::where('empresa_id','=',$empresa_id)->get();    
+    return view('cloud.t11')
+                    ->with('t11s',$t11)
+                    ->with('empresa_id',$empresa_id);
 });
-Route::post('/cloud/form/11', 't11Controller@form11');
 
 
-Route::post('/cloud/form/11', 't1Controller@form11'); 
+Route::get('/cloud/form/11/{id}', function($id) {
+    $empresa = App\Empresa::find($id);
+    return view('cloud.11')->with('empresa',$empresa);
+});
+
+Route::post('/cloud/form/11', 't11Controller@form11'); 
 /** END FORM 11 **/
 
 /** FORMULARIO 12 **/

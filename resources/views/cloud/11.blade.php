@@ -46,10 +46,10 @@
 	<colgroup width="106"></colgroup>
 	<colgroup span="3" width="81"></colgroup>
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="84" align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">LOGO DE LA EMPRESA</font><input type="file" id="files" name="files[]" />
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="84" align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial"><img style="width:200px; heigth:200px;" src="{{asset("images/C.png")}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial"><input class="nombreempresa" placeholder="NOMBRE DE LA EMPREA" type="text" required name="nombre_empresa" ></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" ></font></b></td>
 		</tr>
 	<tr>
@@ -82,7 +82,14 @@
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 height="43" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">Responsable del calculo y seguimiento del indicador</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=7 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial"><textarea class="campo" placeholder=""  name="responsable_calculo"></textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=7 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial">
+		<select name="responsable_calculo_seguimiento">
+			<option value="-1">Seleccione</option>
+			@foreach($empresa->empleados as $empleado)
+				<option value="{{$empleado->id}}">Seleccione</option>
+			@endforeach
+		</select>
+		<br></font></td>
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 height="43" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">Tipo de indicador</font></b></td>
@@ -105,7 +112,7 @@
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 height="60" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">Fuente de  datos para el calculo del indicador</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=7 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="fuente_datos"/></textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=7 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="fuente_datos_calculo"/></textarea><br></font></td>
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 height="43" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">Interpretación</font></b></td>
@@ -182,38 +189,9 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=8 align="left" valign=middle><font color="#000000">Gerencia General, Responsable del SG-SST y Vigía de Seguridad y Salud en el Trabajo</font></td>
 		</tr>
 </table>
-<div class="sign-up"><input type="submit" value="Nuevo"/></div>
+
 <div class="sign-up"><input type="submit" value="Guardar"/></div>
-<div class="sign-up"><input type="submit" value="Editar"/></div>
-<div class="sign-up"><input type="submit" value="Eliminar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
 </form>
-<!-- ************************************************************************** -->
- <script>
-              function archivo(evt) {
-                  var files = evt.target.files; // FileList object
-             
-                  // Obtenemos la imagen del campo "file".
-                  for (var i = 0, f; f = files[i]; i++) {
-                    //Solo admitimos imágenes.
-                    if (!f.type.match('image.*')) {
-                        continue;
-                    }
-             
-                    var reader = new FileReader();
-             
-                    reader.onload = (function(theFile) {
-                        return function(e) {
-                          // Insertamos la imagen
-                         document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
-                        };
-                    })(f);
-             
-                    reader.readAsDataURL(f);
-                  }
-              }
-             
-              document.getElementById('files').addEventListener('change', archivo, false);
-      </script>
 </body>
