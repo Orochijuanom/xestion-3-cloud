@@ -21,6 +21,7 @@ class t5Controller extends Controller
 
         for ($i=0; $i < 9; $i++){                                
             T5Detalle::create([
+                'empleado_id' => $request['empleado_id'][$i],
                 'elemento_casco' =>  $request["elemento_casco"][$i],            
                 'casco_ciclista' => $request['casco_ciclista'][$i], 
                 'casco_motociclista' => $request['casco_motociclista'][$i],                  

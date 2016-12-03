@@ -88,7 +88,7 @@ Route::get('/cloud/form/t2/{empresa_id}', function($empresa_id) {
 });
 
 Route::get('/cloud/form/2/{id}', function($id) {
-    $empresa = App\empresa::find($id);
+    $empresa = App\Empresa::find($id);
     return view('cloud.2')->with('empresa', $empresa);
 });
 
@@ -164,7 +164,7 @@ Route::get('/cloud/form/t6/{empresa_id}', function($empresa_id) {
 });
 
 Route::get('/cloud/form/6/{id}', function($id) {
-    $empresa = App\empresa::find($id);
+    $empresa = App\Empresa::find($id);
     return view('cloud.6')->with('empresa', $empresa);
 });
 
@@ -196,7 +196,7 @@ Route::get('/cloud/form/t8/{empresa_id}', function($empresa_id) {
 });
 
 Route::get('/cloud/form/8/{id}', function($id) {
-    $empresa = App\empresa::find($id);
+    $empresa = App\Empresa::find($id);
     return view('cloud.8')->with('empresa', $empresa);
 });
 
@@ -228,7 +228,7 @@ Route::get('/cloud/form/t10/{empresa_id}', function($empresa_id) {
 });
 
 Route::get('/cloud/form/10/{id}', function($id) {
-    $empresa = App\empresa::find($id);
+    $empresa = App\Empresa::find($id);
     return view('cloud.10')->with('empresa', $empresa);
 });
 
@@ -271,7 +271,7 @@ Route::post('/cloud/form/12', 't1Controller@form12');
     });
 
     Route::get('/cloud/form/13/{id}', function($id) {
-        $empresa = App\empresa::find($id);
+        $empresa = App\Empresa::find($id);
         return view('cloud.13')->with('empresa',$empresa);
     });
 

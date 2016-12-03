@@ -9,6 +9,7 @@ class EmpleadosController extends Controller
 {
     public function crearempleado(Request $request)
     {
+        
         $this->validate($request, [
             'nombre_apellidos' => 'required',
             'cedula' => 'required', 

@@ -253,7 +253,14 @@
 	@for($i=0; $i < 11; $i++)
 	<tr>
 		<td height="33" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><font color="#000000">
+			<select name="empleado[]">
+				<option value="-1">Seleccione</option>
+				@foreach($empresa->empleados as $empleado)
+					<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}}</option>
+				@endforeach
+			</select>
+		<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="elemento_casco[]">{{$i}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="casco_ciclista[]">{{$i}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="casco_motociclista[]">{{$i}}</textarea><br></td>
