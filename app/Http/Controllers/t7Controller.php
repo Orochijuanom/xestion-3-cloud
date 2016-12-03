@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\T1;
 use App\T7;
+use App\T7Detalle;
 
 use Illuminate\Http\Request;
 
@@ -10,8 +11,7 @@ class t7Controller extends Controller
 {
     public function form7(Request $request)
     {
-        $this->validate($request, [
-            'nombre_empresa' => 'required',            
+        $this->validate($request, [                        
             'codigo' => 'required',
             'version' => 'required',
             'fecha' => 'required',
@@ -28,13 +28,14 @@ class t7Controller extends Controller
         $t7 = T7::create([            
             'codigo' => $request['codigo'],
             'version' => $request['version'],
+            'fecha' => $request['fecha'],
             'empresa_id' => $request['empresa_id'],
         ]);
         
         //Registramos el detalle de la actualizacion        
-        if ($empresa){
+        if ($t7){
             for ($i=0; $i < 9; $i++){                                
-                T7::create([
+                T7Detalle::create([
                     'comite' =>  $request["comite"][$i],
                     'sede_proyecto' => $request['sede_proyecto'][$i],
                     'fecha_reunion_comite' => $request['fecha_reunion_comite'][$i],

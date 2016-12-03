@@ -86,130 +86,22 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" size=3 color="#000000">ABIERTOS</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" size=3 color="#000000">CERRADOS</font></b></td>
 		</tr>
+	@for($i = 0; $i <= 9; $i++)	
 	<tr>
 		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]"></textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]">{{$i}}</textarea><br></font></td>
+
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]">{{$i}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_reunion_comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_reunion_comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_reunion_comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_reunion_comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_reunion_comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_reunion_comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_reunion_comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_reunion_comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_reunion_comite[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
-	</tr>
-	
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]">{{$i}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]">{{$i}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]">{{$i}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]">{{$i}}</textarea><br></font></td>
+	</tr>	
+	@endfor
 </table>
-<div class="sign-up"><input type="submit" value="Nuevo"/></div>
 <div class="sign-up"><input type="submit" value="Guardar"/></div>
-<div class="sign-up"><input type="submit" value="Editar"/></div>
-<div class="sign-up"><input type="submit" value="Eliminar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
 </form>
-<!-- ************************************************************************** -->
- <script>
-              function archivo(evt) {
-                  var files = evt.target.files; // FileList object
-             
-                  // Obtenemos la imagen del campo "file".
-                  for (var i = 0, f; f = files[i]; i++) {
-                    //Solo admitimos imágenes.
-                    if (!f.type.match('image.*')) {
-                        continue;
-                    }
-             
-                    var reader = new FileReader();
-             
-                    reader.onload = (function(theFile) {
-                        return function(e) {
-                          // Insertamos la imagen
-                         document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
-                        };
-                    })(f);
-             
-                    reader.readAsDataURL(f);
-                  }
-              }
-             
-              document.getElementById('files').addEventListener('change', archivo, false);
-      </script>
 </body>
