@@ -16,4 +16,15 @@ class Empleados extends Model
     'concepto_trabaja_alturas','concepto_trabaja_espacio_confinado','registro_entrega_dotacion','n_licencia_conduccion',
     'tetano','fiebre_amarilla','hepatitis','antirrabica','otra','sst','ambiente','tecnicas','calidad','empresa_id'];
 
+    public function empresa(){
+        return $this->belongsTo('App\Empresa');
+
+    }
+    
+    public function cargo(){
+        return $this->belongsTo('App\Cargo', 'cargo');
+
+    }
+
+    
 }

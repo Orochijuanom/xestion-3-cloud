@@ -59,4 +59,9 @@ class Empresa extends Model
     {
         return $this->hasMany('App\T10');
     }
+
+    public function cargos(){
+        return $this->hasMany('App\Cargo');
+
+    }
 }

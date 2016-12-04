@@ -49,6 +49,32 @@ Route::get('/cloud/form/l1', function() {
     return view('cloud.l1')->with('empresas',$empresas);
 });
 
+/** CARGO **/
+    Route::get('/cloud/form/tcargo/{empresa_id}', function($empresa_id) {
+        $cargo = App\Cargo::where('empresa_id', '=', $empresa_id)->get();
+        return view('cloud.tcargo')
+                        ->with('cargos', $cargo)
+                        ->with('empresa_id', $empresa_id);
+    });
+
+    Route::get('/cloud/form/cargo/{id}', function($id) {
+        $empresa = App\Empresa::find($id);
+        return view('cloud.cargo')->with('empresa', $empresa);
+    });
+
+    Route::post('/cloud/form/cargo', 'cargoController@cargo');
+
+    Route::get('/cloud/form/cargo/ver/{id}', function($id) {
+        $cargo = App\Cargo::where('id',  '=', $id)
+                        ->with('empresa')
+                        ->first();
+        return view('cloud.cargo_ver')->with('cargo', $cargo);
+    });
+
+    Route::put('/cloud/form/cargo/{id}', 'cargoController@edit');
+
+/** ENDCARGO **/
+
 /** FORMULARIO 1 **/
 
     //Ruta que muestra los formularios T1 creados por el usuario
@@ -67,17 +93,9 @@ Route::get('/cloud/form/l1', function() {
     });
     //Ruta post que guarda la información
     Route::post('/cloud/form/1', 't1Controller@form1'); 
+    
 
 /** END FORM 1 **/
-
-/** FORMULARIO 2 **/
-Route::get('/cloud/form/t2/{empresa_id}', function($empresa_id) {
-    $t2 = App\T2::where('empresa_id','=',$empresa_id)->get();    
-    return view('cloud.t2')
-                    ->with('t2s',$t2)
-                    ->with('empresa_id',$empresa_id);
-});
-
 
 /** FORMULARIO 2 **/
 Route::get('/cloud/form/t2/{empresa_id}', function($empresa_id) {
