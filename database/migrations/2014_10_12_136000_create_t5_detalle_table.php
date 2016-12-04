@@ -46,7 +46,11 @@ class CreateT5DetalleTable extends Migration
             $table->string('eslinga');
             $table->string('otros_elementos');
             
-
+            $table->integer('empleado_id')->unsigned();
+            $table->foreign('empleado_id')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');        
 
             $table->integer('t5_id')->unsigned();
             $table->foreign('t5_id')

@@ -28,6 +28,7 @@ class CreateT2Table extends Migration
             $table->integer('responsable_revision_presupuesto_segundo_semestre')->unsigned();
             $table->text('analisis_revision_segundo_semestre');
 
+
             $table->foreign('responsable_planificacion_presupuesto', 'planificacion-empleado')
                   ->references('id')->on('empleados')
                   ->onUpdate('no action')
@@ -37,11 +38,12 @@ class CreateT2Table extends Migration
                   ->references('id')->on('empleados')
                   ->onUpdate('no action')
                   ->onDelete('restrict');
-
-           $table->foreign('responsable_revision_presupuesto_segundo_semestre', 'responsable-rev2-empleado')
+            
+            $table->foreign('responsable_revision_presupuesto_segundo_semestre', 'responsable-rev2-empleado')
                   ->references('id')->on('empleados')
                   ->onUpdate('no action')
                   ->onDelete('restrict');
+            
             
             $table->integer('empresa_id')->unsigned();
             $table->foreign('empresa_id')

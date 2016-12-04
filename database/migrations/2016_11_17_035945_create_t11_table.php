@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateT7Table extends Migration
+class CreateT11Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,17 @@ class CreateT7Table extends Migration
      */
     public function up()
     {
-        Schema::create('t7', function (Blueprint $table) {
+        Schema::create('t11', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo');
             $table->string('version');
-            $table->timestamp('fecha');
+            $table->date('fecha');
             $table->integer('empresa_id')->unsigned();
             $table->foreign('empresa_id')
                   ->references('id')->on('empresa')
                   ->onUpdate('no action')
                   ->onDelete('restrict');
-                
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -36,6 +34,6 @@ class CreateT7Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t7');
+        Schema::dropIfExists('t11');
     }
 }

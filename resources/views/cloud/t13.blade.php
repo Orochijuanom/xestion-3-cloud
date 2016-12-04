@@ -8,6 +8,7 @@
           }
         </style>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<<<<<<< HEAD
 
 	<title>EMPLEADOS</title>
 
@@ -44,6 +45,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1>{{$empleado->nombre_apellidos}}<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1>{{$empleado->cedula}}<br></font></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1>{{$empleado->cargo}}<br></font></td>
+
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><div class="sign-up"><a href="/cloud/form/13/ver/{{$empleado->id}}"/>Ver</a></div><br></font></td>				
 	</tr>
 	@endforeach	
@@ -51,6 +53,7 @@
 </table>
 
 <div class="sign-up"><a href="/cloud/form/13/{{$empresa_id}}"/>Nuevo</a></div>
+
 <input type="button" value="Imprime esta pagina" onclick="window.print()">
 
 </body>
