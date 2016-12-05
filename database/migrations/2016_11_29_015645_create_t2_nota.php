@@ -16,7 +16,7 @@ class CreateT2Nota extends Migration
         Schema::create('t2_nota', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha_nota');
-            $table->string('cargo');
+            $table->integer('cargo')->unsigned();
             $table->string('motivo');
 
             $table->foreign('cargo')
