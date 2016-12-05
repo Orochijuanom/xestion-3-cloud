@@ -48,7 +48,7 @@
 	@endforeach
 	
 </table>
-<div class="sign-up"><a href="/cloud/form/10/{{$empresa_id}}"/>Nuevo</a></div>
+<div class="sign-up"><a href="/cloud/form/11/{{$empresa_id}}"/>Nuevo</a></div>
 
 <input type="button" value="Imprime esta pagina" onclick="window.print()">
 

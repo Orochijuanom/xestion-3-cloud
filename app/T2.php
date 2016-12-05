@@ -21,4 +21,19 @@ class T2 extends Model
         return $this->hasMany('App\T2Nota');
     }
 
+    public function responsable_planificacion(){
+        return $this->belongsTo('App\Empleados', 'responsable_planificacion_presupuesto');
+
+    }
+
+    public function responsable_revision_presupuesto_primer_s(){
+        return $this->belongsTo('App\Empleados', 'responsable_revision_presupuesto_primer_semestre');
+
+    }
+
+    public function responsable_revision_presupuesto_segundo_s(){
+         return $this->belongsTo('App\Empleados', 'responsable_revision_presupuesto_segundo_semestre');
+
+    }
+
 }

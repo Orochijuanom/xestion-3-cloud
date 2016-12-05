@@ -50,7 +50,7 @@
 	<colgroup width="111"></colgroup>
 	<colgroup width="190"></colgroup>
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="94" align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="{{asset("images/C.png")}}" />
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="94" align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 rowspan=2 align="center" valign=middle><b>{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></b></td>
@@ -75,7 +75,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=1>FRECUENCIA DE ANALISIS</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=1>METODO DE CALCULO</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=1>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=1>FICHA DEL INDICADOR</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=1>NÚMERO DEL INDICADOR</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=1>RESPONSABLES</font></b></td>
 	</tr>
 	<tr>
@@ -87,7 +87,17 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="frecuencia_analisis[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=1><textarea class="campo" placeholder=""  name="metodo_calculo[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><font size=1><textarea class="campo" placeholder=""  name="ficha_indicador[]"></textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@">
+		<font size=1>
+			<select id="cargo" class="form-control" name="cargo">
+				@foreach ($t11s as $t11)
+					@foreach($t11->T11detalles as $detalle)
+						<option value="{{$t11->id}}">{{$detalle->numero_indicador}} - {{$detalle->nombre_indicador}}</option>
+					@endforeach	
+				@endforeach
+			</select>
+		<br></font>
+		</td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></td>
 	</tr>
 	<tr>

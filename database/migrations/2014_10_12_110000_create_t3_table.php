@@ -17,12 +17,23 @@ class CreateT3Table extends Migration
             $table->increments('id');
             $table->string('fecha_actualizacion');
             $table->string('motivo_actualizacion');
-            $table->string('responsable_actualizacion');
-            $table->string('revisado_por');
+            $table->integer('responsable_actualizacion')->unsigned();
+            $table->integer('revisado_por')->unsigned();
             $table->integer('empresa_id')->unsigned();
             $table->string('codigo');
             $table->string('version');
             $table->string('fecha');
+
+            $table->foreign('responsable_actualizacion')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
+            $table->foreign('revisado_por')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
             $table->foreign('empresa_id')
                   ->references('id')->on('empresa')
                   ->onUpdate('no action')

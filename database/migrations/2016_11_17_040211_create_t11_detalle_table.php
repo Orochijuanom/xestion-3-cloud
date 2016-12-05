@@ -15,7 +15,7 @@ class CreateT11DetalleTable extends Migration
     {
         Schema::create('t11_detalle', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fecha_creacion_indicador');
+            $table->date('fecha_creacion_indicador');
             $table->string('ficha_numero');
             $table->string('nombre_indicador');
             $table->string('definicion_indicador');

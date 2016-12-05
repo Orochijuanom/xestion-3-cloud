@@ -16,6 +16,7 @@ class CreateT3DetalleTable extends Migration
         Schema::create('t3_detalle', function (Blueprint $table) {
             $table->increments('id');            
             $table->string('norma');
+            $table->string('numero_norma');
             $table->string('fecha_publicacion');
             $table->string('emisor');
             $table->string('articulo');
@@ -24,8 +25,12 @@ class CreateT3DetalleTable extends Migration
             $table->string('aplica');
             $table->string('cumple');
             $table->string('como_cumple');
-            $table->string('responsable_cumplimiento');
-            
+
+            $table->integer('responsable_cumplimiento')->unsigned();
+            $table->foreign('responsable_cumplimiento')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
 
             $table->integer('t3_id')->unsigned();
             $table->foreign('t3_id')

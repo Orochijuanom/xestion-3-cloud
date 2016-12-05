@@ -1,7 +1,7 @@
 <head>
 		            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
+	<title>Empleados</title>
 	
 	<style type="text/css">
 		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:x-small }
@@ -10,6 +10,23 @@
 </head>
 
 <body>
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
+	<ul>
+		@foreach ($errors->all() as $error)
+			<li>{{ $error }}</li>
+		@endforeach
+	</ul>
+</div>
+@endif
+
+@if (Session::get('flash_message'))
+<div class="alert alert-success">
+	{{Session::get('flash_message')}}
+	<br><br>            
+</div>
+@endif
 <form method="POST" action="{{ url('/cloud/form/13') }}">
 {{ csrf_field() }}
 
@@ -29,16 +46,11 @@
 	</tr>
 	<tr>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="center" valign=middle bgcolor="#50b308"><b><font color="#000000">EMPRESA</font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=bottom bgcolor="#50b308"><font color="#000000">{{$empresa->nombre_empresa}}</font></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=bottom bgcolor="#50b308"><font color="#000000">{{$empresa->nombre_empresa}}<input type="hidden" name="empresa_id" value="{{$empresa->id}}"></font></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
 	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="center" valign=middle><b><font color="#000000">NIT</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=bottom><font color="#000000"><input class="codigo" type="hidden" name="empresa_id" value="{{$empresa->id}}"></font></td>
-		<td align="left" valign=bottom><font color="#000000"><br></font></td>
-		<td align="left" valign=bottom><font color="#000000"><br></font></td>
-	</tr>
+	
 	<tr>
 		<td height="21" align="center" valign=middle><b><font color="#000000"><br></font></b></td>
 		<td align="center" valign=middle><b><font color="#000000"><br></font></b></td>
@@ -125,13 +137,21 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="19" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Cargo</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><input class="codigo" placeholder="Cargo" type="text" required name="cargo"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF">
+		<b>
+			<select id="cargo" class="form-control" name="cargo">
+				@foreach ($cargos as $cargo)
+					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
+				@endforeach
+			</select>
+		<font color="#000000"><br></font></b>
+		</td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Fecha último examen ocupacional</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><font color="#FF0000"><br><input class="codigo" placeholder="fecha" type="date" required name="fecha_ultimo_examen_ocupacional"></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="19" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Experiencia en Años</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><input class="codigo" placeholder="Experiencia" type="text" required name="experiencia"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><input class="codigo" placeholder="Experiencia" type="text"  name="experiencia"><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Fecha proximo examen ocupacional</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br><input class="codigo" placeholder="fecha" type="date" required name="fecha_proximo_examen_ocupacional"></font></b></td>
 	</tr>
@@ -148,7 +168,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="19" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Email</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><u><font color="#0563C1"><br><input type="text" id="mail1" name="email" placeholder="* Correo electr&oacute;nico" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required/></font></u></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><u><font color="#0563C1"><br><input type="text" id="mail1" name="email" placeholder="* Correo electr&oacute;nico"  required/></font></u></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Concepto para Trabajo en Alturas</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b><font color="#000000"><br>
 		<select class="estado" name="concepto_trabaja_alturas">
@@ -159,7 +179,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="39" align="left" valign=middle bgcolor="#50b308"><b><font color="#000000">Jefe inmediato</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><u><font color="#0563C1"><br><input class="codigo" placeholder="Jefe inmediato" type="text" required name="jefe_inmediato"></font></u></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><u><font color="#0563C1"><br><input class="codigo" placeholder="Jefe inmediato" type="text" name="jefe_inmediato"></font></u></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=bottom bgcolor="#50b308"><b><font color="#000000">Concepto para Trabajo en Espacio Confinado</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b><font color="#000000"><br>
 		<select class="estado" name="concepto_trabaja_espacio_confinado">
@@ -183,7 +203,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Lugar del Centro de trabajo</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><u><font color="#0563C1"><br><input class="codigo" placeholder="Lugar" type="text" required name="lugar_centro_trabajo"></font></u></b></td>
 		<td style="border-top: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#50b308"><b><font color="#000000">Numero de licencia de conducción</font></b></td>
-		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br><input class="codigo" placeholder="#l construccion" type="text" required name="n_licencia_conduccion"></font></b></td>
+		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br><input class="codigo" placeholder="#l construccion" type="text"  name="n_licencia_conduccion"></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Horario de Trabajo</font></b></td>

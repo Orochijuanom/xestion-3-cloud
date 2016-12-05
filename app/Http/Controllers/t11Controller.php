@@ -10,7 +10,7 @@ class t11Controller extends Controller
 {
     public function form11(Request $request){
 
-        $this->validate($request, [
+        /** $this->validate($request, [
             'fecha_creacion_indicador' => 'required', 
             'ficha_numero' => 'required',
             'nombre_indicador' => 'required',
@@ -22,7 +22,7 @@ class t11Controller extends Controller
             'interpretacion' => 'required',
             'responsable_calculo_seguimiento' => 'required',
             'empresa_id' => 'required'
-        ]);
+        ]);**/
 
         $t11 = T11::create([
             'codigo' => $request['codigo'],

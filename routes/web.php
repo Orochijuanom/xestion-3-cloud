@@ -88,7 +88,8 @@ Route::get('/cloud/form/l1', function() {
     //Ruta que carga el formulario para registrar la información
     Route::get('/cloud/form/1/{id}', function($id) {
         $empresa = App\Empresa::find($id);
-        return view('cloud.1')->with('empresa',$empresa);
+        $t11 = App\T11::where('empresa_id', '=', $empresa->id)->get();
+        return view('cloud.1')->with(['empresa' => $empresa, 't11s' => $t11]);
                                 
     });
     //Ruta post que guarda la información
@@ -107,7 +108,9 @@ Route::get('/cloud/form/t2/{empresa_id}', function($empresa_id) {
 
 Route::get('/cloud/form/2/{id}', function($id) {
     $empresa = App\Empresa::find($id);
-    return view('cloud.2')->with('empresa', $empresa);
+    $empleados = App\Empleados::where('empresa_id', '=', $empresa->id)->with('cargos')->get();
+    $cargos = App\Cargo::where('empresa_id', '=', $empresa->id)->get();
+    return view('cloud.2')->with(['empresa' => $empresa, 'empleados' => $empleados, 'cargos' => $cargos]);
 });
 
 Route::post('/cloud/form/2', 't2Controller@form2'); 
@@ -117,8 +120,12 @@ Route::get('/cloud/form/2/ver/{id}', function($id) {
                     ->with('empresa')
                     ->with('t2Detalles')
                     ->with('t2Notas')
+                    ->with('responsable_planificacion')
+                    ->with('responsable_revision_presupuesto_primer_s')
+                    ->with('responsable_revision_presupuesto_segundo_s')
                     ->first();
-    return view('cloud.2_ver')->with('t2', $t2);
+    $empleados = App\Empleados::where('empresa_id', '=', $t2->empresa->id)->get();                
+    return view('cloud.2_ver')->with(['t2' => $t2, 'empleados' => $empleados]);
 });
 /** END FORM 2 **/
 
@@ -134,7 +141,8 @@ Route::get('/cloud/form/2/ver/{id}', function($id) {
     });
     Route::get('/cloud/form/3/{id}', function($id) {
         $empresa = App\Empresa::find($id);
-        return view('cloud.3')->with('empresa',$empresa);
+        $empleados = App\Empleados::where('empresa_id', '=', $empresa->id)->get();
+        return view('cloud.3')->with(['empresa' => $empresa, 'empleados' => $empleados]);
     });
 
     Route::post('/cloud/form/3', 't3Controller@form3');
@@ -281,7 +289,8 @@ Route::get('/cloud/form/t11/{empresa_id}', function($empresa_id) {
 
 Route::get('/cloud/form/11/{id}', function($id) {
     $empresa = App\Empresa::find($id);
-    return view('cloud.11')->with('empresa',$empresa);
+    $empleados = App\Empleados::where('empresa_id', '=', $empresa->id)->get();
+    return view('cloud.11')->with(['empresa' => $empresa, 'empleados' => $empleados]);
 });
 
 Route::post('/cloud/form/11', 't11Controller@form11'); 
@@ -305,7 +314,8 @@ Route::post('/cloud/form/12', 't1Controller@form12');
 
     Route::get('/cloud/form/13/{id}', function($id) {
         $empresa = App\Empresa::find($id);
-        return view('cloud.13')->with('empresa',$empresa);
+        $cargos = App\Cargo::where('empresa_id', '=', $empresa->id)->get();
+        return view('cloud.13')->with(['empresa' => $empresa, 'cargos' => $cargos]);
     });
 
 Route::post('/cloud/form/13', 'EmpleadosController@crearempleado'); 

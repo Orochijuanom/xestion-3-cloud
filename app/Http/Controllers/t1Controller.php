@@ -54,7 +54,7 @@ class t1Controller extends Controller
                 'frecuencia_analisis' => $request['frecuencia_analisis'][$i],
                 'metodo_calculo' => $request['metodo_calculo'][$i],
                 'meta' => $request['meta'][$i],
-                'ficha_indicador' => $request['ficha_indicador'][$i],
+                'ficha_indicador' => $request['numero_indicador'][$i],
                 'responsable' => $request['responsable'][$i],
                 't1_id' => $t1->id
             ]);                            

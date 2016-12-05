@@ -38,6 +38,7 @@ class t3Controller extends Controller
         for ($i=0; $i < 9; $i++){                                
             T3Detalle::create([
                 'norma' =>  $request["norma"][$i],
+                'numero_norma' =>  $request["numero_norma"][$i],
                 'fecha_publicacion' => $request['fecha_publicacion'][$i],
                 'emisor' => $request['emisor'][$i],
                 'articulo' => $request['articulo'][$i],

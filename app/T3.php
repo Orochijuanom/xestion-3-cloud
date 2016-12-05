@@ -13,5 +13,15 @@ class T3 extends Model
     public function detalles()
     {
         return $this->hasMany('App\T3Detalle');
+    }
+
+    public function responsable(){
+        return $this->belongsTo('App\Empleados', 'responsable_actualizacion');
+
+    }
+
+    public function revisado(){
+        return $this->belongsTo('App\Empleados', 'revisado_por');
+
     }    
 }

@@ -23,10 +23,15 @@ class CreateT1DetalleTable extends Migration
             $table->string('frecuencia_analisis');
             $table->string('metodo_calculo');
             $table->string('meta');
-            $table->string('ficha_indicador');
+            $table->integer('numero_indicador')->unsigned();
             $table->string('responsable');            
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
+
+            $table->foreign('numero_indicador')
+                  ->references('id')->on('t11')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
 
             $table->integer('t1_id')->unsigned();
             $table->foreign('t1_id')

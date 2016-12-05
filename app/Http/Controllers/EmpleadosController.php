@@ -8,9 +8,9 @@ use App\Empleados;
 class EmpleadosController extends Controller
 {
     public function crearempleado(Request $request)
-    {
+    {   
         
-        $this->validate($request, [
+       /** $this->validate($request, [
             'nombre_apellidos' => 'required',
             'cedula' => 'required', 
             'fecha_nacimiento' => 'required',
@@ -66,7 +66,7 @@ class EmpleadosController extends Controller
             'calidad'=> 'required',
             'empresa_id'=> 'required'
         ]);
-
+        **/
         $data = $request->all();        
         $evaluacion = Empleados::create($data);
         return redirect()->back()->with('flash_message', 'Se ha creado la evaluación exitosamente');

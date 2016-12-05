@@ -18,6 +18,12 @@ class CreateT2Nota extends Migration
             $table->date('fecha_nota');
             $table->string('cargo');
             $table->string('motivo');
+
+            $table->foreign('cargo')
+                  ->references('id')->on('cargo')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
             $table->integer('t2_id')->unsigned();
             $table->foreign('t2_id')
                   ->references('id')->on('t2')

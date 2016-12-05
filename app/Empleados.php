@@ -21,7 +21,7 @@ class Empleados extends Model
 
     }
     
-    public function cargo(){
+    public function cargos(){
         return $this->belongsTo('App\Cargo', 'cargo');
 
     }

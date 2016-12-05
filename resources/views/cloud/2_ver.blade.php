@@ -66,14 +66,26 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="30" align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Presupuesto año</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Fecha asignación de presupuesto</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Responsable planificación de presupuesto</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Apellidos y Nombres</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Cargo</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Apellidos y Nombres</font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="30" align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="centrado" placeholder="Presupuesto" type="text" required name="presupuesto_anio"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="codigo" placeholder="fecha" type="date" required name="fecha_asignacion_presupuesto"></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><br><input class="centrado" placeholder="Nombre" type="text" required name="responsable_planificacion_presupuesto"></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><br><input class="centrado" placeholder="Cargo" type="text" required name="cargo_planificacion"></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><br>
+		<select class="form-control" name="responsable_planificacion_presupuesto">
+			@foreach ($empleados as $empleado)
+				@if ($t2->responsable_planificacion->id == $empleado->id)
+				
+					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+				@else
+
+					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
+
+				@endif
+			@endforeach
+		</select>
+		</font></b></td>
+		
 	</tr>
 	<tr>
 		<td style="border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="20" align="center" sdnum="1033;0;General_)"><font face="Arial" size=2><br></font></td>
@@ -108,7 +120,7 @@
 	</tr>
 	@foreach($t2->t2Notas as $t2Nota)
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_nota[]">{{$t2Nota->fecha_nota}}</textarea><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_nota[]" value="{{$t2Nota->fecha_nota}}"><br></font></b></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo[]">{{$t2Nota->cargo}}</textarea><br></font></b></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=6 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;0%"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="motivo[]">{{$t2Nota->motivo}}</textarea><br></font></b></td>
 	</tr>
@@ -120,12 +132,24 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=2 height="67" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Fecha de revisión del presupuesto</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_revision_presupuesto_primer_semestre" value="{{$t2->fecha_revision_presupuesto_primer_semestre}}"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Responsable revisión de presupuesto:</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Apellidos y NombreS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Cargo</font></b></td>
-	</tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Apellidos y NombreS</font></b></td>
+		</tr>
 	<tr>
-        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="responsable_revision_presupuesto_primer_semestre">{{$t2->responsable_revision_presupuesto_primer_semestre}}</textarea><br></font></b></td>
-        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo_responsable_revision_primer_semestre">{{$t2->cargo_responsable_revision_primer_semestre}}</textarea><br></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>
+		<select class="form-control" name="responsable_revision_presupuesto_primer_semestre">
+			@foreach ($empleados as $empleado)
+				@if ($t2->responsable_revision_presupuesto_primer_s->id == $empleado->id)
+				
+					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+				@else
+
+					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
+
+				@endif
+			@endforeach
+		</select>
+		<br></font></b></td>
+        
 	</tr>
 	<tr>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="" align="left" valign=top bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2>ANALISIS PRIMER SEMESTRE</font></b></td>
@@ -139,12 +163,25 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=2 height="67" align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Fecha de revisión del presupuesto</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_revision_presupuesto_segundo_semestre" value="{{$t2->fecha_revision_presupuesto_segundo_semestre}}"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Responsable revisión de presupuesto:</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Apellidos y NombreS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Cargo</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Apellidos y NombreS</font></b></td>
+		
 	</tr>
 	<tr>
-        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="responsable_revision_presupuesto_segundo_semestre">{{$t2->responsable_revision_presupuesto_segundo_semestre}}</textarea><br></font></b></td>
-        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo_responsable_revision_segundo_semestre">{{$t2->cargo_responsable_revision_segundo_semestre}}</textarea><br></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>
+		<select class="form-control" name="responsable_revision_presupuesto_segundo_semestre">
+			@foreach ($empleados as $empleado)
+				@if ($t2->responsable_revision_presupuesto_segundo_s->id == $empleado->id)
+				
+					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+				@else
+
+					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
+
+				@endif
+			@endforeach
+		</select>
+		<br></font></b></td>
+        
 	</tr>
 	<tr>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=9 height="" align="left" valign=top bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2>ANALISIS SEGUNDO SEMESTRE</font></b></td>

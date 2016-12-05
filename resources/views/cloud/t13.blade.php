@@ -7,8 +7,7 @@
             margin: 10px 5px 0 0;
           }
         </style>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-<<<<<<< HEAD
+
 
 	<title>EMPLEADOS</title>
 

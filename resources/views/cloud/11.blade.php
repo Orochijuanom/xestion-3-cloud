@@ -46,7 +46,7 @@
 	<colgroup width="106"></colgroup>
 	<colgroup span="3" width="81"></colgroup>
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="84" align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial"><img style="width:200px; heigth:200px;" src="{{asset("images/C.png")}}" />
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="84" align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial"><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></font></b></td>
@@ -64,7 +64,7 @@
 		</tr>
 	<tr>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 height="43" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">Fecha creación del indicador</font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial"><textarea class="campo" placeholder=""  name="fecha_creacion_indicador"></textarea><br></font></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial"><input class="codigo" placeholder="fecha" type="date" required name="fecha_creacion_indicador"><br></font></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle bgcolor="#50b308" sdnum="1033;1033;M/D/YYYY"><b><font face="Arial">Ficha Numero</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Arial"><textarea class="campo" placeholder=""  name="ficha_numero"></textarea><br></font></td>
 		</tr>
@@ -85,8 +85,8 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=7 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial">
 		<select name="responsable_calculo_seguimiento">
 			<option value="-1">Seleccione</option>
-			@foreach($empresa->empleados as $empleado)
-				<option value="{{$empleado->id}}">Seleccione</option>
+			@foreach($empleados as $empleado)
+				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}}</option>
 			@endforeach
 		</select>
 		<br></font></td>

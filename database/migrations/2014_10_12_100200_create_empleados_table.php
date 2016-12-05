@@ -25,7 +25,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('n_hijos');
             $table->string('direccion_vivienda');
             $table->string('ciudad');
-            $table->string('cargo');
+            $table->integer('cargo')->unsigned();
             $table->string('experiencia');            
             $table->string('profesion');
             $table->string('email');
@@ -70,7 +70,11 @@ class CreateEmpleadosTable extends Migration
             $table->string('calidad');
 
 
-            
+            $table->foreign('cargo')
+                  ->references('id')->on('cargo')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
             $table->integer('empresa_id')->unsigned();
             $table->foreign('empresa_id')
                   ->references('id')->on('empresa')
