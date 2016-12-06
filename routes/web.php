@@ -244,7 +244,8 @@ Route::get('/cloud/form/8/ver/{id}', function($id) {
                     ->with('empresa')
                     ->with('t8Detalles')
                     ->first();
-    return view('cloud.8_ver')->with('t8', $t8);
+    $empleados = App\Empleados::where('empresa_id', '=', $t8->empresa->id)->get();
+    return view('cloud.8_ver')->with(['t8' => $t8, 'empleados' => $empleados]);
 });
 /** END FORM 8 **/
 

@@ -230,7 +230,7 @@
 				@endif
 			@endforeach
 		</select>
-		<textarea class="campo" placeholder=""  name="apellidos_nombres[]">{{$t8Detalle->apellidos_nombres}}</textarea><br></font></td>
+		<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><textarea class="campo" placeholder=""  name="centro_trabajo[]">{{$t8Detalle->centro_trabajo}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><textarea class="campo" placeholder=""  name="tipo_examen[]">{{$t8Detalle->tipo_examen}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><input class="" placeholder="fecha" type="date"  name="fecha_examen[]" value="{{ $t8Detalle->fecha_examen}}"><br></font></td>
