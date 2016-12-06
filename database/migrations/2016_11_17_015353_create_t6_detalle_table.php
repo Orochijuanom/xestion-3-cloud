@@ -16,7 +16,7 @@ class CreateT6DetalleTable extends Migration
         Schema::create('t6_detalle', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha_t6');
-            $table->string('nombre_quien_reporta');
+            $table->integer('nombre_quien_reporta')->unsigned();
             $table->string('area_proyecto');
             $table->string('descripcion_solicitud');
             $table->string('fuente_accion');
@@ -28,12 +28,23 @@ class CreateT6DetalleTable extends Migration
             $table->string('om');
             $table->string('1a');
             $table->string('c');
-            $table->string('responsable_cierre');
+            $table->integer('responsable_cierre')->unsigned();
             $table->date('fecha_compromiso_cierre');
             $table->date('fecha_cierre');
             $table->string('oportuno');
             $table->string('eficaz');
             $table->string('evidencia');
+
+            $table->foreign('nombre_quien_reporta')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
+            $table->foreign('responsable_cierre')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
             $table->integer('t6_id')->unsigned();
             $table->foreign('t6_id')
                   ->references('id')->on('t6')

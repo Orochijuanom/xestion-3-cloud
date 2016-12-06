@@ -129,7 +129,20 @@
 	<tr>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3>{{$t6Detalle->id}}<br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font size=3><input class="" placeholder="fecha" type="date"  name="fecha_t6[]" value="{{$t6Detalle->fecha_t6}}"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font size=3><textarea class="campo" placeholder=""  name="nombre_quien_reporta[]">{{$t6Detalle->nombre_quien_reporta}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font size=3>
+		<select class="form-control" name="nombre_quien_reporta[]">
+			@foreach ($empleados as $empleado)
+				@if ($t6->t6Detalles->nombre_quien_reporta == $empleado->id)
+				
+					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+				@else
+
+					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
+
+				@endif
+			@endforeach
+		</select>
+		<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font size=3><textarea class="campo" placeholder=""  name="area_proyecto[]">{{$t6Detalle->area_proyecto}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=3><textarea class="campo" placeholder=""  name="descripcion_solicitud[]">{{$t6Detalle->descripcion_solicitud}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=3><textarea class="campo" placeholder=""  name="fuente_accion[]">{{$t6Detalle->fuente_accion}}</textarea><br></font></td>
@@ -141,7 +154,20 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="om[]">{{$t6Detalle->om}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="1a[]">{{$t6Detalle['1a']}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="c[]">{{$t6Detalle->c}}</textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="responsable_cierre[]">{{$t6Detalle->responsable_cierre}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF">
+		<select class="form-control" name="responsable_cierre[]">
+			@foreach ($empleados as $empleado)
+				@if ($t6->t6Detalles->responsable_cierre == $empleado->id)
+				
+					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+				@else
+
+					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
+
+				@endif
+			@endforeach
+		</select>
+		<br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><input class="" placeholder="fecha" type="date"  name="fecha_compromiso_cierre[]" value="{{$t6Detalle->fecha_compromiso_cierre}}"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><input class="" placeholder="fecha" type="date"  name="fecha_cierre[]" value="{{$t6Detalle->fecha_cierre}}"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="oportuno[]">{{$t6Detalle->oportuno}}</textarea><br></td>

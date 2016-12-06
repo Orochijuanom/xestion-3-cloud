@@ -191,7 +191,8 @@ Route::get('/cloud/form/t6/{empresa_id}', function($empresa_id) {
 
 Route::get('/cloud/form/6/{id}', function($id) {
     $empresa = App\Empresa::find($id);
-    return view('cloud.6')->with('empresa', $empresa);
+    $empleados = App\Empleados::where('empresa_id', '=', $empresa->id)->get();
+    return view('cloud.6')->with(['empresa' => $empresa, 'empleados' => $empleados]);
 });
 
 Route::post('/cloud/form/6', 't6Controller@form6'); 
@@ -201,7 +202,8 @@ Route::get('/cloud/form/6/ver/{id}', function($id) {
                     ->with('empresa')
                     ->with('t6Detalles')
                     ->first();
-    return view('cloud.6_ver')->with('t6', $t6);
+    $empleados = App\Empleados::where('empresa_id', '=', $t6->empresa->id)->get();
+    return view('cloud.6_ver')->with(['t6' => $t6, 'empleados' => $empleados]);
 });
 /** END FORM 6 **/
 
