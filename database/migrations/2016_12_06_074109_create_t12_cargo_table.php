@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateT12DetalleTable extends Migration
+class CreateT12CargoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateT12DetalleTable extends Migration
      */
     public function up()
     {
-        Schema::create('t12_detalle', function (Blueprint $table) {
+        Schema::create('t12_cargo', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('capacitacion');
-            $table->string('objetivo');
-            $table->string('temas_capacitacion');
-            $table->string('responsable');
-            $table->integer('t12_id')->unsigned();
-            $table->foreign('t12_id')
-                  ->references('id')->on('t12')
+            $table->integer('cargo_id')->unsigned();
+            
+            $table->integer('t12detalle_id')->unsigned();
+            $table->foreign('t12detalle_id')
+                  ->references('id')->on('t12_detalle')
                   ->onUpdate('no action')
                   ->onDelete('restrict');
+
             $table->timestamps();
         });
     }
@@ -35,6 +34,6 @@ class CreateT12DetalleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t12_detalle');
+        Schema::dropIfExists('t12_cargo');
     }
 }

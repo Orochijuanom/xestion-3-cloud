@@ -23,7 +23,7 @@ class CreateT10DetalleTable extends Migration
             $table->string('origen_externo');
             $table->string('version');
             $table->date('fecha_version');
-            $table->string('aprobado_por');
+            $table->integer('aprobado_por')->unsigned();
             $table->string('medio_almacenamiento');
             $table->string('acceso');
             $table->string('proteccion');
@@ -33,6 +33,12 @@ class CreateT10DetalleTable extends Migration
             $table->string('tiempo_retencion');
             $table->string('disposicion_final');
             $table->string('motivo_cambio_version_documento');
+
+            $table->foreign('aprobado_por')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
             $table->integer('t10_id')->unsigned();
             $table->foreign('t10_id')
                   ->references('id')->on('t10')

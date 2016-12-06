@@ -110,7 +110,20 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="origen_externo[]">{{$t10Detalle->origen_externo}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="version[]">{{$t10Detalle->version}}</textarea></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><input class="" placeholder="fecha" type="date"  name="fecha_version[]" value="{{ $t10Detalle->fecha_version }}"></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="aprobado_por[]">{{$t10Detalle->aprobado_por}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial">
+		<select class="form-control" name="aprobado_por[]">
+			@foreach ($empleados as $empleado)
+				@if ($t10Detalle->aprobado->id == $empleado->id)
+				
+					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+				@else
+
+					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
+
+				@endif
+			@endforeach
+		</select>
+		<textarea class="campo" placeholder=""  name="aprobado_por[]">{{$t10Detalle->aprobado_por}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="medio_almacenamiento[]">{{$t10Detalle->medio_almacenamiento}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle ><font face="Arial"><textarea class="campo" placeholder=""  name="acceso[]">{{$t10Detalle->acceso}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="proteccion[]">{{$t10Detalle->proteccion}}</textarea><br></font></td>

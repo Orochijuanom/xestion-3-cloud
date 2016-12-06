@@ -287,7 +287,8 @@ Route::get('/cloud/form/t10/{empresa_id}', function($empresa_id) {
 
 Route::get('/cloud/form/10/{id}', function($id) {
     $empresa = App\Empresa::find($id);
-    return view('cloud.10')->with('empresa', $empresa);
+    $empleados = App\Empleados::where('empresa_id', '=', $empresa->id)->get();
+    return view('cloud.10')->with(['empresa' => $empresa, 'empleados' => $empleados]);
 });
 
 Route::post('/cloud/form/10', 't10Controller@form10'); 
@@ -297,7 +298,8 @@ Route::get('/cloud/form/10/ver/{id}', function($id) {
                     ->with('empresa')
                     ->with('t10Detalles')
                     ->first();
-    return view('cloud.10_ver')->with('t10', $t10);
+    $empleados = App\Empleados::where('empresa_id', '=', $t10->empresa->id)->get();
+    return view('cloud.10_ver')->with(['t10' => $t10, 'empleados' => $empleados]);
 });
 
 /** END FORM 10 **/
@@ -332,7 +334,7 @@ Route::get('/cloud/form/12', function() {
     return view('cloud.12');
 });
 
-Route::post('/cloud/form/12', 't1Controller@form12'); 
+Route::post('/cloud/form/12', 't12Controller@form12'); 
 /** END FORM 12 **/
 
 /** FORMULARIO 13 **/

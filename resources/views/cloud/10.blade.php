@@ -110,7 +110,13 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="origen_externo[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="version[]"></textarea></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><input class="" placeholder="fecha" type="date"  name="fecha_version[]" value="{{ date('Y-m-d') }}"></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="aprobado_por[]"></textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial">
+		<select id="cargo" class="form-control" name="aprobado_por[]">
+			@foreach ($empleados as $empleado)
+				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}}</option>
+			@endforeach
+		</select>
+		<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="medio_almacenamiento[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle ><font face="Arial"><textarea class="campo" placeholder=""  name="acceso[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="proteccion[]"></textarea><br></font></td>
