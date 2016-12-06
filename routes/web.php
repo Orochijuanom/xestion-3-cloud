@@ -248,11 +248,23 @@ Route::get('/cloud/form/8/ver/{id}', function($id) {
 /** END FORM 8 **/
 
 /** FORMULARIO 9 **/
-Route::get('/cloud/form/9', function() {
-    return view('cloud.9');
+
+Route::get('/cloud/form/t9/{empresa_id}', function($empresa_id) {
+    $t9 = App\T9::where('empresa_id','=',$empresa_id)->get();    
+    return view('cloud.t9')
+                    ->with('t9s',$t9)
+                    ->with('empresa_id',$empresa_id);
 });
 
-Route::post('/cloud/form/9', 't1Controller@form9'); 
+
+Route::get('/cloud/form/9/{id}', function($id) {
+    $empresa = App\Empresa::find($id); 
+    $cargos = App\Cargo::where('empresa_id', '=', $empresa->id)->get();
+    return view('cloud.9')->with('empresa',$empresa)
+                            ->with('cargos',$cargos);
+});
+
+Route::post('/cloud/form/9', 't9Controller@form9'); 
 /** END FORM 9 **/
 
 /** FORMULARIO 10 **/

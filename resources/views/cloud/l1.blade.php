@@ -44,7 +44,8 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font >F5</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font >F6</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font >F7</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font >F8</font></b></td>		
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font >F8</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font >F9</font></b></td>		
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font >F10</font></b></td>
 	</tr>
 	@foreach($empresas as $empresa)	
@@ -61,6 +62,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font ><a href="/cloud/form/t6/{{$empresa->id}}">Ir</a><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font ><a href="/cloud/form/t7/{{$empresa->id}}">Ir</a><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font ><a href="/cloud/form/t8/{{$empresa->id}}">Ir</a><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font ><a href="/cloud/form/t9/{{$empresa->id}}">Ir</a><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font ><a href="/cloud/form/t10/{{$empresa->id}}">Ir</a><br></font></td>	
 	</tr>
 	@endforeach
