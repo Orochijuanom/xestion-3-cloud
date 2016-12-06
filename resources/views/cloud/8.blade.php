@@ -82,7 +82,7 @@
 		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 align="left" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=34 rowspan=2 align="center" valign=middle><b><font face="Arial" size=3>{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 rowspan=2 align="center" valign=middle><b><font face="Arial" size=3>{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">3.1 Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo"></font></b></td>
 		<td align="left"><font face="Arial" color="#000000"><br></font></td>
 		<td align="left"><font face="Arial" color="#000000"><br></font></td>
@@ -113,7 +113,7 @@
 	</tr>
 	<tr>
 		<td height="33" align="left" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=34 align="center" valign=middle><b><font face="Arial" size=3>4. MATRIZ EXAMENES MEDICOS OCUPACIONALES</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle><b><font face="Arial" size=3>4. MATRIZ EXAMENES MEDICOS OCUPACIONALES</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><font face="Arial">3.3 Fecha:<input class="codigo" placeholder="fecha" type="date" required name="fecha"></font></b></td>
 		<td align="left" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
 		<td align="left" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
@@ -129,7 +129,7 @@
 	</tr>
 	<tr>
 		<td height="27" align="left" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
-		<td style="border-top: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=38 align="center" valign=top><b><font face="Arial"><br></font></b></td>
+		<td style="border-top: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=36 align="center" valign=top><b><font face="Arial"><br></font></b></td>
 		<td align="left" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
 		<td align="left" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
 		<td align="left" bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
@@ -144,7 +144,7 @@
 	</tr>
 	<tr>
 		<td height="22" align="left"><font face="Arial" color="#000000"><br></font></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=7 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial">Datos </font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial">Datos </font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" color="#000000">Resultado de Examen de énfasis en  Evaluación Médica</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" color="#000000"><br></font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" color="#000000">7. Pruebas Complementarias</font></b></td>
@@ -166,9 +166,7 @@
 	<tr>
 		<td height="90" align="center"><b><font face="Arial" color="#000000"><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">No.</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial">Cedula de ciudadanía</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial">  Apellidos y nombres</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial">Cargo</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial"> Centro de trabajo</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial">Tipo de examen</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial"> Fecha de examen</font></b></td>
@@ -219,9 +217,13 @@
 	<tr>
 		<td height="39" align="left" valign=middle ><font face="Arial" color="#000000"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle  sdval="1" sdnum="1033;"><b><font face="Arial" color="#000000"></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><textarea class="campo" placeholder=""  name="cedula[]"></textarea></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><textarea class="campo" placeholder=""  name="apellidos_nombres[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><textarea class="campo" placeholder=""  name="cargo[]"></textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000">
+		<select id="cargo" class="form-control" name="apellidos_nombres[]">
+			@foreach ($empleados as $empleado)
+				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cedula}} - {{$empleado->cargos->cargo}}</option>
+			@endforeach
+		</select>
+		<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><textarea class="campo" placeholder=""  name="centro_trabajo[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><textarea class="campo" placeholder=""  name="tipo_examen[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><input class="" placeholder="fecha" type="date"  name="fecha_examen[]" value="{{ date('Y-m-d') }}"><br></font></td>

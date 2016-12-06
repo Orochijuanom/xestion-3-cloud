@@ -15,9 +15,7 @@ class CreateT8DetalleTable extends Migration
     {
         Schema::create('t8_detalle', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('cedula');
-            $table->string('apellidos_nombres');
-            $table->string('cargo');
+            $table->integer('apellidos_nombres')->unsigned();
             $table->string('centro_trabajo');
             $table->string('tipo_examen');
             $table->date('fecha_examen');
@@ -52,6 +50,12 @@ class CreateT8DetalleTable extends Migration
             $table->string('remision_eps');
             $table->date('fecha_compromiso_asistencia_eps');
             $table->date('asistencia_eps');
+
+            $table->foreign('apellidos_nombres')
+                  ->references('id')->on('empleados')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
             $table->foreign('t8_id')
                   ->references('id')->on('t8')
                   ->onUpdate('no action')
