@@ -15,8 +15,13 @@ class CreateT12CargoTable extends Migration
     {
         Schema::create('t12_cargo', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cargo_id')->unsigned();
             
+            $table->integer('cargo_id')->unsigned();
+            $table->foreign('cargo_id')
+                  ->references('id')->on('cargo')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
             $table->integer('t12detalle_id')->unsigned();
             $table->foreign('t12detalle_id')
                   ->references('id')->on('t12_detalle')
