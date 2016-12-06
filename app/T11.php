@@ -14,8 +14,7 @@ class T11 extends Model
 
     }
 
-    public function T11detalles(){
+    public function T11Detalle(){
         return $this->hasMany('App\T11Detalle');
-
     }
 }

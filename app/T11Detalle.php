@@ -11,4 +11,14 @@ class T11Detalle extends Model
                           'tipo_indicador','metodo_calculo','fuente_datos_calculo','interpretacion','responsable_calculo_seguimiento',
                           't11_id'];
 
+
+    public function T11Detalle(){
+        return $this->belongsTo('App\T11Detalle');
+
+    }
+
+    //TODO: por probar
+    public function Detalle(){
+        return $this->hasOne('App\T11Detalle');
+    }
 }

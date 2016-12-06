@@ -23,7 +23,6 @@ class Empleados extends Model
     
     public function cargos(){
         return $this->belongsTo('App\Cargo', 'cargo');
-
     }
 
     

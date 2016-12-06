@@ -84,12 +84,20 @@ Route::get('/cloud/form/l1', function() {
                         ->with('t1s',$t1)
                         ->with('empresa_id',$empresa_id);
     });
+    
+    Route::get('/cloud/form/1/ver/{id}', function($id) {
+        $t1 = App\T1::where('id',  '=', $id)
+                    ->with('empresa')
+                    ->with('t1Detalles')
+                    ->first();
+        return view('cloud.1_ver')->with('t1', $t1);
+    });
 
     //Ruta que carga el formulario para registrar la información
     Route::get('/cloud/form/1/{id}', function($id) {
         $empresa = App\Empresa::find($id);
-        $t11 = App\T11::where('empresa_id', '=', $empresa->id)->get();
-        return view('cloud.1')->with(['empresa' => $empresa, 't11s' => $t11]);
+        $t1 = App\T1::where('empresa_id', '=', $empresa->id)->get();
+        return view('cloud.1')->with(['empresa' => $empresa, 't1s' => $t1]);
                                 
     });
     //Ruta post que guarda la información
@@ -302,6 +310,13 @@ Route::get('/cloud/form/t11/{empresa_id}', function($empresa_id) {
                     ->with('empresa_id',$empresa_id);
 });
 
+Route::get('/cloud/form/11/ver/{id}', function($id) {
+    $t11 = App\T11::where('id',  '=', $id)
+                ->with('empresa')
+                ->with('T11Detalle')
+                ->first();
+    return view('cloud.11_ver')->with('t11', $t11);
+});
 
 Route::get('/cloud/form/11/{id}', function($id) {
     $empresa = App\Empresa::find($id);
@@ -326,6 +341,15 @@ Route::post('/cloud/form/12', 't1Controller@form12');
         return view('cloud.t13')
                         ->with('empleados',$empleados)
                         ->with('empresa_id',$empresa_id);
+    });
+    
+    Route::get('/cloud/form/13/ver/{id}', function($id) {
+        $t13 = App\Empleados::where('id',  '=', $id)
+                    ->with('empresa')
+                    ->with('cargos')
+                    ->first();
+        $cargos = App\Cargo::where('empresa_id', '=', $t13->empresa->id)->get();
+        return view('cloud.13_ver')->with(['t13'=> $t13, 'cargos'=>$cargos]);
     });
 
     Route::get('/cloud/form/13/{id}', function($id) {
