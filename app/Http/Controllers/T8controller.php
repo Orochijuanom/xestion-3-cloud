@@ -19,13 +19,11 @@ class T8controller extends Controller
 
         ]);
         
-        $datos = count($request['cedula']);
+        $datos = count($request['apellidos_nombres']);
 
         for ($i=0; $i < $datos; $i++) { 
-            T8Detalle::create([
-                'cedula' => $request['cedula'][$i],
+            $T8Detalle = T8Detalle::create([
                 'apellidos_nombres' => $request['apellidos_nombres'][$i],
-                'cargo' => $request['cargo'][$i],
                 'centro_trabajo' => $request['centro_trabajo'][$i],
                 'tipo_examen' => $request['tipo_examen'][$i],
                 'fecha_examen' => $request['fecha_examen'][$i],
@@ -63,6 +61,7 @@ class T8controller extends Controller
                 't8_id' => $t8->id
             ]);
         }
+        
 
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
     }
