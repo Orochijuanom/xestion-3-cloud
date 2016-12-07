@@ -100,9 +100,9 @@
 		<br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><textarea class="campo" placeholder=""  name="p[]"></textarea><br></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><textarea class="campo" placeholder=""  name="e[]"></textarea><br></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF">1<br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="puntaje_obtenido[]"></textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="puntaje_posible[]"></textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF"><br></td>
 	</tr>
 	@endfor
 
