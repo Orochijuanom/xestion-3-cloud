@@ -102,13 +102,13 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="descripcion_obligacion[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="palabra_clave[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font face="Tahoma" size=6 color="#FF0000">
-		<select name="aplica[]">
-			<option value="1" style="background-color: green">1</option>
-			<option value="0" style="background-color: red">0</option>
+		<select id="aplica_{{$i}}" style="background:green;" name="aplica[]" onchange="cambiar_color(this.id)">
+			<option value="1">1</option>
+			<option value="0">0</option>
 		</select>
 		</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font face="Arial" size=6 color="#7C7C7C">
-		<select name="cumple[]">
+		<select id="cumple_{{$i}}" name="cumple[]" style="background:green;" onchange="cambiar_color(this.id)">
 			<option value="1" style="background-color: green">1</option>
 			<option value="0" style="background-color: red">0</option>
 		</select>
@@ -130,6 +130,18 @@
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
 </form>
+<script>
+	function cambiar_color(combo)
+	{
+		var c = document.getElementById(combo);
+		if (c.value==1)
+			c.style.background = "green";
+		else
+			c.style.background = "red";
+		
+		console.log(c);
+	}
+</script>
 <!-- ************************************************************************** -->
  
 </body>
