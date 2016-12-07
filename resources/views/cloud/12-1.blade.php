@@ -80,7 +80,15 @@
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan=15 align="center" valign=middle bgcolor="#50b308"><b>CAPACITACIONES</b></td>
 		</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=15 align="center" valign=middle bgcolor="#50b308"><b>NOMBRE DE LA CAPACITACION INDUCCION SSTA</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=15 align="center" valign=middle bgcolor="#50b308"><b>
+			<select id="cargo" class="form-control" name="t12_id">
+				@foreach ($t12s as $t12)
+					@foreach($t12->t12Detalles as $detalle)
+						<option value="{{$t12->id}}">{{$detalle->capacitacion}}</option>
+					@endforeach	
+				@endforeach
+			</select>
+		</b></td>
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#50b308"><b>P</b></td>
@@ -98,7 +106,7 @@
 				@endforeach
 			</select>
 		<br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><textarea class="campo" placeholder=""  name="p[]"></textarea><br></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><input class="codigo" placeholder="fecha" type="date" required name="p[]"  value="{{date('Y-m-d')}}"><br></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><textarea class="campo" placeholder=""  name="e[]"></textarea><br></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="puntaje_obtenido[]"></textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="puntaje_posible[]"></textarea><br></td>
