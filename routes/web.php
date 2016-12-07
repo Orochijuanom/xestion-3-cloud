@@ -355,6 +355,32 @@ Route::get('/cloud/form/12/ver/{id}', function($id) {
 });
 /** END FORM 12 **/
 
+/** FORMULARIO 12-1 **/
+Route::get('/cloud/form/t12-1/{empresa_id}', function($empresa_id) {
+    $t12_1 = App\T12_1::where('empresa_id','=',$empresa_id)->get();    
+    return view('cloud.t12-1')
+                    ->with('t12_1s',$t12_1)
+                    ->with('empresa_id',$empresa_id);
+});
+
+Route::get('/cloud/form/12-1/{id}', function($id) {
+    $empresa = App\Empresa::find($id);
+    $cargos = App\Cargo::where('empresa_id', '=', $empresa->id)->get();
+    return view('cloud.12-1')->with(['empresa' => $empresa, 'cargos' => $cargos]);
+});
+
+Route::post('/cloud/form/12-1', 't12_1Controller@form12_1'); 
+
+Route::get('/cloud/form/12-1/ver/{id}', function($id) {
+    $t12_1 = App\T12_1::where('id',  '=', $id)
+                    ->with('empresa')
+                    ->with('t12_1Detalles')
+                    ->first();
+    $cargos = App\Cargo::where('empresa_id', '=', $t12_1->empresa->id)->get();
+    return view('cloud.12_ver')->with(['t12_1' => $t12_1, 'cargos' => $cargos]);
+});
+/** END FORM 12-1 **/
+
 /** FORMULARIO 13 **/
     Route::get('/cloud/form/t13/{empresa_id}', function($empresa_id) {
         $empleados = App\Empleados::where('empresa_id','=',$empresa_id)->get();    
