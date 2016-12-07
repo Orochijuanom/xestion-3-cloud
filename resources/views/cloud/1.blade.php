@@ -78,6 +78,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=1>NÚMERO DEL INDICADOR</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=1>RESPONSABLES</font></b></td>
 	</tr>
+	@for($i = 0; $i <= 4; $i++)
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]"></textarea><br></font></td>
@@ -89,9 +90,9 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@">
 		<font size=1>
-			<select id="cargo" class="form-control" name="cargo">
+			<select id="cargo" class="form-control" name="numero_indicador[]">
 				@foreach ($t11s as $t11)
-					@foreach($t11->T11detalles as $detalle)
+					@foreach($t11->T11Detalle as $detalle)
 						<option value="{{$t11->id}}">{{$detalle->numero_indicador}} - {{$detalle->nombre_indicador}}</option>
 					@endforeach	
 				@endforeach
@@ -100,136 +101,12 @@
 		</td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></td>
 	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="objetivo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="nombre_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="unidad_medida[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="frecuencia_analisis[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=1><textarea class="campo" placeholder=""  name="metodo_calculo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><font size=1><textarea class="campo" placeholder=""  name="ficha_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="objetivo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="nombre_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="unidad_medida[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="frecuencia_analisis[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=1><textarea class="campo" placeholder=""  name="metodo_calculo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><font size=1><textarea class="campo" placeholder=""  name="ficha_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="objetivo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="nombre_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="unidad_medida[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="frecuencia_analisis[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=1><textarea class="campo" placeholder=""  name="metodo_calculo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><font size=1><textarea class="campo" placeholder=""  name="ficha_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="objetivo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="nombre_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="unidad_medida[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="frecuencia_analisis[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=1><textarea class="campo" placeholder=""  name="metodo_calculo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><font size=1><textarea class="campo" placeholder=""  name="ficha_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="objetivo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="nombre_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="unidad_medida[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="frecuencia_analisis[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=1><textarea class="campo" placeholder=""  name="metodo_calculo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><font size=1><textarea class="campo" placeholder=""  name="ficha_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="objetivo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="nombre_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="unidad_medida[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="frecuencia_analisis[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=1><textarea class="campo" placeholder=""  name="metodo_calculo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><font size=1><textarea class="campo" placeholder=""  name="ficha_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="objetivo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="nombre_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="unidad_medida[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="frecuencia_analisis[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=1><textarea class="campo" placeholder=""  name="metodo_calculo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><font size=1><textarea class="campo" placeholder=""  name="ficha_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="objetivo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="nombre_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="unidad_medida[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=1><textarea class="campo" placeholder=""  name="frecuencia_analisis[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font size=1><textarea class="campo" placeholder=""  name="metodo_calculo[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><font size=1><textarea class="campo" placeholder=""  name="ficha_indicador[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></td>
-	</tr>
+	@endfor
+	
 </table>
-<div class="sign-up"><input type="submit" value="Nuevo"/></div>
-<div class="sign-up"><input type="submit" value="Guardar"/></div>
-<div class="sign-up"><input type="submit" value="Editar"/></div>
-<div class="sign-up"><input type="submit" value="Eliminar"/></div>
 
+<div class="sign-up"><input type="submit" value="Guardar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()">
 </form> 									    
-<!-- ************************************************************************** -->
- <script>
-              function archivo(evt) {
-                  var files = evt.target.files; // FileList object
-             
-                  // Obtenemos la imagen del campo "file".
-                  for (var i = 0, f; f = files[i]; i++) {
-                    //Solo admitimos imágenes.
-                    if (!f.type.match('image.*')) {
-                        continue;
-                    }
-             
-                    var reader = new FileReader();
-             
-                    reader.onload = (function(theFile) {
-                        return function(e) {
-                          // Insertamos la imagen
-                         document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
-                        };
-                    })(f);
-             
-                    reader.readAsDataURL(f);
-                  }
-              }
-             
-              document.getElementById('files').addEventListener('change', archivo, false);
-      </script>
 </body>

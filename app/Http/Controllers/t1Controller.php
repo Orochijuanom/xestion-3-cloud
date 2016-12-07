@@ -44,7 +44,7 @@ class t1Controller extends Controller
         ]);
 
 
-        for ($i=0; $i < 9; $i++){                                
+        for ($i=0; $i <= 4; $i++){                                
             T1Detalle::create([
                 'politica_sistema_gestion' =>  $request["politica_sistema_gestion"][$i],            
                 'area' => $request['area'][$i], 
@@ -54,7 +54,7 @@ class t1Controller extends Controller
                 'frecuencia_analisis' => $request['frecuencia_analisis'][$i],
                 'metodo_calculo' => $request['metodo_calculo'][$i],
                 'meta' => $request['meta'][$i],
-                'ficha_indicador' => $request['numero_indicador'][$i],
+                'numero_indicador' => $request['numero_indicador'][$i],
                 'responsable' => $request['responsable'][$i],
                 't1_id' => $t1->id
             ]);                            

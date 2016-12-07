@@ -79,7 +79,9 @@ Route::get('/cloud/form/l1', function() {
 
     //Ruta que muestra los formularios T1 creados por el usuario
     Route::get('/cloud/form/t1/{empresa_id}', function($empresa_id) {
-        $t1 = App\T1::where('empresa_id','=',$empresa_id)->get();    
+        $t1 = App\T1::where('empresa_id','=',$empresa_id)->get();  
+         
+        
         return view('cloud.t1')
                         ->with('t1s',$t1)
                         ->with('empresa_id',$empresa_id);
@@ -88,16 +90,17 @@ Route::get('/cloud/form/l1', function() {
     Route::get('/cloud/form/1/ver/{id}', function($id) {
         $t1 = App\T1::where('id',  '=', $id)
                     ->with('empresa')
-                    ->with('t1Detalles')
+                    ->with('T1Detalles')
                     ->first();
-        return view('cloud.1_ver')->with('t1', $t1);
+        $t11s = App\T11::where('empresa_id', '=', $t1->empresa->id)->get();
+        return view('cloud.1_ver')->with(['t1' => $t1, 't11s' => $t11s]);
     });
 
     //Ruta que carga el formulario para registrar la información
     Route::get('/cloud/form/1/{id}', function($id) {
-        $empresa = App\Empresa::find($id);
-        $t1 = App\T1::where('empresa_id', '=', $empresa->id)->get();
-        return view('cloud.1')->with(['empresa' => $empresa, 't1s' => $t1]);
+        $empresa = App\Empresa::find($id);        
+        $t11 = App\T11::where('empresa_id', '=', $empresa->id)->get();
+        return view('cloud.1')->with(['empresa' => $empresa, 't11s' => $t11]);
                                 
     });
     //Ruta post que guarda la información
