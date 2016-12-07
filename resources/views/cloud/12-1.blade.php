@@ -34,7 +34,7 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="{{ url('/cloud/form/12') }}">
+<form method="POST" action="{{ url('/cloud/form/12-1') }}">
 {{ csrf_field() }}
 
 
@@ -58,27 +58,25 @@
 	<colgroup width="67"></colgroup>
 	<colgroup width="99"></colgroup>
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 height="127" align="center" valign=middle><b>LOGO DE LA EMPRESA</b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 rowspan=2 align="center" valign=middle><b>EMPRESA<br></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=1 rowspan=3 height="127" align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" /></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 rowspan=2 align="center" valign=middle><b>{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /><br></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b>P</b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b>E</b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b>N </b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><b>Código:</b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><b>Código: <input class="codigo" placeholder="codigo" type="text" required name="codigo" ></b></td>
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#FFFF00"><b><br></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF"><b> </b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#FF0000"><b><br></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><b>Versión: </b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><b>Versión: <input class="codigo" placeholder="version" type="text" required name="version"></b></td>
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 align="center" valign=middle><b>FICHA DE CAPACITACIONES POR PERSONA</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><b>Fecha:  </b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><b>Fecha: <input class="codigo" placeholder="fecha" type="date" required name="fecha" ></b></td>
 		</tr>
 	<tr>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 height="114" align="center" valign=middle bgcolor="#50b308"><b>Nro Cedula</b></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>APELLIDOS Y NOMBRES</b></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>Cargo</b></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 colspan=3 align="center" valign=middle bgcolor="#50b308"><b>APELLIDOS Y NOMBRES</b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan=15 align="center" valign=middle bgcolor="#50b308"><b>CAPACITACIONES</b></td>
 		</tr>
 	<tr>
@@ -93,11 +91,15 @@
 	</tr>
 	@for($i=0; $i < 11; $i++)
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="29" align="left" bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><br></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><br></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 bgcolor="#FFFFFF">
+			<select id="cargo" class="form-control" name="apellidos_nombres[]">
+				@foreach ($empleados as $empleado)
+					<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cedula}} - {{$empleado->cargos->cargo}}</option>
+				@endforeach
+			</select>
+		<br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><textarea class="campo" placeholder=""  name="p[]"></textarea><br></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><textarea class="campo" placeholder=""  name="e[]"></textarea><br></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF">1<br></td>
