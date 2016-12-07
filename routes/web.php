@@ -405,12 +405,14 @@ Route::get('/cloud/form/12-1/{id}', function($id) {
 Route::post('/cloud/form/12-1', 't12_1Controller@form12_1'); 
 
 Route::get('/cloud/form/12-1/ver/{id}', function($id) {
-    $t12_1 = App\T12_1::where('id',  '=', $id)
+    $t121 = App\T12_1::where('id',  '=', $id)
                     ->with('empresa')
                     ->with('t12_1Detalles')
                     ->first();
-    $cargos = App\Cargo::where('empresa_id', '=', $t12_1->empresa->id)->get();
-    return view('cloud.12_ver')->with(['t12_1' => $t12_1, 'cargos' => $cargos]);
+                    
+    $t12s = App\T12::where('empresa_id', '=', $t121->empresa_id)->get();
+    $empleados = App\Empleados::where('empresa_id', '=', $t121->empresa->id)->get();
+    return view('cloud.12-1_ver')->with(['t121' => $t121, 'empleados' => $empleados , 't12s' => $t12s]);
 });
 /** END FORM 12-1 **/
 
