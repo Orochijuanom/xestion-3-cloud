@@ -147,6 +147,17 @@ Route::get('/cloud/form/2/ver/{id}', function($id) {
                         ->with('t3s',$t3)
                         ->with('empresa_id',$empresa_id);
     });
+
+    Route::get('/cloud/form/3/ver/{id}', function($id) {
+        $t3 = App\T3::where('id',  '=', $id)
+                        ->with('empresa')
+                        ->with('detalles')                    
+                        ->first();
+        $empleados = App\Empleados::where('empresa_id', '=', $t3->empresa->id)->get();                
+        return view('cloud.3_ver')->with(['t3' => $t3, 'empleados' => $empleados]);
+    });
+
+
     Route::get('/cloud/form/3/{id}', function($id) {
         $empresa = App\Empresa::find($id);
         $empleados = App\Empleados::where('empresa_id', '=', $empresa->id)->get();
@@ -179,6 +190,15 @@ Route::get('/cloud/form/t5/{empresa_id}', function($empresa_id) {
                         ->with('t5s',$t5)
                         ->with('empresa_id',$empresa_id);
     });
+
+Route::get('/cloud/form/5/ver/{id}', function($id) {
+    $t5 = App\T5::where('id',  '=', $id)
+                    ->with('empresa')
+                    ->with('T5Detalles')                    
+                    ->first();
+    $empleados = App\Empleados::where('empresa_id', '=', $t5->empresa->id)->get();                
+    return view('cloud.5_ver')->with(['t5' => $t5, 'empleados' => $empleados]);
+});
 
 Route::get('/cloud/form/5/{id}', function($id) {
     $empresa = App\Empresa::find($id);
@@ -221,6 +241,15 @@ Route::get('/cloud/form/t7/{empresa_id}', function($empresa_id) {
     return view('cloud.t7')
                     ->with('t7s',$t7)
                     ->with('empresa_id',$empresa_id);
+});
+
+Route::get('/cloud/form/7/ver/{id}', function($id) {
+    $t7 = App\T7::where('id',  '=', $id)
+                    ->with('empresa')
+                    ->with('T7Detalles')                    
+                    ->first();
+    $empleados = App\Empleados::where('empresa_id', '=', $t7->empresa->id)->get();                
+    return view('cloud.7_ver')->with(['t7' => $t7, 'empleados' => $empleados]);
 });
 
 Route::get('/cloud/form/7/{id}', function($id) {

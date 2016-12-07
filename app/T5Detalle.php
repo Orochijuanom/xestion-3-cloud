@@ -13,6 +13,6 @@ class T5Detalle extends Model
                             'peto_de_carnaza','chaleco_reflectivo','kit_motociclista','bota_de_seguridad',
                             'bota_de_caucho','zapato_antideslizante','mascarilla_desechable','guantes_de_latex',
                             'guantes_de_nitrillo','guantes_carnaza','guantes_neopreno','guantes_vaquetas',
-                            'impermeable','arnes_seguridad','eslinga','otros_elementos','pantalon','t5_id'];
+                            'impermeable','arnes_seguridad','eslinga','otros_elementos','pantalon','t5_id','empleado_id'];
  
 }

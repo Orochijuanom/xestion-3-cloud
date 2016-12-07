@@ -10,6 +10,9 @@ class T3 extends Model
 
     protected $fillable = ['fecha_actualizacion','motivo_actualizacion', 'responsable_actualizacion', 'revisado_por','empresa_id','codigo','version','fecha'];
 
+    public function empresa(){
+        return $this->belongsTo('App\Empresa');
+    }
     public function detalles()
     {
         return $this->hasMany('App\T3Detalle');
@@ -22,6 +25,7 @@ class T3 extends Model
 
     public function revisado(){
         return $this->belongsTo('App\Empleados', 'revisado_por');
+    }
 
-    }    
+
 }
