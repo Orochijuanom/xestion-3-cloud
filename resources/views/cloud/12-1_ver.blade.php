@@ -110,7 +110,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 bgcolor="#FFFFFF">
 			<select id="cargo" class="form-control" name="apellidos_nombres[]">
                 @foreach ($empleados as $empleado)
-                    @if ($t12->responsable_planificacion->id == $empleado->id)
+                    @if ($t121Detalle->apellidos_nombres == $empleado->id)
                     
                         <option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
                     @else
@@ -119,15 +119,12 @@
 
                     @endif
                 @endforeach
-				@foreach ($empleados as $empleado)
-					<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cedula}} - {{$empleado->cargos->cargo}}</option>
-				@endforeach
 			</select>
 		<br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><input class="codigo" placeholder="fecha" type="date" required name="p[]"  value="{{date('Y-m-d')}}"><br></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><textarea class="campo" placeholder=""  name="e[]"></textarea><br></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="puntaje_obtenido[]"></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="puntaje_posible[]"></textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><textarea class="campo" placeholder=""  name="e[]">{{$t121Detalle->e}}</textarea><br></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="puntaje_obtenido[]">{{$t121Detalle->puntaje_obtenido}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" colspan=3 valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="puntaje_posible[]">{{$t121Detalle->puntaje_posible}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 valign=middle bgcolor="#FFFFFF"><br></td>
 	</tr>
 	@endforeach
