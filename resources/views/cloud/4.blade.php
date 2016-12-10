@@ -48,7 +48,7 @@
 	<colgroup width="141"></colgroup>
 	<tr>
 		<td height="75" align="center" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=31 align="center" valign=middle><b>GTC 45: GUIA TECNICA COLOMBIANA <br>VERSION: 2012 - 06 -20 SEGUNDA ACTUALIZACION</b></td>
+		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle><b>GTC 45: GUIA TECNICA COLOMBIANA <br>VERSION: 2012 - 06 -20 SEGUNDA ACTUALIZACION</b></td>
 		<td align="left" valign=middle><br></td>
 		<td align="center" valign=middle><br></td>
 		<td align="center" valign=middle><br></td>
@@ -89,49 +89,49 @@
 		<td style="border-left: 1px solid #000000" height="39" align="center" valign=middle><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=27 align="center" valign=middle><b>4. MATRIZ DE PELIGROS, EVALUACIÓN, VALORACIÓN DE RIESGOS Y DETERMINACIÓN DE CONTROLES </b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=middle><b>3.3 Versión:</b></td>
-	</tr>
-
-	
+		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="19" align="center" valign=middle><br></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=35 rowspan=2 align="center" valign=middle bgcolor="#50b308"><br></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=33 rowspan=2 align="center" valign=middle bgcolor="#50b308"><br></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="19" align="center" valign=middle><br></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="22" align="center" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=35 align="center" valign=middle bgcolor="#FFFFFF"><b><br></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=33 align="center" valign=middle bgcolor="#FFFFFF"><b><br></b></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="22" align="center" valign=middle><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.1 Área / Proyecto:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.2 Procesos:</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=10 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.3 Cargos asociados a la actividad:</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><br></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="43" align="center" valign=middle><br></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="19" align="center" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=35 align="center" valign=middle bgcolor="#FFFFFF"><b><br></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=33 align="center" valign=middle bgcolor="#FFFFFF"><b><br></b></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="22" align="center" valign=middle><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.4 Fecha de elaboración:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.5 Responsable elaboración y actualización:</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=10 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.6 Fecha de Actualización:</b></td>
-		
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><br></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="19" align="center" valign=middle><br></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="21" align="center" valign=middle><font size=3><br></font></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=35 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="50" align="center" valign=middle><br></td>
@@ -149,7 +149,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 align="center" valign=middle bgcolor="#50b308"><b>6,17 Evaluación del riesgo</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>6,26 Valoración del riesgo</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 align="center" valign=middle bgcolor="#50b308"><b>6,28 Criterio para  establecer controles</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.37 Medidas de intervención</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=6 align="center" valign=middle bgcolor="#50b308"><b>6.37 Medidas de intervención</b></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="15" align="center" valign=middle><br></td>
@@ -555,7 +555,7 @@
 	</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="123" align="center" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=31 align="left" valign=top bgcolor="#FFFFFF"><b><font size=4>Nota de actualización de matriz de peligros:</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=35 align="left" valign=top bgcolor="#FFFFFF"><b><font size=4>Nota de actualización de matriz de peligros:</font></b></td>
 		</tr>
 </table>
 <!-- ************************************************************************** -->

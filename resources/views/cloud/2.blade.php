@@ -179,13 +179,17 @@
 pagina" onclick="window.print()"> 
 <!-- ************************************************************************** --> 
 <script>
-	function calcular_porcentaje(id) {	
-		var p = document.getElementById('presupuesto_'+id).value;
-		var ej= document.getElementById('ejecucion_primer_semestre_'+id).value;
-		if (p!="" && ej!=""){
-			result = document.getElementById('acumulado_uno_'+id);
-			result.text = "resultado";
-		}
-	}
+	function calcular_porcentaje(id) { 
+        var presupuesto = document.getElementById('presupuesto_'+id).value;
+        var ejecucion_primer_semestre = document.getElementById('ejecucion_primer_semestre_'+id).value;    
+        if (presupuesto!="" && ejecucion_primer_semestre !=""){
+            var acumulado = 0;
+            if (ejecucion_primer_semestre > 0){
+                acumulado = ejecucion_primer_semestre / presupuesto * 100
+                result = document.getElementById('acumulado_uno_'+id);
+            }          
+            result.innerHTML = acumulado;
+        }
+    }
 </script>
 </body>
