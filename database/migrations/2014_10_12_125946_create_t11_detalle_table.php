@@ -22,6 +22,7 @@ class CreateT11DetalleTable extends Migration
             $table->string('meta');        
             $table->string('tipo_indicador');
             $table->string('metodo_calculo');
+            $table->string('frecuencia_medicion_reporte');
             $table->string('fuente_datos_calculo');
             $table->string('interpretacion');
             
