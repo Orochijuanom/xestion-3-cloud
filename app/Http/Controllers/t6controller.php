@@ -34,7 +34,7 @@ class t6controller extends Controller
                 'ap' => $request['ap'][$i],
                 'ac' => $request['ac'][$i],
                 'om' => $request['om'][$i],
-                '1a' => $request['1a'][$i],
+                'ua' => $request['ua'][$i],
                 'c' => $request['c'][$i],
                 'responsable_cierre' => $request['responsable_cierre'][$i],
                 'fecha_compromiso_cierre' => $request['fecha_compromiso_cierre'][$i],
@@ -79,7 +79,7 @@ class t6controller extends Controller
             $t6detalle->ap = $request['ap'][$i];
             $t6detalle->ac = $request['ac'][$i];
             $t6detalle->om = $request['om'][$i];
-            $t6detalle->1a = $request['1a'][$i];
+            $t6detalle->ua = $request['ua'][$i];
             $t6detalle->c = $request['c'][$i];
             $t6detalle->responsable_cierre = $request['responsable_cierre'][$i];
             $t6detalle->fecha_compromiso_cierre = $request['fecha_compromiso_cierre'][$i];

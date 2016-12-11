@@ -26,7 +26,7 @@ class CreateT6DetalleTable extends Migration
             $table->string('ap');
             $table->string('ac');
             $table->string('om');
-            $table->string('1a');
+            $table->string('ua');
             $table->string('c');
             $table->integer('responsable_cierre')->unsigned();
             $table->date('fecha_compromiso_cierre');
