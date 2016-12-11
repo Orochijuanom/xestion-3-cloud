@@ -17,6 +17,9 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="#">t6</a>
+<br/><br/><br/>
+
 <table cellspacing="0" border="0">
 	<colgroup width="217"></colgroup>
 	<colgroup width="85"></colgroup>

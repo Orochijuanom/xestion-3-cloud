@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t9/{{$empresa->id}}">t9</a> / <a href="#">Agregar t9</a>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t9/{{$t9->empresa->id}}">t9</a> / <a href="#">Agregar t9</a>
 <br/><br/><br/>
 
 @if (count($errors) > 0)
@@ -38,9 +38,9 @@
 </div>
 @endif
 
-<form method="POST" action="{{ url('/cloud/form/9') }}">
+<form method="POST" action="{{ url('/cloud/form/9/ver') }}">
 {{ csrf_field() }}
-
+{{ method_field('PUT') }}
 <table cellspacing="0" border="0">
 	<colgroup width="19"></colgroup>
 	<colgroup width="40"></colgroup>
@@ -73,8 +73,11 @@
 		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 align="left" valign=middle><b><font face="Arial"><img style="width:200px; heigth:200px;" src="{{asset("images/C.png")}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=24 rowspan=2 align="center" valign=middle><b><font face="Arial">{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">3.1 Codigo:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" /></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=24 rowspan=2 align="center" valign=middle><b><font face="Arial">{{$t9->empresa->nombre_empresa}}
+		<input type="hidden" value="{{$t9->empresa->id}}" name="empresa_id" />
+		<input type="hidden" value="{{$t9->id}}" name="id" />
+		</font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">3.1 Codigo:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t9->codigo}}" /></font></b></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
 	</tr>
@@ -159,11 +162,12 @@
 		<td align="center" valign=bottom><b><font face="Arial" color="#000000"><br></font></b></td>
 	</tr>
 
-	@for($i=0; $i<=5; $i++)
+	@foreach($t9->detalles as $detalle)
 	<tr>
+		<input type="hidden" name="t9detalle[]" value="{{$detalle->id}}"
 		<td height="19" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" color="#000000">
 		<br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="1" sdnum="1033;"><b><font face="Arial" color="#000000">{{$i}}</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="1" sdnum="1033;"><b><font face="Arial" color="#000000"></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" color="#000000">
 		<select name="cargo_id[]">
 			@foreach($cargos as $cargo)
@@ -171,35 +175,35 @@
 			@endforeach			
 		</select>
 		<br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="musculo_esquletico[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="dermatologico[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="respiratorio[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="cardio_vascular[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="trabajo_en_alturas[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="test_de_fobias[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="otro[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="espirometria[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="audiometria[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="optometria[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="visiometria[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="electrocardiograma[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="examen_coordinacion_motriz[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="examen_de_psicologia[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="otro1[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="cuadro_hematico[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="glicemia_pre_y_pos[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="perfil_lipidico[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="parcial_de_orina[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="otro2[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="tetanos_td[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="fiebre_amarilla[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="hepatitis_b[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="antirrabica[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="otra3[]"></textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="musculo_esquletico[]">{{$t9->musculo_esquletico}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="dermatologico[]">{{$t9->dermatologico}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="respiratorio[]">{{$t9->respiratorio}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="cardio_vascular[]">{{$t9->cardio_vascular}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="trabajo_en_alturas[]">{{$t9->trabajo_en_alturas}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="test_de_fobias[]">{{$t9->test_de_fobias}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="otro[]">{{$t9->otro}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="espirometria[]">{{$t9->espirometria}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="audiometria[]">{{$t9->audiometria}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="optometria[]">{{$t9->optometria}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="visiometria[]">{{$t9->visiometria}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="electrocardiograma[]">{{$t9->electrocardiograma}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="examen_coordinacion_motriz[]">{{$t9->examen_coordinacion_motriz}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="examen_de_psicologia[]">{{$t9->examen_de_psicologia}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="otro1[]">{{$t9->otro1}}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="cuadro_hematico[]">{{$t9->cuadro_hematico}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="glicemia_pre_y_pos[]">{{$t9->glicemia_pre_y_pos}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="perfil_lipidico[]">{{$t9->perfil_lipidico}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="parcial_de_orina[]">{{$t9->parcial_de_orina}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="otro2[]">{{$t9->otro2}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="tetanos_td[]">{{$t9->tetanos_td}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="fiebre_amarilla[]">{{$t9->fiebre_amarilla}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="hepatitis_b[]">{{$t9->hepatitis_b}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="antirrabica[]">{{$t9->antirrabica}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="otra3[]">{{$t9->otra3}}</textarea><br></font></td>
 		<td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
 		<td align="left" valign=bottom bgcolor="#FFFFFF"><font face="Arial" color="#000000"><br></font></td>
 	</tr>
-	@endfor
+	@endforeach
 
 
 	<tr>

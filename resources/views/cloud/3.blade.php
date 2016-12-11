@@ -18,6 +18,9 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t1/{{$empresa->id}}">t3</a> / <a href="#">Agregar t3</a>
+<br/><br/><br/>
+
 <form method="POST" action="{{ url('/cloud/form/3') }}">
 {{ csrf_field() }}
 

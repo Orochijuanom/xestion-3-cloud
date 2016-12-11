@@ -17,6 +17,9 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t7/{{$t7->empresa->id}}">t7</a> / <a href="#">Ver editar t7</a>
+<br/><br/><br/>
+
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
