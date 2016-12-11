@@ -33,7 +33,7 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="/cloud/form/2/{{$t2->id}}">
+<form method="POST" action="/cloud/form/2/ver">
 {{ csrf_field() }}
 {{ method_field('PUT') }}
 <table cellspacing="0" border="0">
@@ -49,7 +49,9 @@
 		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 height="100" align="center" valign=middle sdnum="1033;0;General_)"><b><img style="width:200px; heigth:200px;" src="/images/{{$t2->empresa->logo}}" />
         <br />
         <output id="list"></output></font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>{{$t2->empresa->nombre_empresa}}<input type="hidden" value="{{$t2->id}}" name="empresa_id" /></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 rowspan=2 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>{{$t2->empresa->nombre_empresa}}
+		<input type="hidden" value="{{$t2->empresa->id}}" name="empresa_id" /></b></td>
+		<input type="hidden" value="{{$t2->id}}" name="id" /></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2> Codigo:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t2->codigo}}">   </font></b></td>
 	</tr>
 	<tr>
@@ -69,8 +71,8 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>Apellidos y Nombres</font></b></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="30" align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="centrado" placeholder="Presupuesto" type="text" required name="presupuesto_anio"></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="codigo" placeholder="fecha" type="date" required name="fecha_asignacion_presupuesto"></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="30" align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="centrado" placeholder="Presupuesto" type="text" required name="presupuesto_anio" value="{{$t2->presupuesto_anio}}"></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="codigo" placeholder="fecha" type="date" required name="fecha_asignacion_presupuesto" value="{{$t2->fecha_asignacion_presupuesto}}"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><br>
 		<select class="form-control" name="responsable_planificacion_presupuesto">
 			@foreach ($empleados as $empleado)
@@ -101,6 +103,7 @@
 	</tr>
 	@foreach($t2->t2Detalles as $t2Detalle)
 	<tr>
+		<input type="hidden" name="t2detalle[]" value="{{$t2Detalle->id}}" />
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="37" align="left" valign=middle sdnum="1033;0;General_)"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="actividad[]">{{$t2Detalle->actividad}}</textarea><br></font></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;&quot;$&quot; #,##0;[RED]&quot;$&quot; #,##0"><b><font face="Arial" size=2 color="#0000FF"><textarea class="campo" placeholder=""  name="presupuesto[]">{{$t2Detalle->presupuesto}}</textarea></font></b></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="ejecucion_primer_semestre[]">{{$t2Detalle->ejecucion_primer_semestre}}</textarea><br></font></td>
@@ -120,6 +123,7 @@
 	</tr>
 	@foreach($t2->t2Notas as $t2Nota)
 	<tr>
+		<input type="hidden" name="t2nota[]" value="{{$t2Nota->id}}" />
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_nota[]" value="{{$t2Nota->fecha_nota}}"><br></font></b></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo[]">{{$t2Nota->cargo}}</textarea><br></font></b></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=6 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;0%"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="motivo[]">{{$t2Nota->motivo}}</textarea><br></font></b></td>
@@ -195,30 +199,5 @@
 <div class="sign-up"><input type="submit" value="Guardar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
-<!-- ************************************************************************** --> <script>
-              function archivo(evt) {
-                  var files = evt.target.files; // FileList object
-             
-                  // Obtenemos la imagen del campo "file".
-                  for (var i = 0, f; f = files[i]; i++) {
-                    //Solo admitimos imágenes.
-                    if (!f.type.match('image.*')) {
-                        continue;
-                    }
-             
-                    var reader = new FileReader();
-             
-                    reader.onload = (function(theFile) {
-                        return function(e) {
-                          // Insertamos la imagen
-                         document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
-                        };
-                    })(f);
-             
-                    reader.readAsDataURL(f);
-                  }
-              }
-             
-              document.getElementById('files').addEventListener('change', archivo, false);
-      </script>
+</form>
 </body>

@@ -35,9 +35,9 @@
 </div>
 @endif
 
-<form method="POST" action="{{ url('/cloud/form/7') }}">
+<form method="POST" action="{{ url('/cloud/form/7/ver') }}">
 {{ csrf_field() }}
-
+{{ method_field('PUT') }}
 <table cellspacing="0" border="0">
 	<colgroup width="85"></colgroup>
 	<colgroup width="333"></colgroup>
@@ -52,7 +52,9 @@
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle><b><font face="Arial" size=3 color="#000000"><img style="width:200px; heigth:200px;" src="{{asset("images/C.png")}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle><b><font face="Arial" size=3 color="#000000">{{$t7->empresa->nombre_empresa}}<input type="hidden" value="{{$t7->empresa->id}}" name="empresa_id" /></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle><b><font face="Arial" size=3 color="#000000">{{$t7->empresa->nombre_empresa}}
+		<input type="hidden" value="{{$t7->empresa->id}}" name="empresa_id" />
+		<input type="hidden" value="{{$t7->id}}" name="id" /></font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle sdnum="1033;1033;[$-409]D-MMM-YY;@"><b><font face="Arial" size=3>3.1 Codigo:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t7->codigo}}"/></font></b></td>
 	</tr>
 	<tr>
@@ -88,6 +90,7 @@
 		</tr>
 	@foreach($t7->T7Detalles as $detalle)	
 	<tr>
+		<input type="hidden" value="{{$detalle->id}}" name="t7detalle[]" />
 		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]">{{$detalle->comite}}</textarea><br></font></td>
 

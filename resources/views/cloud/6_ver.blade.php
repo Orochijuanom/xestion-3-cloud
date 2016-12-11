@@ -34,7 +34,7 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="/cloud/form/6/{{$t6->id}}">
+<form method="POST" action="/cloud/form/6/ver">
 {{ csrf_field() }}
 {{ method_field('PUT') }}
 <table cellspacing="0" border="0">
@@ -58,7 +58,10 @@
 		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=5 height="156" align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$t6->empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=14 rowspan=3 align="center" valign=middle><b>{{$t6->empresa->nombre_empresa}}<input type="hidden" value="{{$t6->id}}" name="empresa_id" /></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=14 rowspan=3 align="center" valign=middle><b>{{$t6->empresa->nombre_empresa}}
+		<input type="hidden" value="{{$t6->empresa->id}}" name="empresa_id" />
+		<input type="hidden" value="{{$t6->id}}" name="id" />
+		</b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="left" valign=middle><b> Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t6->codigo}}"></b></td>
 		</tr>
 	<tr>
@@ -127,6 +130,7 @@
 		</tr>
     @foreach($t6->t6Detalles as $t6Detalle)
 	<tr>
+		<input type="hidden" value="{{$t6Detalle->id}}" name="t6detalle[]" />
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3>{{$t6Detalle->id}}<br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font size=3><input class="" placeholder="fecha" type="date"  name="fecha_t6[]" value="{{$t6Detalle->fecha_t6}}"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font size=3>

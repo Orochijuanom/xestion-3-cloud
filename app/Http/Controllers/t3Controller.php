@@ -20,7 +20,8 @@ class t3Controller extends Controller
             'codigo' => 'required',
             'version' => 'required',            
             'fecha' => 'required'
-        ]);        
+        ]); 
+
         //Creamos el registro de la actualizacion
         $t3 = T3::create([
             'fecha_actualizacion' =>  $request["fecha_actualizacion"],
@@ -54,5 +55,41 @@ class t3Controller extends Controller
         }
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
         
+    }
+
+
+    public function edit(Request $request)
+    {
+        $t3 = T3::find($request['id']);//buscamos el id
+
+        $t3->fecha_actualizacion =  $request["fecha_actualizacion"];
+        $t3->motivo_actualizacion = $request['motivo_actualizacion'];
+        $t3->responsable_actualizacion = $request['responsable_actualizacion'];
+        $t3->revisado_por = $request['revisado_por'];                            
+        $t3->codigo = $request['codigo'];
+        $t3->version = $request['version'];
+        $t3->fecha = $request['fecha'];
+        $t3->save();
+
+
+        for ($i=0; $i < 9; $i++){
+            $t3Detalle = T3Detalle::find($request['t3Detalle'][$i]); // buscamos el id                                 
+            
+            $t3Detalle->norma =  $request["norma"][$i];
+            $t3Detalle->numero_norma =  $request["numero_norma"][$i];
+            $t3Detalle->fecha_publicacion = $request['fecha_publicacion'][$i];
+            $t3Detalle->emisor = $request['emisor'][$i];
+            $t3Detalle->articulo  = $request['articulo'][$i];
+            $t3Detalle->descripcion_obligacion = $request['descripcion_obligacion'][$i];
+            $t3Detalle->palabra_clave = $request['palabra_clave'][$i];
+            $t3Detalle->aplica = $request['aplica'][$i];
+            $t3Detalle->cumple = $request['cumple'][$i];
+            $t3Detalle->como_cumple = $request['como_cumple'][$i];
+            $t3Detalle->responsable_cumplimiento = $request['responsable_cumplimiento'][$i];                                                            
+                
+            $t3Detalle->save();
+                                                  
+        }
+        return redirect()->back()->with('flash_message', 'Se ha editado el registro exitosamente');
     }
 }

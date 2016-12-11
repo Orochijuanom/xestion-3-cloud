@@ -48,4 +48,49 @@ class t6controller extends Controller
 
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
     }
+
+
+    public function edit(Request $request)
+    {
+
+        $t6 = T6::find($request['id']);
+        
+        $t6->codigo = $request['codigo'];
+        $t6->version = $request['version'];
+        $t6->fecha = $request['fecha'];
+        $t6->save();
+
+        
+        
+        $datos = count($request['fecha_t6']);
+
+        for ($i=0; $i < $datos; $i++) { 
+
+            $t6detalle = T6Detalle::find($request['t6detalle'][$i]);
+
+            $t6detalle->fecha_t6 = $request['fecha_t6'][$i];
+            $t6detalle->nombre_quien_reporta = $request['nombre_quien_reporta'][$i];
+            $t6detalle->area_proyecto = $request['area_proyecto'][$i];
+            $t6detalle->descripcion_solicitud = $request['descripcion_solicitud'][$i];
+            $t6detalle->fuente_accion = $request['fuente_accion'][$i];
+            $t6detalle->tipo = $request['tipo'][$i];
+            $t6detalle->prioridad_intervencion = $request['prioridad_intervencion'][$i];
+            $t6detalle->acciones_desarrolladas = $request['acciones_desarrolladas'][$i];
+            $t6detalle->ap = $request['ap'][$i];
+            $t6detalle->ac = $request['ac'][$i];
+            $t6detalle->om = $request['om'][$i];
+            $t6detalle->1a = $request['1a'][$i];
+            $t6detalle->c = $request['c'][$i];
+            $t6detalle->responsable_cierre = $request['responsable_cierre'][$i];
+            $t6detalle->fecha_compromiso_cierre = $request['fecha_compromiso_cierre'][$i];
+            $t6detalle->fecha_cierre = $request['fecha_cierre'][$i];
+            $t6detalle->oportuno = $request['oportuno'][$i];
+            $t6detalle->eficaz = $request['eficaz'][$i];
+            $t6detalle->evidencia = $request['evidencia'][$i];
+                
+            
+        }
+
+        return redirect()->back()->with('flash_message', 'Se ha editado el registro exitosamente');
+    }
 }

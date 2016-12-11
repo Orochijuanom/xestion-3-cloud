@@ -33,4 +33,4 @@ class cargoController extends Controller
         return redirect()->back()->with('flash_message', 'Se ha editado el registro exitosamente');   
     }
 }
-
+ 

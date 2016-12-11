@@ -156,7 +156,7 @@
 		<td align="center" valign=bottom><b><font face="Arial" color="#000000"><br></font></b></td>
 	</tr>
 
-	@for($i=0; $i<=10; $i++)
+	@for($i=0; $i<=5; $i++)
 	<tr>
 		<td height="19" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" color="#000000">
 		<br></font></td>

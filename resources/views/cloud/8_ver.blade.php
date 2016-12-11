@@ -35,7 +35,7 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="/cloud/form/8/{{$t8->id}}">
+<form method="POST" action="/cloud/form/8/ver">
 {{ csrf_field() }}
 {{ method_field('PUT') }}
 <table cellspacing="0" border="0">
@@ -82,7 +82,10 @@
 		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 align="left" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$t8->empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 rowspan=2 align="center" valign=middle><b><font face="Arial" size=3>{{$t8->empresa->nombre_empresa}}<input type="hidden" value="{{$t8->id}}" name="empresa_id" /></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 rowspan=2 align="center" valign=middle><b><font face="Arial" size=3>{{$t8->empresa->nombre_empresa}}
+		<input type="hidden" value="{{$t8->empresa->id}}" name="empresa_id" />
+		<input type="hidden" value="{{$t8->id}}" name="id" /></font></b></td>
+
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">3.1 Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t8->codigo}}"></font></b></td>
 		<td align="left"><font face="Arial" color="#000000"><br></font></td>
 		<td align="left"><font face="Arial" color="#000000"><br></font></td>
@@ -215,6 +218,7 @@
 	</tr>
 	@foreach($t8->t8Detalles as $t8Detalle)
 	<tr>
+		<input type="hidden" value="{{$t8Detalle->id}}" name="t8detalle[]" />
 		<td height="39" align="left" valign=middle ><font face="Arial" color="#000000"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle  sdval="1" sdnum="1033;"><b><font face="Arial" color="#000000">{{$t8Detalle->id}}</font></b></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000">

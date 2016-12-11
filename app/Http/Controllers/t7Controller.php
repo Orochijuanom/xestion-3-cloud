@@ -51,4 +51,30 @@ class t7Controller extends Controller
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
         
     }
+
+    public function edit(Request $request)
+    {
+        //Creamos la empresa
+        $t7 = T7::find($request['id']);           
+        $t7->codigo = $request['codigo'];
+        $t7->version = $request['version'];
+        $t7->fecha = $request['fecha'];
+        $t7->save();
+        
+        
+        //Registramos el detalle de la actualizacion        
+        
+        for ($i=0; $i < 9; $i++){                                
+            $t7detalle = T7Detalle::find($request['t7detalle'][$i]);
+            $t7detalle->comite =  $request['comite'][$i];
+            $t7detalle->sede_proyecto = $request['sede_proyecto'][$i];
+            $t7detalle->fecha_reunion_comite = $request['fecha_reunion_comite'][$i];
+            $t7detalle->abiertos = $request['abiertos'][$i];
+            $t7detalle->cerrados = $request['cerrados'][$i];
+            $t7detalle->fecha_prox_reunion = $request['fecha_prox_reunion'][$i];
+            $t7detalle->evidencia_reunion = $request['evidencia_reunion'][$i];
+            $t7detalle->save();                                   
+        }
+        return redirect()->back()->with('flash_message', 'Se ha editado el registro exitosamente');                          
+    }         
 }

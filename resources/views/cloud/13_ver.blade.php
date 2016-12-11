@@ -10,6 +10,8 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="#">t13</a>
+<br/><br/><br/>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
@@ -27,7 +29,7 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="{{ url('/cloud/form/13') }}">
+<form method="POST" action="{{ url('/cloud/form/13/ver/') }}">
 {{ csrf_field() }}
 
 <table cellspacing="0" border="0">
@@ -46,7 +48,9 @@
 	</tr>
 	<tr>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="center" valign=middle bgcolor="#50b308"><b><font color="#000000">EMPRESA</font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=bottom bgcolor="#50b308"><font color="#000000">{{$t13->empresa->nombre_empresa}}<input type="hidden" name="empresa_id" value="{{$t13->empresa->id}}"></font></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=bottom bgcolor="#50b308"><font color="#000000">{{$t13->empresa->nombre_empresa}}
+		<input type="hidden" name="empresa_id" value="{{$t13->empresa->id}}">
+		<input type="hidden" name="id" value="{{$t13->id}}"></font></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
 	</tr>
@@ -357,8 +361,6 @@
 	</tr>
 </table>
 <div class="sign-up"><input type="submit" value="Guardar"/></div>
-<div class="sign-up"><input type="submit" value="Editar"/></div>
-<div class="sign-up"><input type="submit" value="Eliminar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
 </form>

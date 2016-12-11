@@ -18,8 +18,27 @@
 </head>
 
 <body>
-<form method="POST" action="{{ url('/cloud/form/5') }}">
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
+	<ul>
+		@foreach ($errors->all() as $error)
+			<li>{{ $error }}</li>
+		@endforeach
+	</ul>
+</div>
+@endif
+
+@if (Session::get('flash_message'))
+<div class="alert alert-success">
+	{{Session::get('flash_message')}}
+	<br><br>            
+</div>
+@endif
+
+<form method="POST" action="{{ url('/cloud/form/5/ver') }}">
 {{ csrf_field() }}
+{{ method_field('PUT') }}
 
 <table cellspacing="0" border="0">
 	<colgroup width="54"></colgroup>
@@ -91,7 +110,10 @@
 		<td height="33" align="left"><br></td>
 		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="{{asset("images/C.png")}}" /><br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=26 rowspan=2 align="center" valign=middle><b>{{$t5->empresa->nombre_empresa}}<input type="hidden" value="{{$t5->empresa->id}}" name="empresa_id" /></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=26 rowspan=2 align="center" valign=middle><b>{{$t5->empresa->nombre_empresa}}
+		<input type="hidden" value="{{$t5->empresa->id}}" name="empresa_id" />
+		<input type="hidden" value="{{$t5->id}}" name="id" />
+		</b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="left" valign=middle><b>4. Código: <input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t5->codigo}}" /></b></td>
 		<td align="left" valign=top><b><br></b></td>
 		<td align="left" valign=top><b><br></b></td>
@@ -105,7 +127,7 @@
 	<tr>
 		<td height="33" align="left"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=26 align="center" valign=middle><b>MATRIZ DE ELEMENTOS DE PROTECCION PERSONAL</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="left" valign=middle sdnum="1033;1033;M/D/YYYY"><b>6. Fecha:<input class="codigo" placeholder="fecha" type="date" required name="fecha"></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="left" valign=middle sdnum="1033;1033;M/D/YYYY"><b>6. Fecha:<input class="codigo" placeholder="fecha" type="date" required name="fecha" value="{{$t5->fecha}}"></b></td>
 		<td align="left"><br></td>
 		<td align="left"><br></td>
 	</tr>
@@ -252,9 +274,10 @@
 	</tr>
 	@foreach($t5->T5Detalles as $detalle)
 	<tr>
+		<input type="hidden" value="{{$detalle->id}}" name="t5detalle_id[]" />
 		<td height="33" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><font color="#000000">
-			<select name="empleado[]">
+			<select name="empleado_id[]">
 				<option value="-1">Seleccione</option>
 				@foreach($empleados as $empleado)
 					<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}}</option>
@@ -320,10 +343,7 @@
 		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
 	</tr>
 </table>
-<div class="sign-up"><input type="submit" value="Nuevo"/></div>
 <div class="sign-up"><input type="submit" value="Guardar"/></div>
-<div class="sign-up"><input type="submit" value="Editar"/></div>
-<div class="sign-up"><input type="submit" value="Eliminar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()">
 </form> 

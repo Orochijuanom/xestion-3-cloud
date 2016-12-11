@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>

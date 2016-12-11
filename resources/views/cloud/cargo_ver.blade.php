@@ -11,6 +11,7 @@
 	
 </head>
 <body>
+	<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/tcargo/{{$cargo->id}}">Cargos</a> / <a href="#">Agregar cargo</a>
 	<div class="main-content">
 		<div class="form">
 			<div class="sap_tabs">	

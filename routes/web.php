@@ -124,7 +124,8 @@ Route::get('/cloud/form/2/{id}', function($id) {
     return view('cloud.2')->with(['empresa' => $empresa, 'empleados' => $empleados, 'cargos' => $cargos]);
 });
 
-Route::post('/cloud/form/2', 't2Controller@form2'); 
+
+
 
 Route::get('/cloud/form/2/ver/{id}', function($id) {
     $t2 = App\T2::where('id',  '=', $id)
@@ -138,6 +139,9 @@ Route::get('/cloud/form/2/ver/{id}', function($id) {
     $empleados = App\Empleados::where('empresa_id', '=', $t2->empresa->id)->get();                
     return view('cloud.2_ver')->with(['t2' => $t2, 'empleados' => $empleados]);
 });
+
+Route::put('/cloud/form/2/ver/', 't2Controller@edit');
+Route::post('/cloud/form/2', 't2Controller@form2'); 
 /** END FORM 2 **/
 
 
@@ -168,6 +172,7 @@ Route::get('/cloud/form/2/ver/{id}', function($id) {
     });
 
     Route::post('/cloud/form/3', 't3Controller@form3');
+    Route::put('/cloud/form/3/ver', 't3Controller@edit');
 /** END FORM 3 **/
 
 /** FORMULARIO 4 **/
@@ -209,7 +214,8 @@ Route::get('/cloud/form/5/{id}', function($id) {
         ->with('empresa',$empresa);
 });
 
-Route::post('/cloud/form/5', 't5Controller@form5'); 
+Route::post('/cloud/form/5', 't5Controller@form5');
+Route::put('/cloud/form/5/ver', 't5Controller@edit'); 
 /** END FORM 5 **/
 
 /** FORMULARIO 6 **/
@@ -236,6 +242,8 @@ Route::get('/cloud/form/6/ver/{id}', function($id) {
     $empleados = App\Empleados::where('empresa_id', '=', $t6->empresa->id)->get();
     return view('cloud.6_ver')->with(['t6' => $t6, 'empleados' => $empleados]);
 });
+
+Route::put('/cloud/form/6/ver', 't6Controller@edit'); 
 /** END FORM 6 **/
 
 /** FORMULARIO 7 **/
@@ -261,6 +269,7 @@ Route::get('/cloud/form/7/{id}', function($id) {
 });
 
 Route::post('/cloud/form/7', 't7Controller@form7');
+Route::put('/cloud/form/7/ver', 't7Controller@edit');
 /** END FORM 7 **/
 
 /** FORMULARIO 8 **/
@@ -287,6 +296,8 @@ Route::get('/cloud/form/8/ver/{id}', function($id) {
     $empleados = App\Empleados::where('empresa_id', '=', $t8->empresa->id)->get();
     return view('cloud.8_ver')->with(['t8' => $t8, 'empleados' => $empleados]);
 });
+
+Route::put('/cloud/form/8/ver', 't8Controller@edit');
 /** END FORM 8 **/
 
 /** FORMULARIO 9 **/
@@ -307,6 +318,7 @@ Route::get('/cloud/form/9/{id}', function($id) {
 });
 
 Route::post('/cloud/form/9', 't9Controller@form9'); 
+Route::put('/cloud/form/9/ver', 't9Controller@edit');
 /** END FORM 9 **/
 
 /** FORMULARIO 10 **/
@@ -439,7 +451,8 @@ Route::get('/cloud/form/12-1/ver/{id}', function($id) {
         return view('cloud.13')->with(['empresa' => $empresa, 'cargos' => $cargos]);
     });
 
-Route::post('/cloud/form/13', 'EmpleadosController@crearempleado'); 
+    Route::post('/cloud/form/13/ver/', 'EmpleadosController@edit');
+    Route::post('/cloud/form/13', 'EmpleadosController@crearempleado'); 
 /** END FORM 13 **/
 
 

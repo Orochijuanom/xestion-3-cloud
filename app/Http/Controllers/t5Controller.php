@@ -55,4 +55,52 @@ class t5Controller extends Controller
         }
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
     }
+
+    public function edit(Request $request)
+    {
+        $t5 = T5::find($request['id']);
+
+        $t5->codigo = $request['codigo'];            
+        $t5->version = $request['version'];
+        $t5->fecha = $request['fecha'];
+        $t5->save();
+        
+
+        for ($i=0; $i < 9; $i++){
+            $t5detalle = T5Detalle::find($request['t5detalle_id'][$i]);                                 
+            
+            $t5detalle->empleado_id = $request['empleado_id'][$i];
+            $t5detalle->elemento_casco =  $request["elemento_casco"][$i];            
+            $t5detalle->casco_ciclista = $request['casco_ciclista'][$i]; 
+            $t5detalle->casco_motociclista = $request['casco_motociclista'][$i];                  
+            $t5detalle->casco_tipo2 = $request['casco_tipo2'][$i];
+            $t5detalle->chavito = $request['chavito'][$i];
+            $t5detalle->gafas_claras = $request['gafas_claras'][$i];
+            $t5detalle->gafas_oscuras = $request['gafas_oscuras'][$i];
+            $t5detalle->tapaoidos_de_insercion = $request['tapaoidos_de_insercion'][$i];
+            $t5detalle->tapaoidos_copa = $request['tapaoidos_copa'][$i];
+            $t5detalle->camisa = $request['camisa'][$i];
+            $t5detalle->pantalon = $request['pantalon'][$i];
+            $t5detalle->peto_de_caucho = $request['peto_de_caucho'][$i];
+            $t5detalle->peto_de_carnaza = $request['peto_de_carnaza'][$i];
+            $t5detalle->chaleco_reflectivo = $request['chaleco_reflectivo'][$i];
+            $t5detalle->kit_motociclista = $request['kit_motociclista'][$i];
+            $t5detalle->bota_de_seguridad = $request['bota_de_seguridad'][$i];
+            $t5detalle->bota_de_caucho = $request['bota_de_caucho'][$i];
+            $t5detalle->zapato_antideslizante = $request['zapato_antideslizante'][$i];
+            $t5detalle->mascarilla_desechable = $request['mascarilla_desechable'][$i];
+            $t5detalle->guantes_de_latex = $request['guantes_de_latex'][$i];
+            $t5detalle->guantes_de_nitrillo = $request['guantes_de_nitrillo'][$i];
+            $t5detalle->guantes_carnaza = $request['guantes_carnaza'][$i];
+            $t5detalle->guantes_neopreno = $request['guantes_neopreno'][$i];
+            $t5detalle->guantes_vaquetas = $request['guantes_vaquetas'][$i];
+            $t5detalle->impermeable = $request['impermeable'][$i];
+            $t5detalle->arnes_seguridad = $request['arnes_seguridad'][$i];
+            $t5detalle->eslinga = $request['eslinga'][$i];
+            $t5detalle->otros_elementos = $request['otros_elementos'][$i];
+            $t5detalle->save();    
+                                     
+        }
+        return redirect()->back()->with('flash_message', 'Se ha editado el registro exitosamente');
+    }
 }

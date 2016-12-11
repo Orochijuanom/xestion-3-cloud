@@ -18,9 +18,27 @@
 </head>
 
 <body>
-<form method="POST" action="{{ url('/cloud/form/3') }}">
-{{ csrf_field() }}
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
+	<ul>
+		@foreach ($errors->all() as $error)
+			<li>{{ $error }}</li>
+		@endforeach
+	</ul>
+</div>
+@endif
 
+@if (Session::get('flash_message'))
+<div class="alert alert-success">
+	{{Session::get('flash_message')}}
+	<br><br>            
+</div>
+@endif
+
+<form method="POST" action="{{ url('/cloud/form/3/ver') }}">
+{{ csrf_field() }}
+{{ method_field('PUT') }}
 <table align="left" cellspacing="0" border="0">
 	<colgroup width="215"></colgroup>
 	<colgroup width="137"></colgroup>
@@ -36,7 +54,10 @@
 		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 height="61" align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial"><img style="width:200px; heigth:200px;" src="/images/{{$t3->empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" size=3><b>{{$t3->empresa->nombre_empresa}} <input type="hidden" value="{{$t3->empresa->id}}" name="empresa_id" /></b></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" size=3><b>{{$t3->empresa->nombre_empresa}} 
+		<input type="hidden" value="{{$t3->empresa->id}}" name="empresa_id" />
+		<input type="hidden" value="{{$t3->id}}" name="id" />
+		</b></font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t3->codigo}}"/>  </font></b></td>
 	</tr>
 	<tr>
@@ -94,6 +115,7 @@
 	</tr>
 	@foreach($t3->detalles as $t3)
 	<tr>
+		<input type="hidden" name="t3Detalle[]" value="{{$t3->id}}" />
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="norma[]">{{$t3->norma}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="numero_norma[]">{{$t3->numero_norma}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="fecha_publicacion[]">{{$t3->fecha_publicacion}}</textarea><br></font></td>
@@ -102,13 +124,13 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="descripcion_obligacion[]">{{$t3->descripcion_obligacion}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="palabra_clave[]">{{$t3->palabra_clave}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font face="Tahoma" size=6 color="#FF0000">
-		<select id="aplica_{{$i}}" style="background:green;" name="aplica[]" onchange="cambiar_color(this.id)">
+		<select id="aplica_{{$t3->id}}" style="background:green;" name="aplica[]" onchange="cambiar_color(this.id)">
 			<option value="1">1</option>
 			<option value="0">0</option>
 		</select>
 		</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font face="Arial" size=6 color="#7C7C7C">
-		<select id="cumple_{{$i}}" name="cumple[]" style="background:green;" onchange="cambiar_color(this.id)">
+		<select id="cumple_{{$t3->id}}" name="cumple[]" style="background:green;" onchange="cambiar_color(this.id)">
 			<option value="1">1</option>
 			<option value="0">0</option>
 		</select>
