@@ -16,7 +16,10 @@ class CreateT11Grafico extends Migration
         Schema::create('t11_grafico', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('t11_detalle_id')->unsigned();
-            $table->string('valor');
+            $table->string('valor1');
+            $table->string('valor2');
+            $table->string('analisis');
+            $table->string('acciones_mejora');
 
             $table->foreign('t11_detalle_id')
                   ->references('id')->on('t11_detalle')
