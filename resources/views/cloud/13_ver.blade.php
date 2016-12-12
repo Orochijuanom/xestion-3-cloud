@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<a href="/cloud/form/l1">Inicio</a> / <a href="#">t13</a>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t13/{{$t13->empresa->id}}">t13</a> / <a href="#">Ver Editar</a>
 <br/><br/><br/>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
@@ -146,7 +146,11 @@
 		
 			<select id="cargo" class="form-control" name="cargo">
 				@foreach ($cargos as $cargo)
-					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
+					@if ($cargo->id == $t13->cargo):
+						<option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
+					@else:
+						<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
+					@endif
 				@endforeach
 			</select>
 		<font color="#000000"><br></font></b>

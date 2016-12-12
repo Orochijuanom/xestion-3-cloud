@@ -18,6 +18,9 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t1/{{$t3->empresa->id}}">t3</a> / <a href="#">Ver editar t3</a>
+<br/><br/><br/>
+
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
@@ -89,8 +92,8 @@
 		<br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" size=3>
 		<select id="cargo" class="form-control" name="revisado_por">
-			@foreach ($empleados as $empleado)
-				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+			@foreach ($empleados as $empleado)				
+				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>					
 			@endforeach
 		</select>
 		<br></font></b></td>

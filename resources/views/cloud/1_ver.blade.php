@@ -17,7 +17,8 @@
 </head>
 
 <body>
-
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t1/{{$t1->empresa->id}}">t1</a> / <a href="#">Ver editar t1</a>
+<br/><br/><br/>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
@@ -35,9 +36,9 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="{{ url('/cloud/form/1') }}">
+<form method="POST" action="{{ url('/cloud/form/1/ver') }}">
 {{ csrf_field() }}
-
+{{ method_field('PUT') }}
 <table cellspacing="0" border="0">
 	<colgroup width="217"></colgroup>
 	<colgroup width="85"></colgroup>
@@ -54,7 +55,9 @@
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="94" align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$t1->empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 rowspan=2 align="center" valign=middle><b>{{$t1->empresa->nombre_empresa}}<input type="hidden" value="{{$t1->empresa->id}}" name="empresa_id" /></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 rowspan=2 align="center" valign=middle><b>{{$t1->empresa->nombre_empresa}}
+		<input type="hidden" value="{{$t1->empresa->id}}" name="empresa_id" /></b></td>
+		<input type="hidden" value="{{$t1->id}}" name="id" />
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b> Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t1->codigo}}" ></b></td>
 	</tr>
 	<tr>
@@ -81,6 +84,7 @@
 	</tr>
 	@foreach($t1->T1Detalles as $detalle)
 	<tr>
+		<input type="hidden" value="{{$t1->id}}" name="t1detalle[]" />
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]">{{$detalle->politica_sistema_gestion}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]">{{$detalle->area}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="objetivo[]">{{$detalle->objetivo}}</textarea><br></font></td>

@@ -86,4 +86,31 @@ class t11Controller extends Controller
         
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
     }
+
+    public function edit(Request $request)
+    {
+         $t11 = T11::find($request['id']);
+
+         $t11->codigo = $request['codigo'];
+         $t11->version = $request['version'];
+         $t11->fecha = $request['fecha'];         
+         $t11->save();    
+        
+                 
+        $t11detalle = T11Detalle::find($request['t11detalle']);
+
+        $t11detalle->fecha_creacion_indicador = $request['fecha_creacion_indicador'];
+        $t11detalle->ficha_numero = $request['ficha_numero'];
+        $t11detalle->nombre_indicador = $request['nombre_indicador'];
+        $t11detalle->definicion_indicador = $request['definicion_indicador'];
+        $t11detalle->meta = $request['meta'];
+        $t11detalle->tipo_indicador = $request['tipo_indicador'];
+        $t11detalle->metodo_calculo = $request['metodo_calculo'];
+        $t11detalle->fuente_datos_calculo = $request['fuente_datos_calculo'];
+        $t11detalle->interpretacion = $request['interpretacion'];
+        $t11detalle->responsable_calculo_seguimiento = $request['responsable_calculo_seguimiento'];            
+        $t11detalle->save();           
+
+        return redirect()->back()->with('flash_message', 'Se ha editado el registro exitosamente');
+    }
 }

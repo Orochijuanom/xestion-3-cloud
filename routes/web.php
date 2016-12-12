@@ -105,7 +105,7 @@ Route::get('/cloud/form/l1', function() {
     });
     //Ruta post que guarda la información
     Route::post('/cloud/form/1', 't1Controller@form1'); 
-    
+    Route::put('/cloud/form/1/ver/', 't1Controller@edit');
 
 /** END FORM 1 **/
 
@@ -317,6 +317,16 @@ Route::get('/cloud/form/9/{id}', function($id) {
                             ->with('cargos',$cargos);
 });
 
+Route::get('/cloud/form/9/ver/{id}', function($id) {
+    $t9 = App\T9::where('id',  '=', $id)
+                    ->with('empresa')
+                    ->with('detalles')
+                    ->first();
+    $cargos = App\Cargo::where('empresa_id', '=', $t9->empresa->id)->get();
+    return view('cloud.9_ver')->with(['t9' => $t9, 'cargos' => $cargos]);
+});
+
+
 Route::post('/cloud/form/9', 't9Controller@form9'); 
 Route::put('/cloud/form/9/ver', 't9Controller@edit');
 /** END FORM 9 **/
@@ -345,7 +355,7 @@ Route::get('/cloud/form/10/ver/{id}', function($id) {
     $empleados = App\Empleados::where('empresa_id', '=', $t10->empresa->id)->get();
     return view('cloud.10_ver')->with(['t10' => $t10, 'empleados' => $empleados]);
 });
-
+Route::put('/cloud/form/10/ver', 't10Controller@edit');
 /** END FORM 10 **/
 
 /** FORMULARIO 11 **/
@@ -371,6 +381,7 @@ Route::get('/cloud/form/11/{id}', function($id) {
 });
 
 Route::post('/cloud/form/11', 't11Controller@form11'); 
+Route::put('/cloud/form/11/ver', 't11Controller@edit');
 /** END FORM 11 **/
 
 /** FORMULARIO 12 **/
@@ -388,6 +399,7 @@ Route::get('/cloud/form/12/{id}', function($id) {
 });
 
 Route::post('/cloud/form/12', 't12Controller@form12'); 
+Route::put('/cloud/form/12/ver', 't12Controller@edit');
 
 Route::get('/cloud/form/12/ver/{id}', function($id) {
     $t12 = App\T12::where('id',  '=', $id)

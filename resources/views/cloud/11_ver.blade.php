@@ -38,7 +38,7 @@
 </div>
 @endif
 
-<form method="POST" action="/cloud/form/11/{{$t11->id}}">
+<form method="POST" action="/cloud/form/11/ver">
 {{ csrf_field() }}
 {{ method_field('PUT') }}
 <table align="left" cellspacing="0" border="0">
@@ -54,7 +54,11 @@
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="84" align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial"><img style="width:200px; heigth:200px;" src="/images/{{$t11->empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">{{$t11->empresa->nombre_empresa}}<input type="hidden" value="{{$t11->empresa->id}}" name="empresa_id" /></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">{{$t11->empresa->nombre_empresa}}
+		<input type="hidden" value="{{$t11->empresa->id}}" name="empresa_id" />
+		<input type="hidden" value="{{$t11->id}}" name="id" />
+		<input type="hidden" value="{{$t11->T11Detalle[0]->id}}" name="t11detalle" />
+		</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t11->codigo}}"></font></b></td>
 		</tr>
 	<tr>
@@ -90,6 +94,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=7 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial">
 		<select name="responsable_calculo_seguimiento">
 			<option value="-1">Seleccione</option>
+
 			@foreach($t11->empresa->empleados as $empleado)			
 				@if ($t11->T11Detalle[0]->responsable_calculo_seguimiento == $empleado->id)
 				
@@ -99,6 +104,7 @@
 					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
 
 				@endif
+
 			@endforeach
 		</select>
 		<br></font></td>

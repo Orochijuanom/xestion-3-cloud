@@ -61,4 +61,32 @@ class t1Controller extends Controller
         }
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
     }
+
+    public function edit(Request $request)
+    {
+        $t1 = T1::find($request['id']);
+
+        $t1->codigo = $request['codigo'];           
+        $t1->version = $request['version'];
+        $t1->fecha = $request['fecha'];
+        $t1->save();
+        
+
+
+        for ($i=0; $i <= 4; $i++){                                            
+            $t1detalle = T1Detalle::find($request['t1detalle'][$i]);
+            $t1detalle->politica_sistema_gestion =  $request["politica_sistema_gestion"][$i];            
+            $t1detalle->area = $request['area'][$i]; 
+            $t1detalle->objetivo = $request['objetivo'][$i];                  
+            $t1detalle->nombre_indicador = $request['nombre_indicador'][$i]; 
+            $t1detalle->unidad_medida = $request['unidad_medida'][$i];
+            $t1detalle->frecuencia_analisis = $request['frecuencia_analisis'][$i];
+            $t1detalle->metodo_calculo = $request['metodo_calculo'][$i];
+            $t1detalle->meta = $request['meta'][$i];
+            $t1detalle->numero_indicador = $request['numero_indicador'][$i];
+            $t1detalle->responsable = $request['responsable'][$i];
+            $t1detalle->save();             
+        }
+        return redirect()->back()->with('flash_message', 'Se ha editado el registro exitosamente');
+    }
 }

@@ -17,6 +17,9 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t10/{{$t10->empresa->id}}">t8</a> / <a href="#">Ver editar t10</a>
+<br/><br/><br/>
+
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
@@ -34,7 +37,7 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="/cloud/form/10/{{$t10->id}}">
+<form method="POST" action="/cloud/form/10/ver">
 {{ csrf_field() }}
 {{ method_field('PUT') }}
 <table cellspacing="0" border="0">
@@ -59,7 +62,9 @@
 		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="94" align="center" valign=middle><font face="Arial" size=3><img style="width:200px; heigth:200px;" src="/images/{{$t10->empresa->logo}}" /></font>
         <br />
         <output id="list"></output></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=14 align="center" valign=middle><b><font face="Arial" size=3 color="#000000">{{$t10->empresa->nombre_empresa}}<input type="hidden" value="{{$t10->id}}" name="empresa_id" /></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=14 align="center" valign=middle><b><font face="Arial" size=3 color="#000000">{{$t10->empresa->nombre_empresa}}
+		<input type="hidden" value="{{$t10->empresa->id}}" name="empresa_id" />
+		<input type="hidden" value="{{$t10->id}}" name="id" /></font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b><font face="Arial" size=3>Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t10->codigo}}"></font></b></td>
 	</tr>
 	<tr>
@@ -102,6 +107,7 @@
 	
 	@foreach($t10->t10Detalles as $t10Detalle)
 	<tr>
+		<input type="hidden" value="{{$t10Detalle->id}}" name="t10detalle[]" />
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="proceso[]">{{$t10Detalle->proceso}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="tipo_documento[]">{{$t10Detalle->tipo_documento}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="codigo_documento[]">{{$t10Detalle->codigo_documento}}</textarea><br></font></td>
@@ -184,30 +190,4 @@
 pagina" onclick="window.print()"> 
 </form>
 <!-- ************************************************************************** -->
- <script>
-              function archivo(evt) {
-                  var files = evt.target.files; // FileList object
-             
-                  // Obtenemos la imagen del campo "file".
-                  for (var i = 0, f; f = files[i]; i++) {
-                    //Solo admitimos imágenes.
-                    if (!f.type.match('image.*')) {
-                        continue;
-                    }
-             
-                    var reader = new FileReader();
-             
-                    reader.onload = (function(theFile) {
-                        return function(e) {
-                          // Insertamos la imagen
-                         document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
-                        };
-                    })(f);
-             
-                    reader.readAsDataURL(f);
-                  }
-              }
-             
-              document.getElementById('files').addEventListener('change', archivo, false);
-      </script>
 </body>

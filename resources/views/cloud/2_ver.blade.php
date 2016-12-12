@@ -16,6 +16,8 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t2/{{$t2->empresa->id}}">t2</a> / <a href="#">Ver editar t2</a>
+<br/><br/><br/>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
@@ -122,7 +124,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=6 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;0%"><b><font face="Arial" size=2>Motivo del ajuste presupuestal</font></b></td>
 	</tr>
 	@foreach($t2->t2Notas as $t2Nota)
-	<tr>
+	<tr>		
 		<input type="hidden" name="t2nota[]" value="{{$t2Nota->id}}" />
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_nota[]" value="{{$t2Nota->fecha_nota}}"><br></font></b></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><textarea class="campo" placeholder=""  name="cargo[]">{{$t2Nota->cargo}}</textarea><br></font></b></td>
@@ -174,13 +176,10 @@
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>
 		<select class="form-control" name="responsable_revision_presupuesto_segundo_semestre">
 			@foreach ($empleados as $empleado)
-				@if ($t2->responsable_revision_presupuesto_segundo_s->id == $empleado->id)
-				
+				@if ($t2->responsable_revision_presupuesto_segundo_s->id == $empleado->id)				
 					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
 				@else
-
 					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
-
 				@endif
 			@endforeach
 		</select>

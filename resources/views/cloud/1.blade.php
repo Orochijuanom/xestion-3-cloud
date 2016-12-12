@@ -17,6 +17,8 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t1/{{$empresa->id}}">t1</a> / <a href="#">Agregar t1</a>
+<br/><br/><br/>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
@@ -34,9 +36,8 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="{{ url('/cloud/form/1') }}">
+<form method="POST" action="{{ url('/cloud/form/1/ver') }}">
 {{ csrf_field() }}
-
 <table cellspacing="0" border="0">
 	<colgroup width="217"></colgroup>
 	<colgroup width="85"></colgroup>
@@ -53,7 +54,10 @@
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="94" align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 rowspan=2 align="center" valign=middle><b>{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 rowspan=2 align="center" valign=middle><b>{{$empresa->nombre_empresa}}
+		<input type="hidden" value="{{$empresa->id}}" name="empresa_id" />
+		
+		</b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b> Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" ></b></td>
 	</tr>
 	<tr>
@@ -61,7 +65,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 align="center" valign=middle><b>OBJETIVOS DEL SISTEMA DE GESTION  </b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b>Fecha:<input class="codigo" placeholder="fecha" type="date" required name="fecha"></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b>Fecha:<input class="codigo" placeholder="fecha" type="date" required name="fecha" value="{{$t1->fecha}}"></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=11 height="26" align="center" valign=middle bgcolor="#50b308"><b><font size=3><br></font></b></td>
