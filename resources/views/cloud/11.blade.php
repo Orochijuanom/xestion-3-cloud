@@ -141,7 +141,9 @@
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=15 height="291" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial"><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=15 align="center" valign=middle><b><font face="Arial"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=15 align="center" valign=middle><div id="espgrafico" style="width:730; height:250;"></div>
+
+</td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" rowspan=15 align="center" valign=middle bgcolor="#50b308"><font face="Arial"><br></font></td>
 	</tr>
 	<tr>
@@ -175,13 +177,38 @@
 	
 
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=10 height="28" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial"><button type="button" class="btn btn-success btn-block btn-lg" id="modalbtn" data-toggle="modal" data-target="#modal1-1">RESULTADOS</button></font></b></td>
-	</tr>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=10 height="28" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial"><button type="button" class="btn btn-success btn-block btn-lg" id="modalbtn" data-toggle="modal" data-target="#modal1">RESULTADOS</button></font></b></td>
 	
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="46" align="justify" valign=middle><b><font face="Arial">7. Personas que deben conocer el indicador</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=8 align="left" valign=middle><font color="#000000">Gerencia General, Responsable del SG-SST y Vigía de Seguridad y Salud en el Trabajo</font></td>
-		</tr>
 </table>
+<!-- Modal 1 -->
+<div class="modal fade" id="modal1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 class="modal-title">Resultados</h3>
+			</div>
+			<div class="modal-body">
+				<table align="left" cellspacing="0" border="0">
+					<tr>
+						
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Resultado %</font></td>
+					</tr>
+					<tr>
+						
+						<td id="calculo1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;">0</td>
+						
+					
+				</table>
+			</div>
+			<br>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default " onclick="graficar()"data-dismiss="modal">Close</button>
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!-- Modal 2-1 -->
 <div class="modal fade" id="modal2-1">
@@ -203,18 +230,18 @@
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">Anual</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[2][1][]"></textarea></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[2][1][]"></textarea><br></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][1][]"></textarea><br></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[2][1][0]"></textarea><br></font></td>
+						<td id="calculo2_1_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_2_1_1" onchange="calculo('2_1_1')" name="valor1[2][1][]"></textarea></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_1_1" onchange="calculo('2_1_1')" name="valor2[2][1][]"></textarea><br></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" name="analisis[2][1][]"></textarea><br></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[2][1][]"></textarea><br></font></td>
 					</tr>
 					
 				</table>
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default" onclick="graficar()" data-dismiss="modal">Close</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -241,17 +268,17 @@
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">1er Semestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[2][2][]"></textarea></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[2][2][]"></textarea><br></font></td>
+						<td id="calculo2_2_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder=""  id="valor1_2_2_1" onchange="calculo('2_2_1')" name="valor1[2][2][]"></textarea></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_2_1" onchange="calculo('2_2_1')" name="valor2[2][2][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][2][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[2][2][]"></textarea><br></font></td>
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">2do Semestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[2][2][]"></textarea><br></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[2][2][]"></textarea><br></font></td>
+						<td id="calculo2_2_2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  id="valor1_2_2_2" onchange="calculo('2_2_2')" name="valor1[2][2][]"></textarea><br></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_2_2" onchange="calculo('2_2_2')" name="valor2[2][2][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][2][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[2][2][]"></textarea><br></font></td>
 					</tr>
@@ -259,7 +286,7 @@
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Close</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -286,33 +313,33 @@
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">1er Trimestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[2][4][]"></textarea></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[2][4][]"></textarea><br></font></td>
+						<td id="calculo2_4_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_2_4_1" onchange="calculo('2_4_1')" name="valor1[2][4][]"></textarea></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_4_1" onchange="calculo('2_4_1')" name="valor2[2][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[2][4][]"></textarea><br></font></td>
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">2do Trimestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[2][4][]"></textarea><br></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[2][4][]"></textarea><br></font></td>
+						<td id="calculo2_4_2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_2_4_2" onchange="calculo('2_4_2')" name="valor1[2][4][]"></textarea><br></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_4_2" onchange="calculo('2_4_2')" name="valor2[2][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[2][4][]"></textarea><br></font></td>
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">3er Trimestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[2][4][]"></textarea></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[2][4][]"></textarea><br></font></td>
+						<td id="calculo2_4_3" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_2_4_3" onchange="calculo('2_4_3')" name="valor1[2][4][]"></textarea></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_4_3" onchange="calculo('2_4_3')" name="valor2[2][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[2][4][]"></textarea><br></font></td>
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">4to Trimestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[2][4][]"></textarea><br></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[2][4][]"></textarea><br></font></td>
+						<td id="calculo2_4_4" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_2_4_4" onchange="calculo('2_4_4')" name="valor1[2][4][]"></textarea><br></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_4_4" onchange="calculo('2_4_4')" name="valor2[2][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[2][4][]"></textarea><br></font></td>
 					</tr>
@@ -320,7 +347,7 @@
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Close</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -347,9 +374,9 @@
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">Anual</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[3][1][]"></textarea></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[3][1][]"></textarea><br></font></td>
+						<td id="calculo3_1_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_1_1" onchange="calculo('3_1_1')" name="valor1[3][1][]"></textarea></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_1_1" onchange="calculo('3_1_1')" name="valor2[3][1][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][1][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[3][1][]"></textarea><br></font></td>
 					</tr>
@@ -358,7 +385,7 @@
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Close</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -385,17 +412,17 @@
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">1er Semestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[3][2][]"></textarea></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[3][2][]"></textarea><br></font></td>
+						<td id="calculo3_2_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_2_1" onchange="calculo('3_2_1')" name="valor1[3][2][]"></textarea></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_2_1" onchange="calculo('3_2_1')" name="valor2[3][2][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][2][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[3][2][]"></textarea><br></font></td>
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">2do Semestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[3][2][]"></textarea><br></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[3][2][]"></textarea><br></font></td>
+						<td id="calculo3_2_2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_2_2" onchange="calculo('3_2_2')" name="valor1[3][2][]"></textarea><br></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_2_2" onchange="calculo('3_2_2')" name="valor2[3][2][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][2][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[3][2][]"></textarea><br></font></td>
 					</tr>
@@ -403,7 +430,7 @@
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Close</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -430,33 +457,33 @@
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">1er Trimestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[3][4][]"></textarea></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[3][4][]"></textarea><br></font></td>
+						<td id="calculo3_4_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_4_1" onchange="calculo('3_4_1')" name="valor1[3][4][]"></textarea></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_4_1" onchange="calculo('3_4_1')" name="valor2[3][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[3][4][]"></textarea><br></font></td>
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">2do Trimestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[3][4][]"></textarea><br></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[3][4][]"></textarea><br></font></td>
+						<td id="calculo3_4_2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_4_2" onchange="calculo('3_4_2')" name="valor1[3][4][]"></textarea><br></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_4_2" onchange="calculo('3_4_2')" name="valor2[3][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][4][]"></textarea><br></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones[3][4][]"></textarea><br></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[3][4][]"></textarea><br></font></td>
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">3er Trimestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[3][4][]"></textarea></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[3][4][]"></textarea><br></font></td>
+						<td id="calculo3_4_3" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_4_1" onchange="calculo('3_4_3')" name="valor1[3][4][]"></textarea></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_4_3" onchange="calculo('3_4_3')" name="valor2[3][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[3][4][]"></textarea><br></font></td>
 					</tr>
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">4to Trimestre</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial">#DIV/0!</font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor1[3][4][]"></textarea><br></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="valor2[3][4][]"></textarea><br></font></td>
+						<td id="calculo3_4_4" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_4_4" onchange="calculo('3_4_4')" name="valor1[3][4][]"></textarea><br></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_4_4" onchange="calculo('3_4_4')" name="valor2[3][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][4][]"></textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[3][4][]"></textarea><br></font></td>
 					</tr>
@@ -465,7 +492,7 @@
 			<br>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Close</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -475,6 +502,7 @@
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
 </form>
+
 <script>
 	function modal(){
 		var metodo = document.getElementById('metodo_calculo').value;
@@ -484,11 +512,11 @@ pagina" onclick="window.print()">
 		var target;
 		if(metodo == 1){
 			if(frecuencia == 1){
-				target = "1-1";
+				target = "1";
 			}else if(frecuencia == 2){
-				target = "1-2";
+				target = "1";
 			}else if(frecuencia == 4){
-				target = "1-4";
+				target = "1";
 			}
 		}else if(metodo == 2){
 			if(frecuencia == 1){
@@ -510,5 +538,177 @@ pagina" onclick="window.print()">
 
 		modalbtn.setAttribute('data-target', '#modal'+target);
 	}
+
+	function calculo(id){
+		console.log(document.getElementById("valor1_"+id));
+		var valor1 = document.getElementById("valor1_"+id).value;
+		var valor2 = document.getElementById("valor2_"+id).value;
+
+		var metodo = document.getElementById('metodo_calculo').value;
+
+		var resultado;
+		if(metodo == 2){
+			resultado = (valor1/valor2)*100;
+		}else{
+			resultado = (valor1/valor2)/100;
+		}
+
+		var celda = document.getElementById("calculo"+id);
+
+		celda.innerHTML = resultado;
+		console.log(id);
+	}
+</script>
+<script src="/js/Chart.js"></script>
+<script>
+function graficar(){
+
+	var metodo = document.getElementById("metodo_calculo").value;
+	var frecuencia = document.getElementById("frecuencia_medicion_reporte").value;
+	var data
+	if(metodo == 1){
+			if(frecuencia == 1){
+				
+				data = {
+					labels: ["Año"],
+					datasets: [
+					{
+						label: '# de Accidentes',
+						data: [0],
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+						],
+						borderWidth: 1
+					}
+					]
+					
+					};
+
+
+			}else if(frecuencia == 2){
+				
+				data = {
+					labels: ["Semestre 1", "Semestre 2"],
+					datasets: [
+					{
+						label: '# de Accidentes',
+						data: [0,0],
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+							'rgba(54, 162, 235, 0.2)',
+						],
+						borderWidth: 1
+					},
+					
+					]
+					
+					};
+
+			}else if(frecuencia == 4){
+				data = {
+					labels: ["Trimestre 1", "Trimestre 2", "Trimestre 3", "Trimestre 4"],
+					datasets: [
+					{
+						label: '# de Accidentes',
+						data: [0,0,0,0],
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+							'rgba(54, 162, 235, 0.2)',
+							'rgba(255, 206, 86, 0.2)',
+                			'rgba(75, 192, 192, 0.2)',
+						],
+						borderWidth: 1
+					},
+					
+					]
+					
+					};
+			}
+		}else{
+			
+				
+				
+				var valor1 = [];
+				var valor2 = [];
+				var calculo = [];
+				for (i = 1; i <= frecuencia; i++) { 
+					valor1.push(document.getElementById("valor1_"+metodo+"_"+frecuencia+"_"+i).value);
+					valor2.push(document.getElementById("valor2_"+metodo+"_"+frecuencia+"_"+i).value);
+					calculo.push(document.getElementById("calculo"+metodo+"_"+frecuencia+"_"+i).innerHTML);
+				}
+				
+				var labels;
+				if(frecuencia == 1){
+					labels = ["Año"];
+				}else if(frecuencia == 2){
+					labels = ["Semestre 1", "Semestre 2"];
+				}else{
+					labels = ["Trimestre 1", "Trimestre 2", "Trimestre 3", "Trimestre 4"];
+				}
+
+				var numerador;
+				var denominador;
+				if(metodo == 2){
+					numerador = '# Actividades Ejecutadas';
+					denominador = '# Actividades Programadas';
+				}else {
+					numerador = 'Puntaje Obtenido';
+					denominador = 'Puntaje Posible';
+				}
+
+				backgroundColor = ['rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)']
+
+				data = {
+					labels: labels,
+					datasets: [
+					{
+						label: numerador,
+						data: valor1,
+						backgroundColor: backgroundColor,
+						borderWidth: 1
+					},
+					{
+						label: denominador,
+						data: valor2,
+						backgroundColor: backgroundColor,
+						borderWidth: 1
+					},
+					{
+						label: '%',
+						data: calculo,
+						backgroundColor: backgroundColor,
+						borderWidth: 1
+					}
+					]
+					
+					};
+
+					console.log(valor1);
+			}
+		
+var td = document.getElementById("espgrafico");
+console.log(td);
+td.innerHTML = '<canvas id="grafica" width="400" height="150"></canvas>';
+var ctx = document.getElementById("grafica");
+console.log(ctx);
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+}
 </script>
 </body>
