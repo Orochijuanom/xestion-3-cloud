@@ -15,6 +15,8 @@ class CreateT4CharlasTable extends Migration
     {
         Schema::create('t4_charlas', function (Blueprint $table) {
             $table->increments('id');
+            
+            $table->integer('charlas_id')->unsigned();
             $table->foreign('charlas_id')
                   ->references('id')->on('charlas')
                   ->onUpdate('no action')

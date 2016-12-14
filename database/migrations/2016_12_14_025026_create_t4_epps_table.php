@@ -16,6 +16,7 @@ class CreateT4EppsTable extends Migration
         Schema::create('t4_epps', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->integer('epps_id')->unsigned();
             $table->foreign('epps_id')
                   ->references('id')->on('epps')
                   ->onUpdate('no action')

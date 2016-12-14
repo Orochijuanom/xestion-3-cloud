@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateT44DetalleCargoTable extends Migration
+class CreateT44CargoTable extends Migration
 {
     /**
      * Run the migrations.

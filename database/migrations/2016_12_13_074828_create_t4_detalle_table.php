@@ -35,7 +35,7 @@ class CreateT4DetalleTable extends Migration
             $table->string('eliminacion');
             $table->string('sustitucion');
             $table->string('control_ingenieria');
-            $table->string('señalizacion');
+            $table->string('senalizacion');
             $table->string('equipos');
             $table->string('controles_adicionales');
 
