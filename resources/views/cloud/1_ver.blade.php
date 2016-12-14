@@ -97,8 +97,13 @@
 		<font size=1>
 			<select id="cargo" class="form-control" name="numero_indicador[]">
 				@foreach ($t11s as $t11)
-					@foreach($t11->T11Detalle as $detalle)
-						<option value="{{$t11->id}}">{{$detalle->numero_indicador}} - {{$detalle->nombre_indicador}}</option>
+					@foreach($t11->T11Detalle as $detalle11)
+						@if($detalle->numero_indicador == $t11->id)
+							<option value="{{$t11->id}}" select>{{$detalle11->ficha_numero}} - {{$detalle11->nombre_indicador}}</option>
+						@else
+							<option value="{{$t11->id}}">{{$detalle11->ficha_numero}} - {{$detalle11->nombre_indicador}}</option>
+						@endif
+							
 					@endforeach	
 				@endforeach
 			</select>

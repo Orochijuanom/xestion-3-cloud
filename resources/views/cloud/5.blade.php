@@ -109,7 +109,7 @@
 	</tr>
 	<tr>
 		<td height="33" align="left"><br></td>
-		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="{{asset("images/C.png")}}" /><br />
+		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" /><br />
         <output id="list"></output></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=26 rowspan=2 align="center" valign=middle><b>{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="left" valign=middle><b>4. Código: <input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" /></b></td>
@@ -275,7 +275,6 @@
 		<td height="33" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><font color="#000000">
 			<select name="empleado_id[]">
-				<option value="-1">Seleccione</option>
 				@foreach($empresa->empleados as $empleado)
 					<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}}</option>
 				@endforeach

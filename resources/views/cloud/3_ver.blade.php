@@ -121,28 +121,36 @@
 		<input type="hidden" name="t3Detalle[]" value="{{$t3->id}}" />
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="norma[]">{{$t3->norma}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="numero_norma[]">{{$t3->numero_norma}}</textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="fecha_publicacion[]">{{$t3->fecha_publicacion}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><input class="campo" placeholder="fecha" type="date" required name="fecha_publicacion[]" value="{{$t3->fecha_publicacion}}"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="emisor[]">{{$t3->emisor}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="articulo[]">{{$t3->articulo}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="descripcion_obligacion[]">{{$t3->descripcion_obligacion}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="palabra_clave[]">{{$t3->palabra_clave}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font face="Tahoma" size=6 color="#FF0000">
 		<select id="aplica_{{$t3->id}}" style="background:green;" name="aplica[]" onchange="cambiar_color(this.id)">
-			<option value="1">1</option>
-			<option value="0">0</option>
+			<option value="1"@if($t3->aplica == 1) selected @endif>1</option>
+			<option value="0" @if($t3->aplica == 0) selected @endif>0</option>
 		</select>
 		</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font face="Arial" size=6 color="#7C7C7C">
 		<select id="cumple_{{$t3->id}}" name="cumple[]" style="background:green;" onchange="cambiar_color(this.id)">
-			<option value="1">1</option>
-			<option value="0">0</option>
+			<option value="1" @if($t3->aplica == 1) selected @endif>1</option>
+			<option value="0" @if($t3->aplica == 0) selected @endif>0</option>
 		</select>
 		</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="como_cumple[]">{{$t3->como_cumple}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font face="Arial">
 		<select id="cargo" class="form-control" name="responsable_cumplimiento[]">
 			@foreach ($empleados as $empleado)
-				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+			@if ($t3->responsable_cumplimiento == $empleado->id)
+				
+					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+				@else
+
+					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
+
+				@endif
+				
 			@endforeach
 		</select>
 		<br></font></td>

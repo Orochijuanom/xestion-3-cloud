@@ -36,7 +36,7 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="{{ url('/cloud/form/1/ver') }}">
+<form method="POST" action="/cloud/form/1">
 {{ csrf_field() }}
 <table cellspacing="0" border="0">
 	<colgroup width="217"></colgroup>
@@ -65,7 +65,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 align="center" valign=middle><b>OBJETIVOS DEL SISTEMA DE GESTION  </b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b>Fecha:<input class="codigo" placeholder="fecha" type="date" required name="fecha" value="{{$t1->fecha}}"></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b>Fecha:<input class="codigo" placeholder="fecha" type="date" required name="fecha" value=""></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=11 height="26" align="center" valign=middle bgcolor="#50b308"><b><font size=3><br></font></b></td>
@@ -97,7 +97,7 @@
 			<select id="cargo" class="form-control" name="numero_indicador[]">
 				@foreach ($t11s as $t11)
 					@foreach($t11->T11Detalle as $detalle)
-						<option value="{{$t11->id}}">{{$detalle->numero_indicador}} - {{$detalle->nombre_indicador}}</option>
+						<option value="{{$t11->id}}">{{$detalle->ficha_numero}} - {{$detalle->nombre_indicador}}</option>
 					@endforeach	
 				@endforeach
 			</select>

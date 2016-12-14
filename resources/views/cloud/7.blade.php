@@ -52,7 +52,7 @@
 	<colgroup width="269"></colgroup>
 	<tr>
 		<td height="33" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle><b><font face="Arial" size=3 color="#000000"><img style="width:200px; heigth:200px;" src="{{asset("images/C.png")}}" />
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle><b><font face="Arial" size=3 color="#000000"><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle><b><font face="Arial" size=3 color="#000000">{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></font></b></td>
@@ -95,10 +95,10 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
 
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="sede_proyecto[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_reunion_comite[]"></textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><input class="codigo" placeholder="fecha" type="date" required name="fecha_reunion_comite[]" value="{{ date('Y-m-d') }}"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="fecha_prox_reunion[]"></textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><input class="codigo" placeholder="fecha" type="date" required name="fecha_prox_reunion[]" value="{{ date('Y-m-d') }}"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
 	</tr>	
 	@endfor
