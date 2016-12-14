@@ -16,5 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RiesgoDescripcionTableSeeder::class);
         $this->call(EfectoTableSeeder::class);
         $this->call(DescripcionEfectoTableSeeder::class);
+        $this->call(CapacitacionesTableSeeder::class);
+        $this->call(CharlasTableSeeder::class);
+        $this->call(ZonasTableSeeder::class);
+        $this->call(EppsTableSeeder::class);
     }
 }
