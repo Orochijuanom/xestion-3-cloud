@@ -70,7 +70,7 @@
 	<colgroup width="85"></colgroup>
 	<tr>
 		<td height="21" align="left" valign=bottom><font color="#000000"><br></font></td>
-		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 align="left" valign=middle><b><font face="Arial"><img style="width:200px; heigth:200px;" src="{{asset("images/C.png")}}" />
+		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 align="left" valign=middle><b><font face="Arial"><img style="width:200px; heigth:200px;" src="/images/{{$t9->empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=24 rowspan=2 align="center" valign=middle><b><font face="Arial">{{$t9->empresa->nombre_empresa}}
