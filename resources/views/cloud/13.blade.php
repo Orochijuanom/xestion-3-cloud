@@ -37,6 +37,13 @@
 	<colgroup width="120"></colgroup>
 	<colgroup span="2" width="237"></colgroup>
 	<tr>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 height="84" align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial"><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" />
+        <br />
+        <output id="list"></output></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial"><input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></font></b></td>
+		
+		</tr>
+	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000" height="20" align="center" valign=bottom><font color="#000000"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000" align="center" valign=bottom><font color="#000000"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000" align="center" valign=bottom><font color="#000000"><br></font></td>

@@ -20,6 +20,9 @@
 </head>
 
 <body onload="modal(); graficar();">
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t11/{{$t11->empresa->id}}">t1</a> / <a href="#">Ver Editar t11</a>
+<br/><br/><br/>
+
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
@@ -58,6 +61,8 @@
 		<input type="hidden" value="{{$t11->empresa->id}}" name="empresa_id" />
 		<input type="hidden" value="{{$t11->id}}" name="id" />
 		<input type="hidden" value="{{$t11->T11Detalle[0]->id}}" name="t11detalle" />
+		<input type="hidden" value="{{$t11->T11Detalle[0]->T11Grafico[0]->id}}" name="t11grafico" />
+		
 		</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=middle bgcolor="#FFFFFF"><b><font face="Arial">Código:<input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t11->codigo}}"></font></b></td>
 		</tr>

@@ -20,6 +20,9 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t11/{{$empresa->id}}">t1</a> / <a href="#">Agregar t11</a>
+<br/><br/><br/>
+
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>

@@ -9,21 +9,7 @@ use App\T11Grafico;
 
 class t11Controller extends Controller
 {
-    public function form11(Request $request){
-        
-        /** $this->validate($request, [
-            'fecha_creacion_indicador' => 'required', 
-            'ficha_numero' => 'required',
-            'nombre_indicador' => 'required',
-            'definicion_indicador' => 'required',
-            'meta' => 'required',
-            'tipo_indicador' => 'required',
-            'metodo_calculo' => 'required',
-            'fuente_datos_calculo' => 'required',
-            'interpretacion' => 'required',
-            'responsable_calculo_seguimiento' => 'required',
-            'empresa_id' => 'required'
-        ]);**/
+    public function form11(Request $request){        
 
         $t11 = T11::create([
             'codigo' => $request['codigo'],
@@ -109,7 +95,43 @@ class t11Controller extends Controller
         $t11detalle->fuente_datos_calculo = $request['fuente_datos_calculo'];
         $t11detalle->interpretacion = $request['interpretacion'];
         $t11detalle->responsable_calculo_seguimiento = $request['responsable_calculo_seguimiento'];            
-        $t11detalle->save();           
+        $t11detalle->save();   
+
+        
+
+        for ($j=0; $j < 4; $j++) {
+                if(isset($request['valor1'][$t11detalle->metodo_calculo][$t11detalle->frecuencia_medicion_reporte][$j])){
+                    $valor1 = $request['valor1'][$t11detalle->metodo_calculo][$t11detalle->frecuencia_medicion_reporte][$j];
+                }else{
+                    $valor1 = "";
+                } 
+
+                if(isset($request['valor2'][$t11detalle->metodo_calculo][$t11detalle->frecuencia_medicion_reporte][$j])){
+                    $valor2 = $request['valor2'][$t11detalle->metodo_calculo][$t11detalle->frecuencia_medicion_reporte][$j];
+                }else{
+                    $valor2 = "";
+                }
+
+                if(isset($request['analisis'][$t11detalle->metodo_calculo][$t11detalle->frecuencia_medicion_reporte][$j])){
+                    $analisis = $request['analisis'][$t11detalle->metodo_calculo][$t11detalle->frecuencia_medicion_reporte][$j];
+                }else{
+                    $analisis = "";
+                }
+
+                if(isset($request['acciones_mejora'][$t11detalle->metodo_calculo][$t11detalle->frecuencia_medicion_reporte][$j])){
+                    $acciones_mejora = $request['acciones_mejora'][$t11detalle->metodo_calculo][$t11detalle->frecuencia_medicion_reporte][$j];
+                }else{
+                    $acciones_mejora = "";
+                }
+
+                $t11grafico = T11Grafico::find($request['t11grafico']);                
+                $t11grafico->valor1 = $valor1;
+                $t11grafico->valor2 = $valor2;
+                $t11grafico->analisis = $analisis;
+                $t11grafico->acciones_mejora = $acciones_mejora;
+                $t11grafico->save();
+            }
+                                
 
         return redirect()->back()->with('flash_message', 'Se ha editado el registro exitosamente');
     }
