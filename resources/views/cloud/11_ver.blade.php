@@ -575,7 +575,7 @@ pagina" onclick="window.print()">
 		console.log(id);
 	}
 </script>
-<script src="/js/Chart.js"></script>
+<script src="/js/chart.js"></script>
 <script>
 function graficar(){
 
