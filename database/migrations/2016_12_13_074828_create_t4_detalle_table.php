@@ -22,7 +22,6 @@ class CreateT4DetalleTable extends Migration
             $table->string('tarea');
             $table->string('rutinario');
             $table->string('actividad_propia_contratada');
-            $table->string('consecuencia_efectos_posibles');
             $table->string('fuente');
             $table->string('medio');
             $table->string('nivel_deficiencia');
@@ -46,7 +45,7 @@ class CreateT4DetalleTable extends Migration
 
             $table->integer('t4_id')->unsigned();
             $table->foreign('t4_id')
-                  ->references('id')->on('t9')
+                  ->references('id')->on('t4')
                   ->onUpdate('no action')
                   ->onDelete('restrict');
 

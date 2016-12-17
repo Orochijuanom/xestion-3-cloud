@@ -35,8 +35,9 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="{{ url('/cloud/form/4') }}">
+<form method="POST" action="/cloud/form/4/ver">
 {{ csrf_field() }}
+{{ method_field('PUT') }}
 <table cellspacing="0" border="0">
 	<colgroup width="46"></colgroup>
 	<colgroup width="96"></colgroup>
@@ -96,19 +97,19 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000" height="39" align="center" valign=middle><br></td>
-		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" /><br />
+		<td style="border-top: 3px double #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=3 align="center" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$t4->empresa->logo}}" /><br />
 			<output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 rowspan=2 align="center" valign=middle><b>{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 align="center" valign=middle><b>3.1  Codigo: <input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" ></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 rowspan=2 align="center" valign=middle><b>{{$t4->empresa->nombre_empresa}}<input type="hidden" value="{{$t4->empresa->id}}" name="empresa_id" /><input type="hidden" value="{{$t4->id}}" name="id" /></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 align="center" valign=middle><b>3.1  Codigo: <input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t4->codigo}}" ></b></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="24" align="center" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 align="center" valign=middle><b>3.2 Fecha: <input class="codigo" placeholder="fecha" type="date" required name="fecha" ></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 align="center" valign=middle><b>3.2 Fecha: <input class="codigo" placeholder="fecha" type="date" required name="fecha" value="{{$t4->fecha}}"  ></b></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="39" align="center" valign=middle><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 align="center" valign=middle><b>4. MATRIZ DE PELIGROS, EVALUACIÓN, VALORACIÓN DE RIESGOS Y DETERMINACIÓN DE CONTROLES </b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 align="center" valign=middle><b>3.3 Versión: <input class="codigo" placeholder="version" type="text" required name="version"></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 align="center" valign=middle><b>3.3 Versión: <input class="codigo" placeholder="version" type="text" required name="version" value="{{$t4->version}}" ></b></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="19" align="center" valign=middle><br></td>
@@ -124,14 +125,19 @@
 	<tr>
 		<td style="border-left: 1px solid #000000" height="22" align="center" valign=middle><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.1 Área / Proyecto:</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="area" ></textarea><br></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="area" >{{$t4->area}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.2 Procesos:</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="procesos" ></textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="procesos" >{{$t4->procesos}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.3 Cargos asociados a la actividad:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF">
 		<select id="cargo" class="form-control" name="cargos_id">
 			@foreach ($cargos as $cargo)
-				<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
+                @if($t4->cargos_id == $cargo->id)
+                    <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
+                @else
+                    <option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
+                @endif
+				
 			@endforeach
 		</select>
 		<br></td>
@@ -146,17 +152,22 @@
 	<tr>
 		<td style="border-left: 1px solid #000000" height="22" align="center" valign=middle><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.4 Fecha de elaboración:</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><input class="codigo" placeholder="fecha" type="date" required name="fecha_elaboracion" value="{{ date('Y-m-d') }}"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><input class="codigo" placeholder="fecha" type="date" required name="fecha_elaboracion" value="{{$t4->fecha_elaboracion}}"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.5 Responsable elaboración y actualización:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF">
 		<select id="cargo" class="form-control" name="responsable_elaboracion">
 			@foreach ($empleados as $empleado)
-				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                @if($t4->responsable_elaboracion == $empleado->id)
+                    <option value="{{$empleado->id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                @else
+                    <option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                @endif
+				
 			@endforeach
 		</select>
 		<br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.6 Fecha de Actualización:</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><input class="codigo" placeholder="fecha" type="date" required name="fecha_actualizacion" value="{{ date('Y-m-d') }}"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><input class="codigo" placeholder="fecha" type="date" required name="fecha_actualizacion" value="{{$t4->fecha_actualizacion}}"><br></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="19" align="center" valign=middle><br></td>
@@ -211,62 +222,67 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>Epps</b></td>	
 		
 		</tr>
-		@for($i=0; $i < 11; $i++)
+		@foreach($t4->t4Detalles as $t4Detalle)
 	<tr>
 		<td style="border-left: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="proceso[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="zona[]" ></textarea><br></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="proceso[]" >{{$t4Detalle->proceso}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="zona[]" >{{$t4Detalle->zona}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF">
 		<select id="cargo" class="form-control" name="cargo_id[]">
 			@foreach ($cargos as $cargo)
-				<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
+                @if($t4Detalle->cargo_id == $cargo->id)
+                    <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
+                @else
+                    <option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
+                @endif
+				
 			@endforeach
 		</select>
 		<br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="actividad[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="tarea[]" ></textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="actividad[]" >{{$t4Detalle->actividad}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="tarea[]" >{{$t4Detalle->tarea}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF">
 		<select id="cargo" class="form-control" name="rutinario[]">
-			<option value="s">Si</option>
-			<option value="n">No</option>
+            <option value="s" @if($t4Detalle->rutinario == 's') selected @endif>Si</option>
+			<option value="n" @if($t4Detalle->rutinario == 'n') selected @endif>No</option>
 		</select>
 		<br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF">
 		<select id="cargo" class="form-control" name="actividad_propia_contratada[]">
-			<option value="p">P</option>
-			<option value="c">C</option>
+			<option value="p" @if($t4Detalle->actividad_propia_contratada == 'p') selected @endif>P</option>
+			<option value="c" @if($t4Detalle->actividad_propia_contratada == 'c') selected @endif>C</option>
 		</select>
 		<br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=2 valign=middle bgcolor="#FFFFFF"><button type="button" class="btn btn-danger btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_cl_{{$i}}">Clasificación</button></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="fuente[]" ></textarea><br></td>		
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="medio[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><button type="button" class="btn btn-succes btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_ch_{{$i}}">Charlas</button><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><button type="button" class="btn btn-info btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_ca_{{$i}}">Capacitaciones</button><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><button type="button" class="btn btn-warning btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_ep_{{$i}}">Epps</button><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" id="deficiencia_{{$i}}" onchange="calcular_probabilidad({{$i}})" name="nivel_deficiencia[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" id="exposicion_{{$i}}" onchange="calcular_probabilidad({{$i}})" name="nivel_exposicion[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" id="probabilidad_{{$i}}"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"id="interpretacion_probabilidad_{{$i}}"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" id="consecuencia_{{$i}}" onchange="calcular_riesgo({{$i}})" name="nivel_consecuencia[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" id="riesgo_{{$i}}"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" id="interpretacion_riesgo_{{$i}}"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="aceptabilidad_riesgo[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="numero_expuestos[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="riesgo_residual[]" ></textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=2 valign=middle bgcolor="#FFFFFF"><button type="button" class="btn btn-danger btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_cl_{{$loop->index}}">Clasificación</button></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="fuente[]" >{{$t4Detalle->fuente}}</textarea><br></td>		
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="medio[]" >{{$t4Detalle->medio}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><button type="button" class="btn btn-succes btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_ch_{{$loop->index}}">Charlas</button><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><button type="button" class="btn btn-info btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_ca_{{$loop->index}}">Capacitaciones</button><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><button type="button" class="btn btn-warning btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_ep_{{$loop->index}}">Epps</button><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" id="deficiencia_{{$loop->index}}" ondblclick="calcular_probabilidad({{$loop->index}})" onchange="calcular_probabilidad({{$loop->index}})" name="nivel_deficiencia[]" >{{$t4Detalle->nivel_deficiencia}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" id="exposicion_{{$loop->index}}" ondblclick="calcular_probabilidad({{$loop->index}})" onchange="calcular_probabilidad({{$loop->index}})" name="nivel_exposicion[]" >{{$t4Detalle->nivel_exposicion}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" id="probabilidad_{{$loop->index}}"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"id="interpretacion_probabilidad_{{$loop->index}}"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" id="consecuencia_{{$loop->index}}" ondblclick="calcular_riesgo({{$loop->index}})" onchange="calcular_riesgo({{$loop->index}})" name="nivel_consecuencia[]" >{{$t4Detalle->nivel_consecuencia}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" id="riesgo_{{$loop->index}}"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" id="interpretacion_riesgo_{{$loop->index}}"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="aceptabilidad_riesgo[]" >{{$t4Detalle->aceptabilidad_riesgo}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="numero_expuestos[]" >{{$t4Detalle->numero_expuestos}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="riesgo_residual[]" >{{$t4Detalle->riesgo_residual}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF">
 		<select id="cargo" class="form-control" name="existencia_requisito_legal[]">
-			<option value="s">Si</option>
-			<option value="n">No</option>
+			<option value="s" @if($t4Detalle->existencia_requisito_legal == 's') selected @endif>Si</option>
+			<option value="n" @if($t4Detalle->existencia_requisito_legal == 'n') selected @endif>No</option>
 		</select>
 		<br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="eliminacion[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="sustitucion[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="control_ingenieria[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="senalizacion[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="equipos[]" ></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="controles_adicionales[]" ></textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="eliminacion[]" >{{$t4Detalle->eliminacion}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="sustitucion[]" >{{$t4Detalle->sustitucion}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="control_ingenieria[]" >{{$t4Detalle->control_ingenieria}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="senalizacion[]" >{{$t4Detalle->senalizacion}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="equipos[]" >{{$t4Detalle->equipos}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="controles_adicionales[]" >{{$t4Detalle->controles_adicionales}}</textarea><br></td>
 		</tr>
-		@endfor
+		@endforeach
 	
 </table>
 @for($i=0; $i < 11; $i++)
@@ -289,7 +305,13 @@
 							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan={{count($descripcion->efectos) + 1}} align="center" valign=middle ><font face="Arial">{{$descripcion->descripcion}}</font></td>
 							@foreach($descripcion->efectos as $efecto)
 								<tr>
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial">  <input type="checkbox" name="clasificacion[{{$i}}][]" value="{{$efecto->id}}">{{$efecto->efecto->efecto}}</font></td>
+                                    
+                                    
+                                        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial">  <input type="checkbox" name="clasificacion[{{$i}}][]" value="{{$efecto->id}}"  @foreach($t4->t4Detalles[$i]->t4Clasificaciones as $clasificacion)  @if($clasificacion->descripcion_efecto_id == $efecto->id) checked @endif @endforeach>{{$efecto->efecto->efecto}}</font></td>
+                                   
+                                    
+                                
+								
 								</tr>
 							@endforeach
 						</tr>
@@ -324,7 +346,7 @@
 				</tr>
 				@foreach($capacitaciones as $capacitacion)
 					<tr>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial">  <input type="checkbox" name="capacitacion[{{$i}}][]" value="{{$capacitacion->id}}">{{$capacitacion->capacitacion}}</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial">  <input type="checkbox" name="capacitacion[{{$i}}][]" value="{{$capacitacion->id}}" @foreach($t4->t4Detalles[$i]->t4Capacitaciones as $cap)  @if($cap->capacitaciones_id == $capacitacion->id) checked @endif @endforeach>{{$capacitacion->capacitacion}}</font></td>
 					</tr>
 				@endforeach
 					
@@ -356,7 +378,7 @@
 				</tr>
 				@foreach($charlas as $charla)
 					<tr>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial">  <input type="checkbox" name="charla[{{$i}}][]" value="{{$charla->id}}">{{$charla->charla}}</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial">  <input type="checkbox" name="charla[{{$i}}][]" value="{{$charla->id}}" @foreach($t4->t4Detalles[$i]->t4Charlas as $cha)  @if($cha->charlas_id == $charla->id) checked @endif @endforeach>{{$charla->charla}}</font></td>
 					</tr>
 				@endforeach
 					
@@ -391,7 +413,7 @@
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan={{count($zona->epps) + 1}} align="center" valign=middle ><font face="Arial">{{$zona->zona}}</font></td>
 						@foreach($zona->epps as $epp)
 							<tr>
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial">  <input type="checkbox" name="epps[{{$i}}][]" value="{{$epp->id}}">{{$epp->epp}}</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial">  <input type="checkbox" name="epps[{{$i}}][]" value="{{$epp->id}}" @foreach($t4->t4Detalles[$i]->t4Epps as $ele)  @if($ele->epps_id == $epp->id) checked @endif @endforeach>{{$epp->epp}}</font></td>
 							</tr>
 						@endforeach
 					</tr>

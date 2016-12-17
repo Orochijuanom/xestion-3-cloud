@@ -199,8 +199,13 @@ Route::get('/cloud/form/4/{id}', function($id) {
 
 Route::get('/cloud/form/4/ver/{id}', function($id) {
     $t4 = App\T4::where('id',  '=', $id)->first();
-    $empleados = App\Empleados::where('empresa_id', '=', $t4->empresa->id)->get();                
-    return view('cloud.4_ver')->with(['t4' => $t4, 'empleados' => $empleados]);
+    $empleados = App\Empleados::where('empresa_id', '=', $t4->empresa_id)->with('cargos')->get();
+    $cargos = App\Cargo::where('empresa_id', '=', $t4->empresa_id)->get();
+    $riesgos = App\Riesgo::all();
+    $charlas = App\Charla::all();
+    $capacitaciones = App\Capacitacion::all();
+    $zonas = App\Zona::all();               
+    return view('cloud.4_ver')->with(['t4' => $t4, 'empleados' => $empleados, 'cargos' => $cargos, 'riesgos' => $riesgos, 'charlas' => $charlas, 'capacitaciones' => $capacitaciones, 'zonas' => $zonas]);
 });
 
 Route::put('/cloud/form/4/ver/', 't4Controller@edit');
