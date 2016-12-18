@@ -224,6 +224,7 @@
 		</tr>
 		@foreach($t4->t4Detalles as $t4Detalle)
 	<tr>
+		<input type="hidden" name="t4detalle[]" value="{{$t4Detalle->id}}" />
 		<td style="border-left: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF"><br></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="proceso[]" >{{$t4Detalle->proceso}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="zona[]" >{{$t4Detalle->zona}}</textarea><br></td>
@@ -305,13 +306,15 @@
 							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan={{count($descripcion->efectos) + 1}} align="center" valign=middle ><font face="Arial">{{$descripcion->descripcion}}</font></td>
 							@foreach($descripcion->efectos as $efecto)
 								<tr>
-                                    
-                                    
-                                        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial">  <input type="checkbox" name="clasificacion[{{$i}}][]" value="{{$efecto->id}}"  @foreach($t4->t4Detalles[$i]->t4Clasificaciones as $clasificacion)  @if($clasificacion->descripcion_efecto_id == $efecto->id) checked @endif @endforeach>{{$efecto->efecto->efecto}}</font></td>
-                                   
-                                    
-                                
-								
+
+                                        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial">  
+										
+										<input type="checkbox" name="clasificacion[{{$i}}][]" value="{{$efecto->id}}"   
+											@foreach($t4->t4Detalles[$i]->t4Clasificaciones as $clasificacion)  
+												@if($clasificacion->descripcion_efecto_id == $efecto->id) checked 
+												@endif @endforeach>{{$efecto->efecto->efecto}} />
+										</font>
+										</td>
 								</tr>
 							@endforeach
 						</tr>
@@ -434,7 +437,7 @@
 @endfor
 <!-- ************************************************************************** -->
 <hr>
-<div class="sign-up"><input type="submit" value="Nuevo"/></div>
+<div class="sign-up"><input type="submit" value="Guardar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
 <!-- ************************************************************************** -->
