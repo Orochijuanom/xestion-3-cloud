@@ -166,7 +166,7 @@ class t4Controller extends Controller
                 for ($j=0; $j < $datosClasificacion ; $j++) { 
                     $t4clasificacion = T4Clasificacion::find($request['clasificacion'][$i][$j]);
                     $t4clasificacion->descripcion_efecto_id = $request['clasificacion'][$i][$j];
-                        
+                    $t4clasificacion->save();    
                 }
             }
 
@@ -176,6 +176,7 @@ class t4Controller extends Controller
                 for ($j=0; $j < $datosCharla ; $j++) { 
                     $t4charla = T4Charla::find($request['charla'][$i][$j]);
                     $t4charla->charlas_id = $request['charla'][$i][$j];                
+                    $t4charla->save();
                 }
             }
 
@@ -185,6 +186,7 @@ class t4Controller extends Controller
                 for ($j=0; $j < $datosCapacitacion ; $j++) { 
                     $t4capacitacion = T4Capacitacion::find($request['capacitacion'][$i][$j]);
                     $t4capacitacion->capacitaciones_id = $request['capacitacion'][$i][$j];                    
+                    $t4capacitacion->save();
                 }
             }
 
@@ -193,7 +195,8 @@ class t4Controller extends Controller
 
                 for ($j=0; $j < $datosEpps ; $j++) { 
                     $t4eps = T4Epp::find($request['epps'][$i][$j]);
-                    $t4eps->epps_id = $request['epps'][$i][$j];                                                                        
+                    $t4eps->epps_id = $request['epps'][$i][$j];
+                    $t4eps->save();                                                                        
                 }
             }
 
