@@ -7,6 +7,9 @@
             margin: 10px 5px 0 0;
           }
         </style>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<title></title>
 
@@ -111,8 +114,8 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=3>VALOR</font></b></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=14 rowspan=5  align="left" valign=middle><font size=3><textarea class="campo" name="objetivos_programa"></textarea><br></font></td>
-		@for($i=0; $i < 4; $i++)
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=14 rowspan=6  align="left" valign=middle><font size=3><textarea class="campo" name="objetivos_programa"></textarea><br></font></td>
+		@for($i=0; $i < 5; $i++)
 			<tr>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=17  align="left" valign=middle><font size=3><textarea class="campo" name="meta[]"></textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000"  align="justify" valign=middle><font size=3 color="#993300"><textarea class="campo" name="valor[]"></textarea><br></font></td>
@@ -314,585 +317,266 @@
 		<td ondblclick="calcular_cumplimiento('nov')" id="cumplimiento_nov" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="0" sdnum="1033;0;0%"></td>
 		<td ondblclick="calcular_cumplimiento('dic')" id="cumplimiento_dic" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="0" sdnum="1033;0;0%"></td>
 		</tr>
+
+	<!--Inicio de los graficos-->
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 height="21" align="center" valign=middle bgcolor="#50b308"><b><font size=3>INDICADORES DEL SISTEMA DE GESTION DE SEGURIDAD Y SALUD EN EL TRABAJO</font></b></td>
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 height="11" align="center" valign=middle bgcolor="#50b308"><b><font size=3>INDICADOR DE CUMPLIMIENTO</font></b></td>
-		</tr>
+	</tr>
+	@for($g=0; $g<8; $g++)	
+	
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=5 height="21" align="center" valign=middle bgcolor="#50b308"><b><font size=3>DESCRIPCIÓN</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 align="center" valign=middle bgcolor="#50b308"><b><font size=3>NOMBRE DE LA GRAFICA</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><b><font size=3>11.6 ANALISIS  </font></b></td>
-		</tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3>NOMBRE DE LA GRAFICA <input type="hidden" value="{{$g}}" name="numero_grafico[{{$g}}]" /></font></b></td>
+	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=24 height="769" align="center" valign=middle bgcolor="#99CC00"><b><font size=3>VERIFICAR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=8 align="justify" valign=middle bgcolor="#FFFFFF"><b><font size=3>Objetivo Específico Relacionado:<br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 rowspan=17 align="center" valign=middle><font size=3><br><img src="../images/4.png" width=1257 height=467 hspace=110 vspace=18>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3><textarea class="campo" placeholder="" name="nombre_grafico[{{$g}}]" ></textarea></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 height=300 align="center" valign=middle><div id="espgrafico_{{$g}}" style="width:730; height:250;"></div></td>
+	</tr>
+
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 align="center" valign=middle bgcolor="#50b308" ><font size=3>Metodo de calculo</font></td>
+	</tr>
+
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32  align="center" valign=middle><font size=3>
+			<select id="metodo_calculo_{{$g}}" class="form-control" name="metodo_calculo[{{$g}}]" >
+				@if($g == 0 || $g == 1 || $g == 2)
+					<option value="1">
+					@if($g == 0) 
+						# Actividades ejecutadas * 100 / # Actividades Programadas 
+					@elseif($g == 1) 
+						# Trabajadores involucrados en las actividades * 100 / # Trabajadores expuestos 
+					@else 
+						Sumatoria puntaje obtenido * 100 / Sumatoria puntaje posible
+					@endif
+					</option>
+					
+				@elseif($g == 3 || $g == 4 || $g == 5)
+					<option value="2">
+						@if($g == 3) 
+							[#Total de casos / Total trabajadores expuestos] * K  
+						@elseif($g == 4) 
+							[# Casos nuevos calificados / # Expuestos] * K 
+						@else
+							[# Accidentes de trabajo / # Horas trabajadas] * K 
+						@endif
+					</option>
+				@else
+					<option value="3">
+					@if($g == 6) 
+						Cero Accidentes
+					@else
+						Cero Enfermedades
+					@endif
+					</option>
+					
+				@endif
+			</select>
 		</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 rowspan=24 align="left" valign=middle bgcolor="#FFFFFF"><i><font size=3>ANALISIS TENDENCIAL<br><br>PRIMER TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br>  <br>SEGUNDO TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br><br>TERCER TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br><br>CUARTOTRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:</font></i></td>
-		</tr>
+	</tr>
+
 	<tr>
-		</tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 align="center" valign=middle bgcolor="#50b308" ><font size=3>Frecuencia</font></td>
+	</tr>
+		
 	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=7 align="justify" valign=middle bgcolor="#FFFFFF"><b><font size=3>11.2 Descripción:<br><br></font></b></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=5 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3>11.3 Metodo de calculo<br></font></b></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><b><i><font size=3><br></font></i></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" sdval="0" sdnum="1033;0;0%"><b><font size=3>#DIV/0!</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" sdval="0" sdnum="1033;0;0%"><b><font size=3>#DIV/0!</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" sdval="0" sdnum="1033;0;0%"><b><font size=3>#DIV/0!</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" sdval="0" sdnum="1033;0;0%"><b><font size=3>#DIV/0!</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=4 align="left" valign=middle><font size=3>  11.4 Frecuencia de medición<br><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFFF99"><b><font size=3>ENE</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFFF99"><b><font size=3>FEB</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFFF99"><b><font size=3>MAR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CC99FF"><b><font size=3>ABR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CC99FF"><b><font size=3>MAY</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CC99FF"><b><font size=3>JUN</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFCC00"><b><font size=3>JUL</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFCC00"><b><font size=3>AGO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFCC00"><b><font size=3>SEPT</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CCFFFF"><b><font size=3>OCT</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CCFFFF"><b><font size=3>NOV</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CCFFFF"><b><font size=3>DIC</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#FFFF99"><b><font size=3>TRIMESTRE 1</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#CC99FF"><b><font size=3>TRIMESTRE 2</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#FFCC00"><b><font size=3>TRIMESTRE 3</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#CCFFFF"><b><font size=3>TRIMESTRE 4</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFFF99"><b><font size=3>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFFF99" sdnum="1033;0;0%"><b><font size=3>LOGRADO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#800080"><b><font size=3>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#800080" sdnum="1033;0;0%"><b><font size=3>LOGRADO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFCC00"><b><font size=3>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFCC00" sdnum="1033;0;0%"><b><font size=3>LOGRADO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#CCFFFF"><b><font size=3>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#CCFFFF" sdnum="1033;0;0%"><b><font size=3>LOGRADO</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFFF99" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFFF99" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#800080" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#800080" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFCC00" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFCC00" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#CCFFFF" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#CCFFFF" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 height="22" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=5 height="21" align="center" valign=middle bgcolor="#50b308"><b><font size=3>DESCRIPCIÓN</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 align="center" valign=middle bgcolor="#50b308"><b><font size=3> NOMBRE DE LA GRAFICA DEL INDICADOR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><b><font size=3>ANALISIS  </font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=24 height="605" align="center" valign=middle bgcolor="#99CC00"><b><font size=3>VERIFICAR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=4 align="left" valign=middle><b><font size=3> Objetivo Específico Relacionado<br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 rowspan=17 align="center" valign=middle><font size=3><br><img src="../images/2.png" width=967 height=377 hspace=185 vspace=16>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32  align="center" valign=middle><font size=3>
+			<select id="frecuencia_medicion_reporte_{{$g}}" class="form-control" name="frecuencia_medicion_reporte[{{$g}}]" onchange="boton({{$g}})">
+				<option value="1">Anual</option>
+				<option value="2">Semestral</option>
+				<option value="4">Trimestral</option>
+			</select>
 		</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 rowspan=24 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3>PRIMER TRIMESTRE: <br><br>Analisis:<br>Causas:  <br>Acción:  <br>Tendencia:<br>  <br>SEGUNDO TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br><br>TERCER TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br><br>CUARTOTRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:</font></b></td>
-		</tr>
+	</tr>
+	
 	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=10 align="left" valign=middle><font size=3> Descripción:<br><br></font></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=6 align="left" valign=middle><font size=3>  Fórmula:<br></font></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><b><i><font size=3><br></font></i></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" sdval="0" sdnum="1033;0;0%"><b><font size=3>#DIV/0!</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" sdval="0" sdnum="1033;0;0%"><b><font size=3>#DIV/0!</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" sdval="0" sdnum="1033;0;0%"><b><font size=3>#DIV/0!</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" sdval="0" sdnum="1033;0;0%"><b><font size=3>#DIV/0!</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#00CCFF" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#008000" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=4 align="left" valign=middle><font size=3> Período de Evaluación:<br><br><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFFF99"><b><font size=3>ENE</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFFF99"><b><font size=3>FEB</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFFF99"><b><font size=3>MAR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CC99FF"><b><font size=3>ABR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CC99FF"><b><font size=3>MAY</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CC99FF"><b><font size=3>JUN</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFCC00"><b><font size=3>JUL</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFCC00"><b><font size=3>AGO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FFCC00"><b><font size=3>SEPT</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CCFFFF"><b><font size=3>OCT</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CCFFFF"><b><font size=3>NOV</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#CCFFFF"><b><font size=3>DIC</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#FFFF99"><b><font size=3>TRIMESTRE 1</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#CC99FF"><b><font size=3>TRIMESTRE 2</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#FFCC00"><b><font size=3>TRIMESTRE 3</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#CCFFFF"><b><font size=3>TRIMESTRE 4</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFFF99"><b><font size=3>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFFF99" sdnum="1033;0;0%"><b><font size=3>LOGRADO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#800080"><b><font size=3>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#800080" sdnum="1033;0;0%"><b><font size=3>LOGRADO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFCC00"><b><font size=3>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFCC00" sdnum="1033;0;0%"><b><font size=3>LOGRADO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#CCFFFF"><b><font size=3>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#CCFFFF" sdnum="1033;0;0%"><b><font size=3>LOGRADO</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFFF99" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" bgcolor="#FFFF99" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" bgcolor="#FFFF99"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" bgcolor="#FFFF99"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#800080" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" bgcolor="#800080" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" bgcolor="#800080"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" bgcolor="#800080"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFCC00" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FFCC00" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#CCFFFF" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" bgcolor="#CCFFFF" sdval="0" sdnum="1033;0;0%"><b><font size=3>0%</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" bgcolor="#CCFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" bgcolor="#CCFFFF"><b><font size=3><br></font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 height="46" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=5 height="23" align="center" valign=middle bgcolor="#50b308"><b><font size=3>DESCRIPCIÓN</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 align="center" valign=middle bgcolor="#50b308"><b><font size=3>11.5 NOMBRE DE LA GRAFICA</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><b><font size=3>11.6 ANALISIS  </font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=22 height="555" align="center" valign=middle bgcolor="#99CC00"><b><font size=3>VERIFICAR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=8 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3>  Objetivo Específico Relacionado:<br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 rowspan=16 align="center" valign=middle><font size=3><br><img src="../images/5.png" width=928 height=315 hspace=171 vspace=15>
-		</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 rowspan=22 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3> <br>ANALISIS TENDENCIAL<br><br>PRIMER TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br>  <br>SEGUNDO TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br><br>TERCER TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br><br>CUARTOTRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:</font></b></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=6 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3>Descripción:<br><br></font></b></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=5 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3>  Fórmula:<br><br><br></font></b></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=4 align="center" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 align="center" bgcolor="#50b308"><b><font size=3>PRIMER  SEMESTRE</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 align="center" bgcolor="#FF6600"><b><font size=3>SEGUNDO SEMESTRE</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#50b308"><b><font size=3># EXPUESTOS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="center" bgcolor="#50b308"><b><font size=3># CASOS NUEVOS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#50b308"><b><font size=3># CASOS ANTIGUOS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FF6600"><b><font size=3># EXPUESTOS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="center" bgcolor="#FF6600"><b><font size=3># CASOS NUEVOS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#FF6600"><b><font size=3># CASOS ANTIGUOS</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle bgcolor="#50b308" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=2 align="center" valign=middle bgcolor="#50b308" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 rowspan=2 align="center" valign=middle bgcolor="#50b308" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle bgcolor="#FF6600" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=2 align="center" valign=middle bgcolor="#FF6600" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 rowspan=2 align="center" valign=middle bgcolor="#FF6600" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=3 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3> Período de Evaluación:<br><br></font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#50b308"><b><font size=3>META %</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#50b308" sdval="0" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3> -      </font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#FF6600"><b><font size=3>META %</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FF6600" sdval="0" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3> -      </font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#50b308" sdnum="1033;0;0%"><b><font size=3>LOGRADO %</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#50b308" sdval="0" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3> -      </font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#FF6600" sdnum="1033;0;0%"><b><font size=3>LOGRADO %</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FF6600" sdval="0" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3> -      </font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 height="26" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=5 height="26" align="center" valign=middle bgcolor="#50b308"><b><font size=3>DESCRIPCIÓN</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 align="center" valign=middle bgcolor="#50b308"><b><font size=3>11.5 NOMBRE DE LA GRAFICA</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><b><font size=3>11.6 ANALISIS  </font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=23 height="692" align="center" valign=middle bgcolor="#99CC00"><b><font size=3>VERIFICAR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=8 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3>Objetivo Específico Relacionado:<br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 rowspan=16 align="center" valign=middle><font size=3><br><img src="../images/1.png" width=759 height=418 hspace=221 vspace=15>
-		</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 rowspan=23 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3> <br><br> <br>ANALISIS TENDENCIAL<br><br>PRIMER TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br>  <br>SEGUNDO TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br><br>TERCER TRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:<br><br>CUARTOTRIMESTRE: <br><br>Causas:  <br>Acción:  <br>Tendencia:</font></b></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=8 align="left" valign=middle><font size=3> Descripción:<br><br><br></font></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=4 align="left" valign=top><font size=3> Fórmula:<br><br><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#99CC00"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 align="center" bgcolor="#50b308"><b><font size=3>PRIMER  SEMESTRE</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 align="center" bgcolor="#FF6600"><b><font size=3>SEGUNDO SEMESTRE</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#50b308"><b><font size=3># EXPUESTOS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="center" bgcolor="#50b308"><b><font size=3># CASOS NUEVOS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#50b308"><b><font size=3># CASOS ANTIGUOS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" bgcolor="#FF6600"><b><font size=3># EXPUESTOS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="center" bgcolor="#FF6600"><b><font size=3># CASOS NUEVOS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" bgcolor="#FF6600"><b><font size=3># CASOS ANTIGUOS</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle bgcolor="#50b308" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=2 align="center" valign=middle bgcolor="#50b308" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 rowspan=2 align="center" valign=middle bgcolor="#50b308" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle bgcolor="#FF6600" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=2 align="center" valign=middle bgcolor="#FF6600" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 rowspan=2 align="center" valign=middle bgcolor="#FF6600" sdval="0" sdnum="1033;"><b><font size=3>0</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=3 align="left" valign=middle><font size=3>Período de Evaluación:<br><br>(Trimestral - Semestral - Anual)</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#50b308"><b><font size=3>META %</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="right" bgcolor="#50b308" sdval="0" sdnum="1033;0;@"><b><font size=3>0</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#FF6600"><b><font size=3>META %</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FF6600" sdval="0" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3> -      </font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#50b308" sdnum="1033;0;0%"><b><font size=3>LOGRADO %</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="right" bgcolor="#50b308" sdval="0" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3>#DIV/0!</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#FF6600" sdnum="1033;0;0%"><b><font size=3>LOGRADO %</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FF6600" sdval="0" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3> -      </font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 align="center" bgcolor="#50b308"><b><font size=3><br></font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 height="26" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=5 height="26" align="center" valign=middle bgcolor="#50b308"><b><font size=3>DESCRIPCIÓN</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 align="center" valign=middle bgcolor="#50b308"><b><font size=3>11.5 NOMBRE DE LA GRAFICA</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><b><font size=3>11.6 ANALISIS  </font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=19 height="572" align="center" valign=middle bgcolor="#99CC00"><b><font size=3>VERIFICAR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=8 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3>Objetivo Específico Relacionado<br><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=25 rowspan=16 align="center"><font size=3> </font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 rowspan=19 align="left" valign=top bgcolor="#FFFFFF"><b><font size=3> ANALISIS DE  EFICACIA<br><br>PRIMER SEMESTRE:  <br>Causas: <br> Acción: <br>Tendencia: <br><br>SEGUNDO SEMESTRE: <br> <br> Causas: <br>Tendencia: </font></b></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=4 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3> Descripción:<br><br></font></b></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=4 align="left" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=4 rowspan=3 align="left" valign=middle bgcolor="#FFFFFF"><font size=3>Período de Evaluación<br><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#99CC00"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 align="center" valign=middle bgcolor="#50b308"><b><font size=3>PRIMER  SEMESTRE</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 align="center" valign=middle bgcolor="#FF6600"><b><font size=3>SEGUNDO SEMESTRE</font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#50b308"><b><font size=3>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#50b308" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3>   </font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#FF6600"><b><font size=3>META</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FF6600" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3>   </font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#50b308" sdnum="1033;0;0%"><b><font size=3>LOGRADO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#50b308" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3>   </font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 align="center" bgcolor="#FF6600" sdnum="1033;0;0%"><b><font size=3>LOGRADO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" bgcolor="#FF6600" sdval="0" sdnum="1033;0;_-* #,##0 _€_-;-* #,##0 _€_-;_-* &quot;-&quot;?? _€_-;_-@_-"><b><font size=3> -      </font></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 height="21" align="center" valign=middle bgcolor="#FFFFFF"><b><i><font size=3 color="#800080"><br></font></i></b></td>
-		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=30 height="11" align="center" valign=middle bgcolor="#50b308"><b><font size=3>PLAN DE ACCION</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle><font size=3><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32  align="center" valign=middle><font size=3><button type="button" class="btn btn-success btn-block btn-lg" id="modalbtn_{{$g}}" onclick="modal({{$g}})" data-toggle="modal" data-target="#modal_{{$g}}_1">RESULTADOS GRAFICO {{$g+1}}</button></font></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=6 height="340" align="center" valign=middle bgcolor="#FF0000"><b><font size=3>ACTUAR</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#50b308"><b><font size=3>HALLAZGOS DEL PROGRAMA</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#50b308"><b><font size=3>GESTION PROPUESTA</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#50b308"><b><font size=3>RESPONSABLE</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><b><font size=3>FECHA COMPROMISO DE EJECUCION</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#50b308"><b><font size=3>FECHA DE EJECUCION</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=3>CIERRE OPORTUNO</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=3>EVIDENCIA</font></b></td>
+		<td align="center" valign=middle colspan="32"><font size="3" aling="center"> *** </font></td>
 	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-	</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
-	</tr>
+	@endfor
+	
+	
 </table>
+
+<!-- modal -->
+@for($m=0; $m<8; $m++)
+<!-- modal anual-->
+<div class="modal fade" id="modal_{{$m}}_1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="modal_title_{{$m}}_1" class="modal-title"></h3>
+			</div>
+			<div class="modal-body">
+				<table align="left" cellspacing="0" border="0">
+					<tr>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Periodo evaluado</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Objetivo</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Descripcion</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Analisis</font></td>
+						@if($m == 0 || $m == 1 || $m == 2)
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 1</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 2</font></td>
+						@elseif($m == 3 || $m == 4 || $m == 5)
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 1</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 2</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">K</font></td>
+						@endif
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Meta</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Logrado</font></td>
+					</tr>
+					@for($f=0; $f<1; $f++)
+						<tr>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">{{$f + 1}}</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><textarea class="campo" placeholder="" name="objetivo[{{$m}}][1][]"></textarea></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" name="descripcion[{{$m}}][1][]"></textarea></font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" name="analisis[{{$m}}][1][]"></textarea><br></font></td>
+							@if($m == 0 || $m == 1 || $m == 2)
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})" name="valor1[{{$m}}][1][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})" name="valor2[{{$m}}][1][]"></textarea><br></font></td>
+							@elseif($m == 3 || $m == 4 || $m == 5)
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})" name="valor1[{{$m}}][1][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})"  name="valor2[{{$m}}][1][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor3_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})"  name="valor3[{{$m}}][1][]"></textarea><br></font></td>
+							@endif
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="meta_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})"  name="meta[{{$m}}][1][]"></textarea><br></font></td>
+							<td id="logrado_{{$m}}_1_{{$f}}" ondblclick="calculo({{$m}},1, {{$f}})"style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF">0</td>
+						</tr>
+					@endfor
+				</table>
+			</div>
+			<br>
+			<br>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default " onclick="graficar({{$m}})" data-dismiss="modal">Close</button>
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- modal semestral-->
+<div class="modal fade" id="modal_{{$m}}_2">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="modal_title_{{$m}}_2" class="modal-title"></h3>
+			</div>
+			<div class="modal-body">
+				<table align="left" cellspacing="0" border="0">
+					<table align="left" cellspacing="0" border="0">
+					<tr>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Periodo evaluado</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Objetivo</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Descripcion</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Analisis</font></td>
+						@if($m == 0 || $m == 1 || $m == 2)
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 1</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 2</font></td>
+						@elseif($m == 3 || $m == 4 || $m == 5)
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 1</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 2</font></td>
+							
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">K</font></td>
+						@endif
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Meta</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Logrado</font></td>
+					</tr>
+					@for($f=0; $f<2; $f++)
+						<tr>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">{{$f + 1}}</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><textarea class="campo" placeholder="" name="objetivo[{{$m}}][2][]"></textarea></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" name="descripcion[{{$m}}][2][]"></textarea></font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" name="analisis[{{$m}}][2][]"></textarea><br></font></td>
+							@if($m == 0 || $m == 1 || $m == 2)
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor1[{{$m}}][2][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor2[{{$m}}][2][]"></textarea><br></font></td>
+							@elseif($m == 3 || $m == 4 || $m == 5)
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor1[{{$m}}][2][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor2[{{$m}}][2][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor3_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})"  name="valor3[{{$m}}][2][]"></textarea><br></font></td>
+							@endif
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="meta_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})"  name="meta[{{$m}}][2][]"></textarea><br></font></td>
+							<td id="logrado_{{$m}}_2_{{$f}}" ondblclick="calculo({{$m}},1, {{$f}})"style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF">0</td>
+						</tr>
+					@endfor
+				</table>
+			</div>
+			<br>
+			<br>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default " onclick="graficar({{$m}})" data-dismiss="modal">Close</button>
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- modal trimestral-->
+<div class="modal fade" id="modal_{{$m}}_4">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="modal_title_{{$m}}_4" class="modal-title"></h3>
+			</div>
+			<div class="modal-body">
+				<table align="left" cellspacing="0" border="0">
+					<table align="left" cellspacing="0" border="0">
+					<tr>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Periodo evaluado</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Objetivo</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Descripcion</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Analisis</font></td>
+						@if($m == 0 || $m == 1 || $m == 2)
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 1</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 2</font></td>
+						@elseif($m == 3 || $m == 4 || $m == 5)
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 1</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Valor 2</font></td>
+							
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">K</font></td>
+						@endif
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Meta</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Logrado</font></td>
+					</tr>
+					@for($f=0; $f<4; $f++)
+						<tr>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">{{$f + 1}}</font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><textarea class="campo" placeholder="" name="objetivo[{{$m}}][4][]"></textarea></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" name="descripcion[{{$m}}][4][]"></textarea></font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" name="analisis[{{$m}}][4][]"></textarea><br></font></td>
+							@if($m == 0 || $m == 1 || $m == 2)
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor1[{{$m}}][4][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor2[{{$m}}][4][]"></textarea><br></font></td>
+							@elseif($m == 3 || $m == 4 || $m == 5)
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor1[{{$m}}][4][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor2[{{$m}}][4][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor3_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})"  name="valor3[{{$m}}][4][]"></textarea><br></font></td>
+							@endif
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="meta_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})"  name="meta[{{$m}}][4][]"></textarea><br></font></td>
+							<td id="logrado_{{$m}}_4_{{$f}}" ondblclick="calculo({{$m}},4, {{$f}})"style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF">0</td>
+						</tr>
+					@endfor
+				</table>
+			</div>
+			<br>
+			<br>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default " onclick="graficar({{$m}})" data-dismiss="modal">Close</button>
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@endfor
 <div class="sign-up"><input type="submit" value="Nuevo"/></div>
-<div class="sign-up"><input type="submit" value="Guardar"/></div>
-<div class="sign-up"><input type="submit" value="Editar"/></div>
-<div class="sign-up"><input type="submit" value="Eliminar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
 <!-- ************************************************************************** -->
@@ -945,5 +629,251 @@ pagina" onclick="window.print()">
 		var campo_cumplimiento = document.getElementById('cumplimiento'+'_'+mes);
 		campo_cumplimiento.innerHTML = cumplimiento+'%';	
 	}
+
+	function modal(id){
+		var frecuencia = document.getElementById('frecuencia_medicion_reporte_'+id).value;
+		var periodo = "";
+		if(frecuencia == 1){
+			periodo = 'Anual';
+		}else if(frecuencia == 2){
+			periodo = 'Semestral';
+		}else{
+			periodo = 'Trimestral';
+		}
+		var grafico = parseInt(id)+1;
+		var title = document.getElementById('modal_title_'+id+'_'+frecuencia);
+
+		title.innerHTML = "Resultado "+periodo+" Grafico "+grafico;
+
+	}
+
+	function boton(id){
+		var frecuencia = document.getElementById('frecuencia_medicion_reporte_'+id).value;
+
+		var modalbtn = document.getElementById("modalbtn_"+id);
+
+		modalbtn.setAttribute('data-target', '#modal_'+id+'_'+frecuencia);
+
+	}
+	function calculo(modal,frecuencia, fila){
+		
+		if(modal == 0 || modal == 1 || modal == 2){
+			var valor1 = document.getElementById("valor1_"+modal+'_'+frecuencia+'_'+fila).value;
+			var valor2 = document.getElementById("valor2_"+modal+'_'+frecuencia+'_'+fila).value;
+
+			var logrado = valor1*100/valor2;
+		}else if(modal == 3 || modal == 4 || modal == 5){
+			var valor1 = document.getElementById("valor1_"+modal+'_'+frecuencia+'_'+fila).value;
+			var valor2 = document.getElementById("valor2_"+modal+'_'+frecuencia+'_'+fila).value;
+			var valor3 = document.getElementById('valor3_'+modal+'_'+frecuencia+'_'+fila).value;
+			
+			var logrado = (valor1/valor2)*valor3;
+		}
+		
+
+		
+		var campo_logrado = document.getElementById("logrado_"+modal+"_"+frecuencia+"_"+fila);
+
+		campo_logrado.innerHTML = logrado;
+		
+	}
+</script>
+<script src="/js/chart.js"></script>
+<script>
+function graficar(modal){
+
+	var metodo = document.getElementById("metodo_calculo_"+modal).value;
+	var frecuencia = document.getElementById("frecuencia_medicion_reporte_"+modal).value;
+	var data
+	if(modal == 6){
+			if(frecuencia == 1){
+				
+				data = {
+					labels: ["Año"],
+					datasets: [
+					{
+						label: '# de Accidentes',
+						data: [0],
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+						],
+						borderWidth: 1
+					}
+					]
+					
+					};
+
+
+			}else if(frecuencia == 2){
+				
+				data = {
+					labels: ["Semestre 1", "Semestre 2"],
+					datasets: [
+					{
+						label: '# de Accidentes',
+						data: [0,0],
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+							'rgba(54, 162, 235, 0.2)',
+						],
+						borderWidth: 1
+					},
+					
+					]
+					
+					};
+
+			}else if(frecuencia == 4){
+				data = {
+					labels: ["Trimestre 1", "Trimestre 2", "Trimestre 3", "Trimestre 4"],
+					datasets: [
+					{
+						label: '# de Accidentes',
+						data: [0,0,0,0],
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+							'rgba(54, 162, 235, 0.2)',
+							'rgba(255, 206, 86, 0.2)',
+                			'rgba(75, 192, 192, 0.2)',
+						],
+						borderWidth: 1
+					},
+					
+					]
+					
+					};
+			}
+		}else if(modal == 7){
+			if(frecuencia == 1){
+				
+				data = {
+					labels: ["Año"],
+					datasets: [
+					{
+						label: '# de Enfermedades',
+						data: [0],
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+						],
+						borderWidth: 1
+					}
+					]
+					
+					};
+
+
+			}else if(frecuencia == 2){
+				
+				data = {
+					labels: ["Semestre 1", "Semestre 2"],
+					datasets: [
+					{
+						label: '# de Enfermedades',
+						data: [0,0],
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+							'rgba(54, 162, 235, 0.2)',
+						],
+						borderWidth: 1
+					},
+					
+					]
+					
+					};
+
+			}else if(frecuencia == 4){
+				data = {
+					labels: ["Trimestre 1", "Trimestre 2", "Trimestre 3", "Trimestre 4"],
+					datasets: [
+					{
+						label: '# de Enfermedades',
+						data: [0,0,0,0],
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+							'rgba(54, 162, 235, 0.2)',
+							'rgba(255, 206, 86, 0.2)',
+                			'rgba(75, 192, 192, 0.2)',
+						],
+						borderWidth: 1
+					},
+					
+					]
+					
+					};
+			}
+		}else{
+			
+				
+				
+				var meta = [];
+				var logrado = [];
+
+				for (i = 0; i < frecuencia; i++) { 
+					meta.push(document.getElementById("meta_"+modal+"_"+frecuencia+"_"+i).value);
+					logrado.push(document.getElementById("logrado_"+modal+"_"+frecuencia+"_"+i).innerHTML);
+					
+				}
+				console.log(logrado);
+				var labels;
+				if(frecuencia == 1){
+					labels = ["Año"];
+				}else if(frecuencia == 2){
+					labels = ["Semestre 1", "Semestre 2"];
+				}else{
+					labels = ["Trimestre 1", "Trimestre 2", "Trimestre 3", "Trimestre 4"];
+				}
+
+				var numerador = 'Meta';
+				var denominador = 'Logrado';
+				
+
+				backgroundColor = ['rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)']
+
+				data = {
+					labels: labels,
+					datasets: [
+					{
+						label: numerador,
+						data: meta,
+						backgroundColor: backgroundColor,
+						borderWidth: 1
+					},
+					{
+						label: denominador,
+						data: logrado,
+						backgroundColor: backgroundColor,
+						borderWidth: 1
+					}
+					]
+					
+					};
+
+					
+			}
+		
+var td = document.getElementById("espgrafico_"+modal);
+
+td.innerHTML = '<canvas id="grafica'+modal+'" width="400" height="150"></canvas>';
+var ctx = document.getElementById("grafica"+modal);
+
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+}
 </script> 
 </body>
