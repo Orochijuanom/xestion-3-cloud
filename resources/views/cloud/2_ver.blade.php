@@ -78,7 +78,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><br>
 		<select class="form-control" name="responsable_planificacion_presupuesto">
 			@foreach ($empleados as $empleado)
-				@if ($t2->responsable_planificacion == $empleado->id)
+				@if ($t2->responsable_planificacion_presupuesto == $empleado->id)
 				
 					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
 				@else
