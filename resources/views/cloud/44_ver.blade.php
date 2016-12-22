@@ -37,8 +37,9 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="{{ url('/cloud/form/44') }}">
+<form method="POST" action="/cloud/form/44/ver">
 {{ csrf_field() }}
+{{ method_field('PUT') }}
 <table align="left" cellspacing="0" border="0">
 	<colgroup width="37"></colgroup>
 	<colgroup width="135"></colgroup>
@@ -64,18 +65,18 @@
 	<colgroup width="330"></colgroup>
 	<colgroup width="403"></colgroup>
 	<tr>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=5 rowspan=3 height="106" align="left" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$empresa->logo}}" />
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=5 rowspan=3 height="106" align="left" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$t44->empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=26 rowspan=2 align="center" valign=middle><b><font size=3>{{$empresa->nombre_empresa}}<input type="hidden" value="{{$empresa->id}}" name="empresa_id" /></font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b><font size=3>Codigo: <input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" ></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=26 rowspan=2 align="center" valign=middle><b><font size=3>{{$t44->empresa->nombre_empresa}}<input type="hidden" value="{{$t44->empresa->id}}" name="empresa_id" /></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b><font size=3>Codigo: <input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t44->codigo}}"></font></b></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b><font size=3>Versión: <input class="codigo" placeholder="version" type="text" required name="version"></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b><font size=3>Versión: <input class="codigo" placeholder="version" type="text" required name="version" value="{{$t44->version}}"></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=26 align="center" valign=middle><b><font size=3>MATRIZ PROGRAMA DE GESTION</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b><font size=3>Fecha: <input class="codigo" placeholder="fecha" type="date" required name="fecha" ></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b><font size=3>Fecha: <input class="codigo" placeholder="fecha" type="date" required name="fecha" value="{{$t44->fecha}}"></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 height="23" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
@@ -89,7 +90,12 @@
 			<select id="cargo" class="form-control" name="politicas_id" style="width:90%;">
 				@foreach ($t1s as $t1)
 					@foreach($t1->T1Detalles as $t1detalle)
-						<option value="{{$t1detalle->id}}">{{$t1detalle->politica_sistema_gestion}}</option>
+                        @if($t44->politicas_id == $t1detalle->id)
+                            <option value="{{$t1detalle->id}}" selected>{{$t1detalle->politica_sistema_gestion}}</option>
+                        @else
+                            <option value="{{$t1detalle->id}}">{{$t1detalle->politica_sistema_gestion}}</option>
+                        @endif
+						
 					@endforeach
 				@endforeach
 			</select>
@@ -98,7 +104,12 @@
 			<select id="cargo" class="form-control" name="objetivos_est_id" style="width:90%;">
 				@foreach ($t1s as $t1)
 					@foreach($t1->T1Detalles as $t1detalle)
-						<option value="{{$t1detalle->id}}">{{$t1detalle->objetivo}}</option>
+                        @if($t44->objetivos_est_id == $t1detalle->id)
+                            <option value="{{$t1detalle->id}}" selected>{{$t1detalle->objetivo}}</option>
+                        @else
+                            <option value="{{$t1detalle->id}}">{{$t1detalle->objetivo}}</option>
+                        @endif
+						
 					@endforeach
 				@endforeach
 			</select>
@@ -114,11 +125,11 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=3>VALOR</font></b></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=14 rowspan=6  align="left" valign=middle><font size=3><textarea class="campo" name="objetivos_programa"></textarea><br></font></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=14 rowspan=6  align="left" valign=middle><font size=3><textarea class="campo" name="objetivos_programa">{{$t44->objetivos_programa}}</textarea><br></font></td>
 		@for($i=0; $i < 5; $i++)
 			<tr>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=17  align="left" valign=middle><font size=3><textarea class="campo" name="metas[]"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000"  align="justify" valign=middle><font size=3 color="#993300"><textarea class="campo" name="valor[]"></textarea><br></font></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=17  align="left" valign=middle><font size=3><textarea class="campo" name="metas[]">{{$t44->metas[$i]->meta}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000"  align="justify" valign=middle><font size=3 color="#993300"><textarea class="campo" name="valor[]">{{$t44->metas[$i]->valor}}</textarea><br></font></td>
 			</tr>
 		@endfor
 	</tr>
@@ -133,17 +144,27 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 rowspan=3 align="justify" valign=middle><font size=3 color="#993300">
 			<select id="cargo" class="form-control" name="recurso_id" style="width:90%;">
 				@foreach ($t2s as $t2)
-					<option value="{{$t2->id}}">{{$t2->codigo}} - {{$t2->version}} - {{$t2->fecha}}</option>
+                    @if($t2->id == $t44->recurso_id)
+                        <option value="{{$t2->id}}" selected>{{$t2->codigo}} - {{$t2->version}} - {{$t2->fecha}}</option>
+                    @else
+                        <option value="{{$t2->id}}">{{$t2->codigo}} - {{$t2->version}} - {{$t2->fecha}}</option>
+                    @endif
+					
 				@endforeach
 			</select>
 		<br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=9 rowspan=3 align="left" valign=middle><font size=3 color="#993300"><textarea class="campo" name="alcance_programa"></textarea><br></font></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=9 rowspan=3 align="left" valign=middle><font size=3 color="#993300"><textarea class="campo" name="alcance_programa">{{$t44->alcance_programa}}</textarea><br></font></td>
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=14 rowspan=2  align="center" valign=middle bgcolor="#FFFFFF"><font size=3 color="#993300">
 			<select id="cargo" class="form-control" name="responsable_id" style="width:90%;">
 				@foreach ($empleados as $empleado)
-					<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                    @if($empleado->id == $t44->responsable_id)
+                        <option value="{{$empleado->id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                    @else
+                        <option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                    @endif
+					
 				@endforeach
 			</select>
 		<br></font></td>
@@ -192,36 +213,41 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=6 align="center" valign=middle bgcolor="#FFFF00"><b><font size=3>PLANIFICAR</font></b></td>
 		@for($i=0; $i < 5; $i++)
 			<tr>		
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5  align="left" valign=middle bgcolor="#FFFFFF"><font size=3 color="#993300"><textarea class="campo" placeholder="" name="actividad[]" ></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ene_p_{{$i}}" name="ene_p[]" onchange="suma('ene_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ene_e_{{$i}}" name="ene_e[]" onchange="suma('ene_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="feb_p_{{$i}}" name="feb_p[]" onchange="suma('feb_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="feb_e_{{$i}}" name="feb_e[]" onchange="suma('feb_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="mar_p_{{$i}}" name="mar_p[]" onchange="suma('mar_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="mar_e_{{$i}}" name="mar_e[]" onchange="suma('mar_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="abr_p_{{$i}}" name="abr_p[]" onchange="suma('abr_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="abr_e_{{$i}}" name="abr_e[]" onchange="suma('abr_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="may_p_{{$i}}" name="may_p[]" onchange="suma('may_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="may_e_{{$i}}" name="may_e[]" onchange="suma('may_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jun_p_{{$i}}" name="jun_p[]" onchange="suma('jun_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jun_e_{{$i}}" name="jun_e[]" onchange="suma('jun_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jul_p_{{$i}}" name="jul_p[]" onchange="suma('jul_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jul_e_{{$i}}" name="jul_e[]" onchange="suma('jul_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ago_p_{{$i}}" name="ago_p[]" onchange="suma('ago_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ago_e_{{$i}}" name="ago_e[]" onchange="suma('ago_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="sep_p_{{$i}}" name="sep_p[]" onchange="suma('sep_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="sep_e_{{$i}}" name="sep_e[]" onchange="suma('sep_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="oct_p_{{$i}}" name="oct_p[]" onchange="suma('oct_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="oct_e_{{$i}}" name="oct_e[]" onchange="suma('oct_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="nov_p_{{$i}}" name="nov_p[]" onchange="suma('nov_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="nov_e_{{$i}}" name="nov_e[]" onchange="suma('nov_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_p_{{$i}}" name="dic_p[]" onchange="suma('dic_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_e_{{$i}}" name="dic_e[]" onchange="suma('dic_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="left" valign=middle><font size=3><textarea class="campo" placeholder=""  name="evidencias[]" ></textarea><br></font></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5  align="left" valign=middle bgcolor="#FFFFFF"><font size=3 color="#993300"><textarea class="campo" placeholder="" name="actividad[]" >{{$t44->planificaciones[$i]->actividad}}</textarea><br></font></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ene_p_{{$i}}" name="ene_p[]" ondblclick="suma('ene_p')" onchange="suma('ene_p')">{{$t44->planificaciones[$i]->ene_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ene_e_{{$i}}" name="ene_e[]" ondblclick="suma('ene_e')" onchange="suma('ene_e')">{{$t44->planificaciones[$i]->ene_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="feb_p_{{$i}}" name="feb_p[]" ondblclick="suma('feb_p')" onchange="suma('feb_p')">{{$t44->planificaciones[$i]->feb_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="feb_e_{{$i}}" name="feb_e[]" ondblclick="suma('feb_e')" onchange="suma('feb_e')">{{$t44->planificaciones[$i]->feb_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="mar_p_{{$i}}" name="mar_p[]" ondblclick="suma('mar_p')" onchange="suma('mar_p')">{{$t44->planificaciones[$i]->mar_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="mar_e_{{$i}}" name="mar_e[]" ondblclick="suma('mar_e')" onchange="suma('mar_e')">{{$t44->planificaciones[$i]->mar_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="abr_p_{{$i}}" name="abr_p[]" ondblclick="suma('abr_p')" onchange="suma('abr_p')">{{$t44->planificaciones[$i]->abr_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="abr_e_{{$i}}" name="abr_e[]" ondblclick="suma('abr_e')" onchange="suma('abr_e')">{{$t44->planificaciones[$i]->abr_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="may_p_{{$i}}" name="may_p[]" ondblclick="suma('may_p')" onchange="suma('may_p')">{{$t44->planificaciones[$i]->may_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="may_e_{{$i}}" name="may_e[]" ondblclick="suma('may_e')" onchange="suma('may_e')">{{$t44->planificaciones[$i]->may_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jun_p_{{$i}}" name="jun_p[]" ondblclick="suma('jun_p')" onchange="suma('jun_p')">{{$t44->planificaciones[$i]->jun_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jun_e_{{$i}}" name="jun_e[]" ondblclick="suma('jun_e')" onchange="suma('jun_e')">{{$t44->planificaciones[$i]->jun_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jul_p_{{$i}}" name="jul_p[]" ondblclick="suma('jul_p')" onchange="suma('jul_p')">{{$t44->planificaciones[$i]->jul_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jul_e_{{$i}}" name="jul_e[]" ondblclick="suma('jul_e')" onchange="suma('jul_e')">{{$t44->planificaciones[$i]->jul_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ago_p_{{$i}}" name="ago_p[]" ondblclick="suma('ago_p')" onchange="suma('ago_p')">{{$t44->planificaciones[$i]->ago_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ago_e_{{$i}}" name="ago_e[]" ondblclick="suma('ago_e')" onchange="suma('ago_e')">{{$t44->planificaciones[$i]->ago_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="sep_p_{{$i}}" name="sep_p[]" ondblclick="suma('sep_p')" onchange="suma('sep_p')">{{$t44->planificaciones[$i]->sep_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="sep_e_{{$i}}" name="sep_e[]" ondblclick="suma('sep_e')" onchange="suma('sep_e')">{{$t44->planificaciones[$i]->sep_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="oct_p_{{$i}}" name="oct_p[]" ondblclick="suma('oct_p')" onchange="suma('oct_p')">{{$t44->planificaciones[$i]->oct_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="oct_e_{{$i}}" name="oct_e[]" ondblclick="suma('oct_e')" onchange="suma('oct_e')">{{$t44->planificaciones[$i]->oct_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="nov_p_{{$i}}" name="nov_p[]" ondblclick="suma('nov_p')" onchange="suma('nov_p')">{{$t44->planificaciones[$i]->nov_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="nov_e_{{$i}}" name="nov_e[]" ondblclick="suma('nov_e')" onchange="suma('nov_e')">{{$t44->planificaciones[$i]->nov_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_p_{{$i}}" name="dic_p[]" ondblclick="suma('dic_p')" onchange="suma('dic_p')">{{$t44->planificaciones[$i]->dic_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_e_{{$i}}" name="dic_e[]" ondblclick="suma('dic_e')" onchange="suma('dic_e')">{{$t44->planificaciones[$i]->dic_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="left" valign=middle><font size=3><textarea class="campo" placeholder=""  name="evidencias[]" >{{$t44->planificaciones[$i]->evidencias}}</textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000"  align="left" valign=middle><font size=3>
 					<select id="cargo" class="form-control" name="responsable_plan_id[]" style="width:90%;">
 						@foreach ($empleados as $empleado)
-							<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                            @if($t44->planificaciones[$i]->responsable_plan_id == $empleado->id)
+                                <option value="{{$empleado->id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                            @else
+                                <option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                            @endif
+							
 						@endforeach
 					</select>
 				<br></font></td>
@@ -233,36 +259,41 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=12  align="center" valign=middle bgcolor="#FF6600"><b><font size=3>HACER</font></b></td>
 		@for($i=5; $i < 14; $i++)
 			<tr>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5  align="left" valign=middle bgcolor="#FFFFFF"><font size=3 color="#993300"><textarea class="campo" placeholder="" name="actividad[]" ></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ene_p_{{$i}}" name="ene_p[]" onchange="suma('ene_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ene_e_{{$i}}" name="ene_e[]" onchange="suma('ene_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="feb_p_{{$i}}" name="feb_p[]" onchange="suma('feb_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="feb_e_{{$i}}" name="feb_e[]" onchange="suma('feb_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="mar_p_{{$i}}" name="mar_p[]" onchange="suma('mar_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="mar_e_{{$i}}" name="mar_e[]" onchange="suma('mar_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="abr_p_{{$i}}" name="abr_p[]" onchange="suma('abr_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="abr_e_{{$i}}" name="abr_e[]" onchange="suma('abr_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="may_p_{{$i}}" name="may_p[]" onchange="suma('may_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="may_e_{{$i}}" name="may_e[]" onchange="suma('may_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jun_p_{{$i}}" name="jun_p[]" onchange="suma('jun_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jun_e_{{$i}}" name="jun_e[]" onchange="suma('jun_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jul_p_{{$i}}" name="jul_p[]" onchange="suma('jul_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jul_e_{{$i}}" name="jul_e[]" onchange="suma('jul_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ago_p_{{$i}}" name="ago_p[]" onchange="suma('ago_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ago_e_{{$i}}" name="ago_e[]" onchange="suma('ago_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="sep_p_{{$i}}" name="sep_p[]" onchange="suma('sep_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="sep_e_{{$i}}" name="sep_e[]" onchange="suma('sep_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="oct_p_{{$i}}" name="oct_p[]" onchange="suma('oct_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="oct_e_{{$i}}" name="oct_e[]" onchange="suma('oct_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="nov_p_{{$i}}" name="nov_p[]" onchange="suma('nov_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="nov_e_{{$i}}" name="nov_e[]" onchange="suma('nov_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_p_{{$i}}" name="dic_p[]" onchange="suma('dic_p')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_e_{{$i}}" name="dic_e[]" onchange="suma('dic_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="left" valign=middle><font size=3><textarea class="campo" placeholder=""  name="evidencias[]" ></textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5  align="left" valign=middle bgcolor="#FFFFFF"><font size=3 color="#993300"><textarea class="campo" placeholder="" name="actividad[]" >{{$t44->planificaciones[$i]->actividad}}</textarea><br></font></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ene_p_{{$i}}" name="ene_p[]" ondblclick="suma('ene_p')" onchange="suma('ene_p')">{{$t44->planificaciones[$i]->ene_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ene_e_{{$i}}" name="ene_e[]" ondblclick="suma('ene_e')" onchange="suma('ene_e')">{{$t44->planificaciones[$i]->ene_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="feb_p_{{$i}}" name="feb_p[]" ondblclick="suma('feb_p')" onchange="suma('feb_p')">{{$t44->planificaciones[$i]->feb_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="feb_e_{{$i}}" name="feb_e[]" ondblclick="suma('feb_e')" onchange="suma('feb_e')">{{$t44->planificaciones[$i]->feb_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="mar_p_{{$i}}" name="mar_p[]" ondblclick="suma('mar_p')" onchange="suma('mar_p')">{{$t44->planificaciones[$i]->mar_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="mar_e_{{$i}}" name="mar_e[]" ondblclick="suma('mar_e')" onchange="suma('mar_e')">{{$t44->planificaciones[$i]->mar_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="abr_p_{{$i}}" name="abr_p[]" ondblclick="suma('abr_p')" onchange="suma('abr_p')">{{$t44->planificaciones[$i]->abr_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="abr_e_{{$i}}" name="abr_e[]" ondblclick="suma('abr_e')" onchange="suma('abr_e')">{{$t44->planificaciones[$i]->abr_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="may_p_{{$i}}" name="may_p[]" ondblclick="suma('may_p')" onchange="suma('may_p')">{{$t44->planificaciones[$i]->may_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="may_e_{{$i}}" name="may_e[]" ondblclick="suma('may_e')" onchange="suma('may_e')">{{$t44->planificaciones[$i]->may_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jun_p_{{$i}}" name="jun_p[]" ondblclick="suma('jun_p')" onchange="suma('jun_p')">{{$t44->planificaciones[$i]->jun_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jun_e_{{$i}}" name="jun_e[]" ondblclick="suma('jun_e')" onchange="suma('jun_e')">{{$t44->planificaciones[$i]->jun_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jul_p_{{$i}}" name="jul_p[]" ondblclick="suma('jul_p')" onchange="suma('jul_p')">{{$t44->planificaciones[$i]->jul_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="jul_e_{{$i}}" name="jul_e[]" ondblclick="suma('jul_e')" onchange="suma('jul_e')">{{$t44->planificaciones[$i]->jul_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ago_p_{{$i}}" name="ago_p[]" ondblclick="suma('ago_p')" onchange="suma('ago_p')">{{$t44->planificaciones[$i]->ago_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ago_e_{{$i}}" name="ago_e[]" ondblclick="suma('ago_e')" onchange="suma('ago_e')">{{$t44->planificaciones[$i]->ago_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="sep_p_{{$i}}" name="sep_p[]" ondblclick="suma('sep_p')" onchange="suma('sep_p')">{{$t44->planificaciones[$i]->sep_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="sep_e_{{$i}}" name="sep_e[]" ondblclick="suma('sep_e')" onchange="suma('sep_e')">{{$t44->planificaciones[$i]->sep_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="oct_p_{{$i}}" name="oct_p[]" ondblclick="suma('oct_p')" onchange="suma('oct_p')">{{$t44->planificaciones[$i]->oct_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="oct_e_{{$i}}" name="oct_e[]" ondblclick="suma('oct_e')" onchange="suma('oct_e')">{{$t44->planificaciones[$i]->oct_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="nov_p_{{$i}}" name="nov_p[]" ondblclick="suma('nov_p')" onchange="suma('nov_p')">{{$t44->planificaciones[$i]->nov_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="nov_e_{{$i}}" name="nov_e[]" ondblclick="suma('nov_e')" onchange="suma('nov_e')">{{$t44->planificaciones[$i]->nov_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_p_{{$i}}" name="dic_p[]" ondblclick="suma('dic_p')" onchange="suma('dic_p')">{{$t44->planificaciones[$i]->dic_p}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_e_{{$i}}" name="dic_e[]" ondblclick="suma('dic_e')" onchange="suma('dic_e')">{{$t44->planificaciones[$i]->dic_e}}</textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="left" valign=middle><font size=3><textarea class="campo" placeholder=""  name="evidencias[]" >{{$t44->planificaciones[$i]->evidencias}}</textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000"  align="left" valign=middle><font size=3>
 					<select id="cargo" class="form-control" name="responsable_plan_id[]" style="width:90%;">
 						@foreach ($empleados as $empleado)
-							<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                            @if($t44->planificaciones[$i]->responsable_plan_id == $empleado->id)
+                                <option value="{{$empleado->id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                            @else
+                                <option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+                            @endif
+							
 						@endforeach
 					</select>
 				<br></font></td>
@@ -328,10 +359,10 @@
 	@for($g=0; $g<8; $g++)	
 	
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3>NOMBRE DE LA GRAFICA <input type="hidden" value="{{$g}}" name="numero_grafico[{{$g}}]" /></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3>NOMBRE DE LA GRAFICA <input type="hidden" value="{{$g}}" name="numero_grafico[{{$g}}]"  value="{{$t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->numero_grafico}}"></font></b></td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3><textarea class="campo" placeholder="" name="nombre_grafico[{{$g}}]" ></textarea></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3><textarea class="campo" placeholder="" name="nombre_grafico[{{$g}}]" >{{$t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->nombre_grafico}}</textarea></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 height=300 align="center" valign=middle><div id="espgrafico_{{$g}}" style="width:730; height:250;"></div></td>
@@ -382,19 +413,37 @@
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 align="center" valign=middle bgcolor="#50b308" ><font size=3>Frecuencia</font></td>
 	</tr>
-		
+	
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32  align="center" valign=middle><font size=3>
 			<select id="frecuencia_medicion_reporte_{{$g}}" class="form-control" name="frecuencia_medicion_reporte[{{$g}}]" onchange="boton({{$g}})">
-				<option value="1">Anual</option>
-				<option value="2">Semestral</option>
-				<option value="4">Trimestral</option>
+				<option value="1" 
+                    
+                    @if($t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->frecuencia_medicion_reporte == 1)
+                        selected
+                    @endif
+                   
+                >Anual</option>
+				<option value="2"
+                    
+                    @if($t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->frecuencia_medicion_reporte == 2)
+                        selected
+                    @endif
+                    
+                >Semestral</option>
+				<option value="4"
+                   
+                    @if($t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->frecuencia_medicion_reporte == 4)
+                        selected
+                    @endif
+                    
+                >Trimestral</option>
 			</select>
 		</font></td>
 	</tr>
 	
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32  align="center" valign=middle><font size=3><button type="button" class="btn btn-success btn-block btn-lg" id="modalbtn_{{$g}}" onclick="modal({{$g}})" data-toggle="modal" data-target="#modal_{{$g}}_1">RESULTADOS GRAFICO {{$g+1}}</button></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32  align="center" valign=middle><font size=3><button type="button" class="btn btn-success btn-block btn-lg" id="modalbtn_{{$g}}" onclick="modal({{$g}})" data-toggle="modal" data-target="#modal_{{$g}}_{{$t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->frecuencia_medicion_reporte}}">RESULTADOS GRAFICO {{$g+1}}</button></font></td>
 	</tr>
 	<tr>
 		<td align="center" valign=middle colspan="32"><font size="3" aling="center"> *** </font></td>
@@ -435,18 +484,18 @@
 					@for($f=0; $f<1; $f++)
 						<tr>
 							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">{{$f + 1}}</font></td>
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><textarea class="campo" placeholder="" name="objetivo[{{$m}}][1][]"></textarea></td>
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" name="descripcion[{{$m}}][1][]"></textarea></font></td>
+                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><textarea class="campo" placeholder="" name="objetivo[{{$m}}][1][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->objetivo}}</textarea></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" name="descripcion[{{$m}}][1][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->descripcion}}</textarea></font></td>
 							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" name="analisis[{{$m}}][1][]"></textarea><br></font></td>
 							@if($m == 0 || $m == 1 || $m == 2)
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})" name="valor1[{{$m}}][1][]"></textarea><br></font></td>
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})" name="valor2[{{$m}}][1][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})" name="valor1[{{$m}}][1][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor1}}</textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})" name="valor2[{{$m}}][1][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor2}}</textarea><br></font></td>
 							@elseif($m == 3 || $m == 4 || $m == 5)
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})" name="valor1[{{$m}}][1][]"></textarea><br></font></td>
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})"  name="valor2[{{$m}}][1][]"></textarea><br></font></td>
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor3_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})"  name="valor3[{{$m}}][1][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})" name="valor1[{{$m}}][1][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor1}}</textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})"  name="valor2[{{$m}}][1][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor2}}</textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor3_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})"  name="valor3[{{$m}}][1][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor3}}</textarea><br></font></td>
 							@endif
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="meta_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})"  name="meta[{{$m}}][1][]"></textarea><br></font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="meta_{{$m}}_1_{{$f}}" onchange="calculo({{$m}},1, {{$f}})" ondblclick="calculo({{$m}},1, {{$f}})"  name="meta[{{$m}}][1][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->meta}}</textarea><br></font></td>
 							<td id="logrado_{{$m}}_1_{{$f}}" ondblclick="calculo({{$m}},1, {{$f}})"style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF">0</td>
 						</tr>
 					@endfor
@@ -492,18 +541,18 @@
 					@for($f=0; $f<2; $f++)
 						<tr>
 							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">{{$f + 1}}</font></td>
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><textarea class="campo" placeholder="" name="objetivo[{{$m}}][2][]"></textarea></td>
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" name="descripcion[{{$m}}][2][]"></textarea></font></td>
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" name="analisis[{{$m}}][2][]"></textarea><br></font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><textarea class="campo" placeholder="" name="objetivo[{{$m}}][2][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->objetivo}}</textarea></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" name="descripcion[{{$m}}][2][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->descripcion}}</textarea></font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" name="analisis[{{$m}}][2][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->analisis}}</textarea><br></font></td>
 							@if($m == 0 || $m == 1 || $m == 2)
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor1[{{$m}}][2][]"></textarea><br></font></td>
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor2[{{$m}}][2][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor1[{{$m}}][2][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor1}}</textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor2[{{$m}}][2][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor2}}</textarea><br></font></td>
 							@elseif($m == 3 || $m == 4 || $m == 5)
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor1[{{$m}}][2][]"></textarea><br></font></td>
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor2[{{$m}}][2][]"></textarea><br></font></td>
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor3_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})"  name="valor3[{{$m}}][2][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor1[{{$m}}][2][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor1}}</textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})" name="valor2[{{$m}}][2][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor2}}</textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor3_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})"  name="valor3[{{$m}}][2][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor3}}</textarea><br></font></td>
 							@endif
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="meta_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})"  name="meta[{{$m}}][2][]"></textarea><br></font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="meta_{{$m}}_2_{{$f}}" onchange="calculo({{$m}},2, {{$f}})" ondblclick="calculo({{$m}},2, {{$f}})"  name="meta[{{$m}}][2][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->meta}}</textarea><br></font></td>
 							<td id="logrado_{{$m}}_2_{{$f}}" ondblclick="calculo({{$m}},1, {{$f}})"style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF">0</td>
 						</tr>
 					@endfor
@@ -549,18 +598,18 @@
 					@for($f=0; $f<4; $f++)
 						<tr>
 							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">{{$f + 1}}</font></td>
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><textarea class="campo" placeholder="" name="objetivo[{{$m}}][4][]"></textarea></td>
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" name="descripcion[{{$m}}][4][]"></textarea></font></td>
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" name="analisis[{{$m}}][4][]"></textarea><br></font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><textarea class="campo" placeholder="" name="objetivo[{{$m}}][4][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->objetivo}}</textarea></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" name="descripcion[{{$m}}][4][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->descripcion}}</textarea></font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" name="analisis[{{$m}}][4][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->analisis}}</textarea><br></font></td>
 							@if($m == 0 || $m == 1 || $m == 2)
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor1[{{$m}}][4][]"></textarea><br></font></td>
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor2[{{$m}}][4][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor1[{{$m}}][4][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor1}}</textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor2[{{$m}}][4][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor2}}</textarea><br></font></td>
 							@elseif($m == 3 || $m == 4 || $m == 5)
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor1[{{$m}}][4][]"></textarea><br></font></td>
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor2[{{$m}}][4][]"></textarea><br></font></td>
-								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor3_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})"  name="valor3[{{$m}}][4][]"></textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor1[{{$m}}][4][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor1}}</textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor2_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})" name="valor2[{{$m}}][4][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor2}}</textarea><br></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="valor3_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})"  name="valor3[{{$m}}][4][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->valor3}}</textarea><br></font></td>
 							@endif
-							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="meta_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})"  name="meta[{{$m}}][4][]"></textarea><br></font></td>
+							<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder="" id="meta_{{$m}}_4_{{$f}}" onchange="calculo({{$m}},4, {{$f}})" ondblclick="calculo({{$m}},4, {{$f}})"  name="meta[{{$m}}][4][]">{{$t44->graficos()->where('numero_grafico', '=', $m)->get()[$f]->meta}}</textarea><br></font></td>
 							<td id="logrado_{{$m}}_4_{{$f}}" ondblclick="calculo({{$m}},4, {{$f}})"style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF">0</td>
 						</tr>
 					@endfor

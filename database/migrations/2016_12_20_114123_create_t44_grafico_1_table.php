@@ -20,11 +20,12 @@ class CreateT44Grafico1Table extends Migration
             $table->string('objetivo');
             $table->string('descripcion');
             $table->string('metodo_calculo');
-            $table->string('frecuencia');
+            $table->string('frecuencia_medicion_reporte');
             $table->text('analisis');
             $table->string('valor1');
             $table->string('valor2');
             $table->string('valor3');
+            $table->string('meta');
             
             $table->integer('t44_id')->unsigned();
             $table->foreign('t44_id')
