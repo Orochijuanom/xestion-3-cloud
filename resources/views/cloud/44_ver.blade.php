@@ -68,7 +68,10 @@
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=5 rowspan=3 height="106" align="left" valign=middle><b><img style="width:200px; heigth:200px;" src="/images/{{$t44->empresa->logo}}" />
         <br />
         <output id="list"></output></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=26 rowspan=2 align="center" valign=middle><b><font size=3>{{$t44->empresa->nombre_empresa}}<input type="hidden" value="{{$t44->empresa->id}}" name="empresa_id" /></font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=26 rowspan=2 align="center" valign=middle><b><font size=3>{{$t44->empresa->nombre_empresa}}
+		<input type="hidden" value="{{$t44->empresa->id}}" name="empresa_id" />
+		<input type="hidden" value="{{$t44->id}}" name="id" />
+		</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><b><font size=3>Codigo: <input class="codigo" placeholder="ingrese el codigo" type="text" required name="codigo" value="{{$t44->codigo}}"></font></b></td>
 	</tr>
 	<tr>
@@ -128,6 +131,7 @@
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=14 rowspan=6  align="left" valign=middle><font size=3><textarea class="campo" name="objetivos_programa">{{$t44->objetivos_programa}}</textarea><br></font></td>
 		@for($i=0; $i < 5; $i++)
 			<tr>
+				<input type="hidden" name="t44meta_id[]" value="{{$t44->metas[$i]->id}}" />
                 <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=17  align="left" valign=middle><font size=3><textarea class="campo" name="metas[]">{{$t44->metas[$i]->meta}}</textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000"  align="justify" valign=middle><font size=3 color="#993300"><textarea class="campo" name="valor[]">{{$t44->metas[$i]->valor}}</textarea><br></font></td>
 			</tr>
@@ -212,7 +216,8 @@
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=6 align="center" valign=middle bgcolor="#FFFF00"><b><font size=3>PLANIFICAR</font></b></td>
 		@for($i=0; $i < 5; $i++)
-			<tr>		
+			<tr>
+				<input type="hidden" name="t44planificar[]" value="{{$t44->planificaciones[$i]->id}}"		
                 <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5  align="left" valign=middle bgcolor="#FFFFFF"><font size=3 color="#993300"><textarea class="campo" placeholder="" name="actividad[]" >{{$t44->planificaciones[$i]->actividad}}</textarea><br></font></td>
                 <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ene_p_{{$i}}" name="ene_p[]" ondblclick="suma('ene_p')" onchange="suma('ene_p')">{{$t44->planificaciones[$i]->ene_p}}</textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="ene_e_{{$i}}" name="ene_e[]" ondblclick="suma('ene_e')" onchange="suma('ene_e')">{{$t44->planificaciones[$i]->ene_e}}</textarea><br></font></td>
@@ -357,7 +362,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=32 height="11" align="center" valign=middle bgcolor="#50b308"><b><font size=3>INDICADOR DE CUMPLIMIENTO</font></b></td>
 	</tr>
 	@for($g=0; $g<8; $g++)	
-	
+	<input type="hidden" name="t44grafico[]" value="{{$t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->id}}" />
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3>NOMBRE DE LA GRAFICA <input type="hidden" value="{{$g}}" name="numero_grafico[{{$g}}]"  value="{{$t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->numero_grafico}}"></font></b></td>
 	</tr>
