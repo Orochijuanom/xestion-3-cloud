@@ -222,11 +222,10 @@ Route::get('/cloud/form/t44/{empresa_id}', function($empresa_id) {
 
 Route::get('/cloud/form/44/ver/{id}', function($id) {
     $t44 = App\T44::where('id',  '=', $id)->first();
-    $empresa = App\Empresa::find($id);
     $empleados = App\Empleados::where('empresa_id', '=', $t44->empresa_id)->get();
     $t1s = App\T1::where('empresa_id', '=', $t44->empresa_id)->get();
     $t2s = App\T2::where('empresa_id', '=', $t44->empresa_id)->get();
-    return view('cloud.44_ver')->with(['t44' => $t44, 'empresa' => $empresa, 'empleados' => $empleados, 't1s' => $t1s, 't2s' => $t2s]);
+    return view('cloud.44_ver')->with(['t44' => $t44,  'empleados' => $empleados, 't1s' => $t1s, 't2s' => $t2s]);
 });
 
 Route::get('/cloud/form/44/{id}', function($id) {

@@ -21,7 +21,18 @@ class t6controller extends Controller
         
         $datos = count($request['fecha_t6']);
 
-        for ($i=0; $i < $datos; $i++) { 
+        for ($i=0; $i < $datos; $i++) {
+            if (@$request->file('evidencia')[$i]){
+                $file = $request->file('evidencia')[$i];
+                //obtenemos el nombre del archivo
+                $nombre = $file->getClientOriginalName();            
+                //indicamos que queremos guardar un nuevo archivo en el disco local
+                \Storage::disk('public')->put($nombre,  \File::get($file));
+            }else{
+                $nombre = "";
+            }
+
+
             T6Detalle::create([
                 'fecha_t6' => $request['fecha_t6'][$i],
                 'nombre_quien_reporta' => $request['nombre_quien_reporta'][$i],
@@ -41,7 +52,7 @@ class t6controller extends Controller
                 'fecha_cierre' => $request['fecha_cierre'][$i],
                 'oportuno' => $request['oportuno'][$i],
                 'eficaz' => $request['eficaz'][$i],
-                'evidencia' => $request['evidencia'][$i],
+                'evidencia' => $nombre,
                 't6_id' => $t6->id
             ]);
         }
@@ -86,8 +97,8 @@ class t6controller extends Controller
             $t6detalle->fecha_cierre = $request['fecha_cierre'][$i];
             $t6detalle->oportuno = $request['oportuno'][$i];
             $t6detalle->eficaz = $request['eficaz'][$i];
-            $t6detalle->evidencia = $request['evidencia'][$i];
-                
+            //$t6detalle->evidencia = $request['evidencia'][$i];
+            $t6detalle->save();    
             
         }
 

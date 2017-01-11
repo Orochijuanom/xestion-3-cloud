@@ -179,7 +179,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><input class="" placeholder="fecha" type="date"  name="fecha_cierre[]" value="{{$t6Detalle->fecha_cierre}}"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="oportuno[]">{{$t6Detalle->oportuno}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="eficaz[]">{{$t6Detalle->eficaz}}</textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="evidencia[]">{{$t6Detalle->evidencia}}</textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><a target="_blank" href="/images/{{$t6Detalle->evidencia}}">VER</a><br></td>
 	</tr>
 	@endforeach
 </table>

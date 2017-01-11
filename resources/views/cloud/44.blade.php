@@ -37,7 +37,7 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="{{ url('/cloud/form/44') }}">
+<form method="POST" action="{{ url('/cloud/form/44') }}" enctype="multipart/form-data">
 {{ csrf_field() }}
 <table align="left" cellspacing="0" border="0">
 	<colgroup width="37"></colgroup>
@@ -217,7 +217,7 @@
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="nov_e_{{$i}}" name="nov_e[]" onchange="suma('nov_e')"></textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_p_{{$i}}" name="dic_p[]" onchange="suma('dic_p')"></textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_e_{{$i}}" name="dic_e[]" onchange="suma('dic_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="left" valign=middle><font size=3><textarea class="campo" placeholder=""  name="evidencias[]" ></textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="left" valign=middle><font size=3><input type="file" class="campo" placeholder=""  name="evidencias[]" /><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000"  align="left" valign=middle><font size=3>
 					<select id="cargo" class="form-control" name="responsable_plan_id[]" style="width:90%;">
 						@foreach ($empleados as $empleado)
@@ -258,7 +258,7 @@
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="nov_e_{{$i}}" name="nov_e[]" onchange="suma('nov_e')"></textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_p_{{$i}}" name="dic_p[]" onchange="suma('dic_p')"></textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_e_{{$i}}" name="dic_e[]" onchange="suma('dic_e')"></textarea><br></font></td>
-				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="left" valign=middle><font size=3><textarea class="campo" placeholder=""  name="evidencias[]" ></textarea><br></font></td>
+				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="left" valign=middle><font size=3><input type="file" class="campo" placeholder=""  name="evidencias[]" /><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000"  align="left" valign=middle><font size=3>
 					<select id="cargo" class="form-control" name="responsable_plan_id[]" style="width:90%;">
 						@foreach ($empleados as $empleado)

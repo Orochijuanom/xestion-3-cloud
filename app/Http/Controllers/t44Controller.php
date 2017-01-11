@@ -36,8 +36,20 @@ class t44Controller extends Controller
         }
 
         $datosEne = count($request['ene_p']);
-
+        
         for ($i=0; $i < $datosEne ; $i++) { 
+
+            if (@$request->file('evidencias')[$i]){
+                $file = $request->file('evidencias')[$i];
+                //obtenemos el nombre del archivo
+                $nombre = $file->getClientOriginalName();            
+                //indicamos que queremos guardar un nuevo archivo en el disco local
+                \Storage::disk('public')->put($nombre,  \File::get($file));
+            }else{
+                $nombre = "";
+            }
+            
+
             T44Planificar::create([
                 'actividad' => $request['actividad'][$i],
                 'ene_p' => $request['ene_p'][$i],
@@ -64,7 +76,7 @@ class t44Controller extends Controller
                 'nov_e' => $request['oct_e'][$i],
                 'dic_p' => $request['nov_p'][$i],
                 'dic_e' => $request['nov_e'][$i],
-                'evidencias' => $request['evidencias'][$i],
+                'evidencias' => $nombre,
                 'responsable_plan_id' => $request['responsable_plan_id'][$i],
                 't44_id' => $t44->id
             ]);
@@ -217,7 +229,7 @@ class t44Controller extends Controller
             $t44planificar->nov_e = $request['oct_e'][$i];
             $t44planificar->dic_p = $request['nov_p'][$i];
             $t44planificar->dic_e = $request['nov_e'][$i];
-            $t44planificar->evidencias = $request['evidencias'][$i];
+            //$t44planificar->evidencias = $request['evidencias'][$i];
             $t44planificar->responsable_plan_id = $request['responsable_plan_id'][$i];                
             $t44planificar->save();
 

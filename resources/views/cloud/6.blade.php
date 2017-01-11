@@ -37,7 +37,7 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="{{ url('/cloud/form/6') }}">
+<form method="POST" action="{{ url('/cloud/form/6') }}" enctype="multipart/form-data">
 {{ csrf_field() }}
 
 <table cellspacing="0" border="0">
@@ -161,7 +161,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><input class="" placeholder="fecha" type="date"  name="fecha_cierre[]" value="{{ date('Y-m-d') }}"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="oportuno[]"></textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="eficaz[]"></textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="evidencia[]"></textarea><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF"><input type="file" class="campo" placeholder=""  name="evidencia[]" /><br></td>
 	</tr>
 	@endfor
 </table>
