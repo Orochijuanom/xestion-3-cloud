@@ -45,7 +45,7 @@ Route::get('/cloud', function() {
 
 //Ruta que muestra las empresas del usuario
 Route::get('/cloud/form/l1', function() {
-    $empresas = App\Empresa::all();    
+    $empresas = App\Empresa::where('usuario_id','=',Auth::user()->id)->get();    
     return view('cloud.l1')->with('empresas',$empresas);
 });
 

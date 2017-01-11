@@ -26,7 +26,8 @@ class t1Controller extends Controller
 
         $empresa = Empresa::create([
             'nombre_empresa' => $request['nombre_empresa'],            
-            'logo' => $nombre
+            'logo' => $nombre,
+            'usuario_id' => \Auth::user()->id
         ]);
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
     }
