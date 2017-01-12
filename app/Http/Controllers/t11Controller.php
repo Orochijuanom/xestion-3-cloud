@@ -24,7 +24,6 @@ class t11Controller extends Controller
             'ficha_numero' => $request['ficha_numero'],
             'nombre_indicador' => $request['nombre_indicador'],
             'definicion_indicador' => $request['definicion_indicador'],
-            'meta' => $request['meta'],
             'tipo_indicador' => $request['tipo_indicador'],
             'metodo_calculo' => $request['metodo_calculo'],
             'frecuencia_medicion_reporte' => $request['frecuencia_medicion_reporte'],
@@ -35,6 +34,12 @@ class t11Controller extends Controller
         ]);        
         
             for ($j=0; $j < 4; $j++) {
+                if(isset($request['meta'][$T11Detalle->metodo_calculo][$T11Detalle->frecuencia_medicion_reporte][$j])){
+                    $meta = $request['meta'][$T11Detalle->metodo_calculo][$T11Detalle->frecuencia_medicion_reporte][$j];
+                }else{
+                    $meta = "";
+                } 
+                
                 if(isset($request['valor1'][$T11Detalle->metodo_calculo][$T11Detalle->frecuencia_medicion_reporte][$j])){
                     $valor1 = $request['valor1'][$T11Detalle->metodo_calculo][$T11Detalle->frecuencia_medicion_reporte][$j];
                 }else{
@@ -62,6 +67,7 @@ class t11Controller extends Controller
 
                 T11Grafico::create([
                     't11_detalle_id' => $T11Detalle->id,
+                    'meta' => $meta,
                     'valor1' => $valor1,
                     'valor2' => $valor2,
                     'analisis' => $analisis,
@@ -89,7 +95,6 @@ class t11Controller extends Controller
         $t11detalle->ficha_numero = $request['ficha_numero'];
         $t11detalle->nombre_indicador = $request['nombre_indicador'];
         $t11detalle->definicion_indicador = $request['definicion_indicador'];
-        $t11detalle->meta = $request['meta'];
         $t11detalle->tipo_indicador = $request['tipo_indicador'];
         $t11detalle->metodo_calculo = $request['metodo_calculo'];
         $t11detalle->fuente_datos_calculo = $request['fuente_datos_calculo'];

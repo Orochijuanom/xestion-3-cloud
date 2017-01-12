@@ -90,10 +90,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 height="43" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">Definición del indicador</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=7 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial"><textarea class="campo" placeholder=""  name="definicion_indicador">{{$t11->T11Detalle[0]->definicion_indicador}}</textarea><br></font></td>
 		</tr>
-	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 height="43" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">Meta</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=7 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial"><textarea class="campo" placeholder=""  name="meta">{{$t11->T11Detalle[0]->meta}}</textarea><br></font></td>
-		</tr>
+	
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 height="43" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">Responsable del calculo y seguimiento del indicador</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=7 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial">
@@ -127,7 +124,7 @@
 		<select id="metodo_calculo" class="form-control" name="metodo_calculo" onchange="modal()">
 			<option value="1" @if($t11->T11Detalle[0]->metodo_calculo == 1) selected @endif>Cero Accidentes</option>
 			<option value="2" @if($t11->T11Detalle[0]->metodo_calculo == 2) selected @endif>(Nro actividades ejecutadas/ Nro actividades programadas)*100</option>
-			<option value="3" @if($t11->T11Detalle[0]->metodo_calculo == 3) selected @endif>(Sumatoria de puntaje obtenido / sumatoria puntaje posible)/100</option>
+			<option value="3" @if($t11->T11Detalle[0]->metodo_calculo == 3) selected @endif>(Sumatoria de puntaje obtenido / sumatoria puntaje posible)*100</option>
 		</select>
 		
 		</tr>
@@ -211,7 +208,7 @@ pagina" onclick="window.print()">
 				<table align="left" cellspacing="0" border="0">
 					<tr>
 						
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Resultado %</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Resultado Unidades</font></td>
 					</tr>
 					<tr>
 						
@@ -222,7 +219,7 @@ pagina" onclick="window.print()">
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " onclick="graficar()"data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()"data-dismiss="modal">Graficar</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -242,6 +239,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Periodo evaluado</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Resultado %</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Meta</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">ACTIVIDADES EJECUTADAS</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">ACTIVIDADES PROGRAMADAS</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Análisis</font></td>
@@ -250,6 +248,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">Anual</font></td>
 						<td id="calculo2_1_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_2_1_1"  name="meta[2][1][]">{{$t11->T11Detalle[0]->T11Grafico[0]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_2_1_1" onchange="calculo('2_1_1')" name="valor1[2][1][]">{{$t11->T11Detalle[0]->T11Grafico[0]->valor1}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_1_1" onchange="calculo('2_1_1')" name="valor2[2][1][]">{{$t11->T11Detalle[0]->T11Grafico[0]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder="" name="analisis[2][1][]">{{$t11->T11Detalle[0]->T11Grafico[0]->analisis}}</textarea><br></font></td>
@@ -260,7 +259,7 @@ pagina" onclick="window.print()">
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" onclick="graficar()" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default" onclick="graficar()" data-dismiss="modal">Graficar</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -280,6 +279,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Periodo evaluado</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Resultado %</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Meta</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">ACTIVIDADES EJECUTADAS</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">ACTIVIDADES PROGRAMADAS</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Análisis</font></td>
@@ -288,6 +288,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">1er Semestre</font></td>
 						<td id="calculo2_2_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_2_2_1"  name="meta[2][2][]">{{$t11->T11Detalle[0]->T11Grafico[1]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder=""  id="valor1_2_2_1" onchange="calculo('2_2_1')" name="valor1[2][2][]">{{$t11->T11Detalle[0]->T11Grafico[1]->valor1}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_2_1" onchange="calculo('2_2_1')" name="valor2[2][2][]">{{$t11->T11Detalle[0]->T11Grafico[1]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][2][]">{{$t11->T11Detalle[0]->T11Grafico[1]->analisis}}</textarea><br></font></td>
@@ -296,6 +297,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">2do Semestre</font></td>
 						<td id="calculo2_2_2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_2_2_2"  name="meta[2][2][]">{{$t11->T11Detalle[0]->T11Grafico[2]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  id="valor1_2_2_2" onchange="calculo('2_2_2')" name="valor1[2][2][]">{{$t11->T11Detalle[0]->T11Grafico[2]->valor1}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_2_2" onchange="calculo('2_2_2')" name="valor2[2][2][]">{{$t11->T11Detalle[0]->T11Grafico[2]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][2][]">{{$t11->T11Detalle[0]->T11Grafico[2]->analisis}}</textarea><br></font></td>
@@ -305,7 +307,7 @@ pagina" onclick="window.print()">
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Graficar</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -325,6 +327,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Periodo evaluado</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Resultado %</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Meta</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">ACTIVIDADES EJECUTADAS</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">ACTIVIDADES PROGRAMADAS</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Análisis</font></td>
@@ -333,6 +336,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">1er Trimestre</font></td>
 						<td id="calculo2_4_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_2_4_1"  name="meta[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[0]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_2_4_1" onchange="calculo('2_4_1')" name="valor1[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[0]->valor1}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_4_1" onchange="calculo('2_4_1')" name="valor2[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[0]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[0]->analisis}}</textarea><br></font></td>
@@ -341,6 +345,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">2do Trimestre</font></td>
 						<td id="calculo2_4_2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_2_4_2"  name="meta[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[1]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_2_4_2" onchange="calculo('2_4_2')" name="valor1[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[1]->valor1}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_4_2" onchange="calculo('2_4_2')" name="valor2[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[1]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[1]->analisis}}</textarea><br></font></td>
@@ -349,6 +354,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">3er Trimestre</font></td>
 						<td id="calculo2_4_3" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_2_4_3"  name="meta[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[3]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_2_4_3" onchange="calculo('2_4_3')" name="valor1[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[2]->valor1}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_4_3" onchange="calculo('2_4_3')" name="valor2[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[2]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[2]->analisis}}</textarea><br></font></td>
@@ -357,6 +363,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">4to Trimestre</font></td>
 						<td id="calculo2_4_4" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_2_4_4"  name="meta[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[3]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_2_4_4" onchange="calculo('2_4_4')" name="valor1[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[3]->valor1}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_2_4_4" onchange="calculo('2_4_4')" name="valor2[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[3]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[2][4][]">{{$t11->T11Detalle[0]->T11Grafico[3]->analisis}}</textarea><br></font></td>
@@ -366,7 +373,7 @@ pagina" onclick="window.print()">
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Graficar</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -386,6 +393,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Periodo evaluado</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Resultado %</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Meta</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">PUNTAJE OBTENIDO</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">PUNTAJE POSIBLE</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Análisis</font></td>
@@ -394,6 +402,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">Anual</font></td>
 						<td id="calculo3_1_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_3_1_1"  name="meta[3][1][]">{{$t11->T11Detalle[0]->T11Grafico[0]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_1_1" onchange="calculo('3_1_1')" name="valor1[3][1][]">{{$t11->T11Detalle[0]->T11Grafico[0]->valor1}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_1_1" onchange="calculo('3_1_1')" name="valor2[3][1][]">{{$t11->T11Detalle[0]->T11Grafico[0]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][1][]">{{$t11->T11Detalle[0]->T11Grafico[0]->analisis}}</textarea><br></font></td>
@@ -404,7 +413,7 @@ pagina" onclick="window.print()">
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Graficar</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -424,6 +433,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Periodo evaluado</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Resultado %</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Meta</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">PUNTAJE OBTENIDO</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">PUNTAJE POSIBLE</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Análisis</font></td>
@@ -432,6 +442,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">1er Semestre</font></td>
 						<td id="calculo3_2_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_3_2_1"  name="meta[3][2][]">{{$t11->T11Detalle[0]->T11Grafico[0]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_2_1" onchange="calculo('3_2_1')" name="valor1[3][2][]">{{$t11->T11Detalle[0]->T11Grafico[0]->valor1}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_2_1" onchange="calculo('3_2_1')" name="valor2[3][2][]">{{$t11->T11Detalle[0]->T11Grafico[0]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][2][]">{{$t11->T11Detalle[0]->T11Grafico[0]->analisis}}</textarea><br></font></td>
@@ -440,6 +451,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">2do Semestre</font></td>
 						<td id="calculo3_2_2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_3_2_2"  name="meta[3][2][]">{{$t11->T11Detalle[0]->T11Grafico[1]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_2_2" onchange="calculo('3_2_2')" name="valor1[3][2][]">{{$t11->T11Detalle[0]->T11Grafico[1]->valor1}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_2_2" onchange="calculo('3_2_2')" name="valor2[3][2][]">{{$t11->T11Detalle[0]->T11Grafico[1]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][2][]">{{$t11->T11Detalle[0]->T11Grafico[1]->analisis}}</textarea><br></font></td>
@@ -449,7 +461,7 @@ pagina" onclick="window.print()">
 			</div>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Graficar</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -469,6 +481,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Periodo evaluado</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Resultado %</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">Meta</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">PUNTAJE OBTENIDO</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><font face="Arial">PUNTAJE POSIBLE</font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">Análisis</font></td>
@@ -477,6 +490,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">1er Trimestre</font></td>
 						<td id="calculo3_4_1" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_3_4_1"  name="meta[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[0]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_4_1" onchange="calculo('3_4_1')" name="valor1[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[0]->valor1}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_4_1" onchange="calculo('3_4_1')" name="valor2[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[0]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[0]->analisis}}</textarea><br></font></td>
@@ -485,6 +499,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">2do Trimestre</font></td>
 						<td id="calculo3_4_2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_3_4_2"  name="meta[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[1]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_4_2" onchange="calculo('3_4_2')" name="valor1[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[1]->valor1}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_4_2" onchange="calculo('3_4_2')" name="valor2[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[1]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[1]->analisis}}</textarea><br></font></td>
@@ -493,7 +508,8 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">3er Trimestre</font></td>
 						<td id="calculo3_4_3" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_4_1" onchange="calculo('3_4_3')" name="valor1[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[2]->valor1}}</textarea></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_3_4_3"  name="meta[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[2]->meta}}</textarea></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_4_3" onchange="calculo('3_4_3')" name="valor1[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[2]->valor1}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_4_3" onchange="calculo('3_4_3')" name="valor2[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[2]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[2]->analisis}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial"><textarea class="campo" placeholder=""  name="acciones_mejora[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[2]->acciones_mejora}}</textarea><br></font></td>
@@ -501,6 +517,7 @@ pagina" onclick="window.print()">
 					<tr>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="43" align="center" valign=middle sdnum="1033;1033;M/D/YYYY"><font face="Arial">4to Trimestre</font></td>
 						<td id="calculo3_4_4" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="0" sdnum="1033;"><font face="Arial"></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" sdnum="1033;"><font face="Arial"><textarea class="campo" placeholder="" id="meta_3_4_4"  name="meta[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[3]->meta}}</textarea></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor1_3_4_4" onchange="calculo('3_4_4')" name="valor1[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[3]->valor1}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder="" id="valor2_3_4_4" onchange="calculo('3_4_4')" name="valor2[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[3]->valor2}}</textarea><br></font></td>
 						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="justify" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="analisis[3][4][]">{{$t11->T11Detalle[0]->T11Grafico[3]->analisis}}</textarea><br></font></td>
@@ -511,7 +528,7 @@ pagina" onclick="window.print()">
 			<br>
 			<br>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default " onclick="graficar()" data-dismiss="modal">Graficar</button>
 			</div>
 
 		</div><!-- /.modal-content -->
@@ -566,7 +583,7 @@ pagina" onclick="window.print()">
 		if(metodo == 2){
 			resultado = (valor1/valor2)*100;
 		}else{
-			resultado = (valor1/valor2)/100;
+			resultado = (valor1/valor2)*100;
 		}
 
 		var celda = document.getElementById("calculo"+id);
@@ -650,7 +667,7 @@ function graficar(){
 				for (i = 1; i <= frecuencia; i++) { 
 					valor1.push(document.getElementById("valor1_"+metodo+"_"+frecuencia+"_"+i).value);
 					valor2.push(document.getElementById("valor2_"+metodo+"_"+frecuencia+"_"+i).value);
-					calculo.push(document.getElementById("calculo"+metodo+"_"+frecuencia+"_"+i).innerHTML);
+					calculo.push(document.getElementById("meta_"+metodo+"_"+frecuencia+"_"+i).value);
 				}
 				
 				var labels;
@@ -695,7 +712,7 @@ function graficar(){
 						borderWidth: 1
 					},
 					{
-						label: '%',
+						label: 'Meta',
 						data: calculo,
 						backgroundColor: backgroundColor,
 						borderWidth: 1

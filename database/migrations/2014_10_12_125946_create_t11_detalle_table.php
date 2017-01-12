@@ -18,8 +18,7 @@ class CreateT11DetalleTable extends Migration
             $table->date('fecha_creacion_indicador');
             $table->string('ficha_numero');
             $table->string('nombre_indicador');
-            $table->string('definicion_indicador');
-            $table->string('meta');        
+            $table->string('definicion_indicador');       
             $table->string('tipo_indicador');
             $table->string('metodo_calculo');
             $table->string('frecuencia_medicion_reporte');

@@ -97,9 +97,9 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;&quot;$&quot; #,##0;[RED]&quot;$&quot; #,##0"><b><font face="Arial" size=2 color="#0000FF"><textarea class="campo" placeholder="" id="presupuesto_{{$i}}" name="presupuesto[]" onchange="calcular_porcentaje({{$i}})"></textarea></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea id="ejecucion_primer_semestre_{{$i}}" class="campo" placeholder=""  name="ejecucion_primer_semestre[]" onchange="calcular_porcentaje({{$i}})"></textarea><br></font></td>
 		<td id="acumulado_uno_{{$i}}" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" bgcolor="#50b308" sdnum="1033;0;0.00%"><font face="Arial" size=2 color="#000000"></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="ejecucion_segundo_semestre[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" bgcolor="#50b308" sdnum="1033;0;0.00%"><font face="Arial" size=2 color="#000000"></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle sdval="0" sdnum="1033;0;0"><b><font face="Arial" size=2></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="ejecucion_segundo_semestre[]" id="ejecucion_segundo_semestre_{{$i}}" onchange="calcular_porcentaje2({{$i}})"></textarea><br></font></td>
+		<td id="acumulado_dos_{{$i}}" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" bgcolor="#50b308" sdnum="1033;0;0.00%"><font face="Arial" size=2 color="#000000"></font></td>
+		<td id="acumulado_total_{{$i}}" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle sdval="0" sdnum="1033;0;0"><b><font face="Arial" size=2></font></b></td>
 	</tr>
 	@endfor
 	<tr>
@@ -190,6 +190,26 @@ pagina" onclick="window.print()">
             }          
             result.innerHTML = acumulado;
         }
+    }
+
+	function calcular_porcentaje2(id) { 
+        var presupuesto = document.getElementById('presupuesto_'+id).value;
+        var ejecucion_segundo_semestre = document.getElementById('ejecucion_segundo_semestre_'+id).value;    
+        if (presupuesto!="" && ejecucion_segundo_semestre !=""){
+            var acumulado = 0;
+            if (ejecucion_segundo_semestre > 0){
+                acumulado = ejecucion_segundo_semestre / presupuesto * 100
+                result = document.getElementById('acumulado_dos_'+id);
+            }          
+            result.innerHTML = acumulado;
+        }
+
+		var semestre1 = document.getElementById('acumulado_uno_'+id).innerHTML;
+		var semestre2 = document.getElementById('acumulado_dos_'+id).innerHTML;
+
+		var acumulado_total = parseInt(semestre1) + parseInt(semestre2);
+
+		document.getElementById('acumulado_total_'+id).innerHTML = acumulado_total;
     }
 </script>
 </body>
