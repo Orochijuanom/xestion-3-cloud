@@ -12,10 +12,14 @@
 		<style type="text/css">
 		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Courier"; font-size:small }
 	</style>
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t2/{{$empresa->id}}">t2</a> / <a href="#">Agregar t2</a>
+<br/><br/><br/>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>

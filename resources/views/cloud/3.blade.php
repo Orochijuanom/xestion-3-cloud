@@ -14,7 +14,9 @@
 	<style type="text/css">
 		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:x-small }
 	</style>
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -104,13 +106,13 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="articulo[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="descripcion_obligacion[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="palabra_clave[]"></textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font face="Tahoma" size=6 color="#FF0000">
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font  size=6 >
 		<select id="aplica_{{$i}}" style="background:green;" name="aplica[]" onchange="cambiar_color(this.id)">
 			<option value="1">1</option>
 			<option value="0">0</option>
 		</select>
 		</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font face="Arial" size=6 color="#7C7C7C">
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font  size=6>
 		<select id="cumple_{{$i}}" name="cumple[]" style="background:green;" onchange="cambiar_color(this.id)">
 			<option value="1" style="background-color: green">1</option>
 			<option value="0" style="background-color: red">0</option>
@@ -126,7 +128,15 @@
 		<br></font></td>
 	</tr>
 	@endfor
-	
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="39" align="center" valign=middle bgcolor="#50b308" sdnum="1033;0;@"><b><font face="Arial">EVALUACION DE CUMPLIMIENTO PRIMER SEMESTRE</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="evaluacion_cumplimiento_primer_semestre"></textarea><br></font></td>
+	</tr>
+
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000"  height="39" align="center" valign=middle bgcolor="#50b308" sdnum="1033;0;@"><b><font face="Arial">EVALUACION DE CUMPLIMIENTO SEGUNDO SEMESTRE</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=12 align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="evaluacion_cumplimiento_segundo_semestre"></textarea><br></font></td>
+	</tr>
 
 </table>
 	<div class="sign-up"><input type="submit" value="Guardar"/></div>

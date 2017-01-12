@@ -20,6 +20,8 @@
 	
 </head>
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t44/{{$empresa->id}}">t44</a> / <a href="#">Agregar t44</a>
+<br/><br/><br/>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
@@ -212,7 +214,38 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#FF9900"><b><font size=3>DIC</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>Evidencia</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>Responsable</font></b></td>
+	</tr>
+
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=6 height="23" align="center" valign=middle bgcolor="#50b308"><b><font size=3></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>P</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3>E</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FF9900"><b><font size=3></font></b></td>
 	</tr>	
+
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=6 align="center" valign=middle bgcolor="#FFFF00"><b><font size=3>PLANIFICAR</font></b></td>
 		@for($i=0; $i < 5; $i++)
@@ -364,10 +397,27 @@
 	@for($g=0; $g<8; $g++)	
 	<input type="hidden" name="t44grafico[]" value="{{$t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->id}}" />
 	<tr>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3>NOMBRE DE LA GRAFICA <input type="hidden" value="{{$g}}" name="numero_grafico[{{$g}}]"  value="{{$t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->numero_grafico}}"></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3>
+		@if($g == 0)
+			INDICADOR DE CUMPLIMIENTO
+		@elseif($g == 1)
+			COBERTURA
+		@elseif($g == 2)
+			EFECTIVIDAD
+		@elseif($g == 3)
+			PREVALENCIA
+		@elseif($g == 4)
+			INCIDENCIA
+		@elseif($g == 5)
+			EFICACIA
+		@elseif($g == 6)
+			EFICACIA
+		@elseif($g == 7)
+		@endif
+		<input type="hidden" value="{{$g}}" name="numero_grafico[{{$g}}]"  value="{{$t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->numero_grafico}}"></font></b></td>
 	</tr>
 	<tr>
-        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3><textarea class="campo" placeholder="" name="nombre_grafico[{{$g}}]" >{{$t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->nombre_grafico}}</textarea></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 align="center" valign=middle bgcolor="#50b308"><b><font size=3><textarea class="campo" placeholder="NOMBRE DE LA GRAFICA" name="nombre_grafico[{{$g}}]" >{{$t44->graficos()->where('numero_grafico', '=', $g)->get()[0]->nombre_grafico}}</textarea></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=32 height=300 align="center" valign=middle><div id="espgrafico_{{$g}}" style="width:730; height:250;"></div></td>

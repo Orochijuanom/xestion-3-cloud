@@ -8,7 +8,7 @@ class T3 extends Model
 {
     protected $table = 't3';
 
-    protected $fillable = ['fecha_actualizacion','motivo_actualizacion', 'responsable_actualizacion', 'revisado_por','empresa_id','codigo','version','fecha'];
+    protected $fillable = ['fecha_actualizacion','motivo_actualizacion', 'responsable_actualizacion', 'revisado_por', 'evaluacion_cumplimiento_primer_semestre', 'evaluacion_cumplimiento_segundo_semestre', 'empresa_id','codigo','version','fecha'];
 
     public function empresa(){
         return $this->belongsTo('App\Empresa');

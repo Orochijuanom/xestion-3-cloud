@@ -27,7 +27,9 @@ class t3Controller extends Controller
             'fecha_actualizacion' =>  $request["fecha_actualizacion"],
             'motivo_actualizacion' => $request['motivo_actualizacion'],
             'responsable_actualizacion' => $request['responsable_actualizacion'],
-            'revisado_por' => $request['revisado_por'],                    
+            'revisado_por' => $request['revisado_por'],
+            'evaluacion_cumplimiento_primer_semestre' => $request['evaluacion_cumplimiento_primer_semestre'],
+            'evaluacion_cumplimiento_segundo_semestre' => $request['evaluacion_cumplimiento_segundo_semestre'],                    
             'empresa_id' => $request['empresa_id'],
             'codigo' => $request['codigo'],
             'version' => $request['version'],
@@ -65,7 +67,9 @@ class t3Controller extends Controller
         $t3->fecha_actualizacion =  $request["fecha_actualizacion"];
         $t3->motivo_actualizacion = $request['motivo_actualizacion'];
         $t3->responsable_actualizacion = $request['responsable_actualizacion'];
-        $t3->revisado_por = $request['revisado_por'];                            
+        $t3->revisado_por = $request['revisado_por'];
+        $t3->evaluacion_cumplimiento_primer_semestre = $request['evaluacion_cumplimiento_primer_semestre'];
+        $t3->evaluacion_cumplimiento_segundo_semestre = $request['evaluacion_cumplimiento_segundo_semestre'];                            
         $t3->codigo = $request['codigo'];
         $t3->version = $request['version'];
         $t3->fecha = $request['fecha'];

@@ -20,6 +20,8 @@ class CreateT3Table extends Migration
             $table->integer('responsable_actualizacion')->unsigned();
             $table->integer('revisado_por')->unsigned();
             $table->integer('empresa_id')->unsigned();
+            $table->text('evaluacion_cumplimiento_primer_semestre');            
+            $table->text('evaluacion_cumplimiento_segundo_semestre');
             $table->string('codigo');
             $table->string('version');
             $table->string('fecha');

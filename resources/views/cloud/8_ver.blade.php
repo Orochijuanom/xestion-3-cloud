@@ -153,7 +153,7 @@
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial">Datos </font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=6 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" color="#000000">Resultado de Examen de énfasis en  Evaluación Médica</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" color="#000000"><br></font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" color="#000000">7. Pruebas Complementarias</font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" color="#000000">Pruebas Complementarias</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" color="#000000">Laboratorios</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" color="#000000"> Vacunas</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=6 align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" color="#000000">Observaciones</font></b></td>
@@ -183,30 +183,30 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC00"><b><font face="Arial" color="#000000">Trabajo en alturas</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC00"><b><font face="Arial" color="#000000">Test de fobias (trabajo en alturas)</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC00"><b><font face="Arial" color="#000000">Otro</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">7.1 Espirometria</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">7.2 Audiometría</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">7.3 Optometría</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">Espirometria</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">Audiometría</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">Optometría</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">Visiometria</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">7.4 Electrocardiograma</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">Electrocardiograma</font></b></td>
 		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">Examen Coordinación motriz</font></b></td>
 		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">Examen de Psicologia</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">7.5 Otro</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF99CC"><b><font face="Arial" color="#000000">8.1 Cuadro Hemático</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF99CC"><b><font face="Arial" color="#000000">8.2 Glicemia pre y pos</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF99CC"><b><font face="Arial" color="#000000">8.3 Perfil lipídico</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF99CC"><b><font face="Arial" color="#000000">8.4 Parcial de Orina</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF99CC"><b><font face="Arial" color="#000000">8.5 Otro</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">9.1 Tétanos (TD)</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">9.2 Fiebre Amarilla</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">9.3 Hepatitis B</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">9.4 Antirrábica</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">9.5 Otra</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFCC99"><b><font face="Arial" color="#000000">Otro</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF99CC"><b><font face="Arial" color="#000000">Cuadro Hemático</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF99CC"><b><font face="Arial" color="#000000">Glicemia pre y pos</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF99CC"><b><font face="Arial" color="#000000">Perfil lipídico</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF99CC"><b><font face="Arial" color="#000000">Parcial de Orina</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FF99CC"><b><font face="Arial" color="#000000">Otro</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">Tétanos (TD)</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">Fiebre Amarilla</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">Hepatitis B</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">Antirrábica</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">Otra</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">PVE requerido</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">Recomendaciones</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">Restricciones</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">9.7 Remisión EPS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">9.8 Fecha compromiso asistencia a EPS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">9.9 Asistencia a EPS</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">Remisión EPS</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">Fecha compromiso asistencia a EPS</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFCC"><b><font face="Arial" color="#000000">Asistencia a EPS</font></b></td>
 		<td align="center"><b><font face="Arial" color="#000000"><br></font></b></td>
 		<td align="center"><b><font face="Arial" color="#000000"><br></font></b></td>
 		<td align="center"><b><font face="Arial" color="#000000"><br></font></b></td>
@@ -229,17 +229,24 @@
 			@foreach ($empleados as $empleado)
 				@if ($t8Detalle->empleado->id == $empleado->id)
 				
-					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{{{$empleado->cedula}}}} - {{$empleado->cargos->cargo}}</option>
 				@else
 
-					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
+					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{{{$empleado->cedula}}}} - {{$empleado->cargos->cargo}}</option>
 
 				@endif
 			@endforeach
 		</select>
 		<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><textarea class="campo" placeholder=""  name="centro_trabajo[]">{{$t8Detalle->centro_trabajo}}</textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><textarea class="campo" placeholder=""  name="tipo_examen[]">{{$t8Detalle->tipo_examen}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000">
+		<select id="cargo" class="form-control" name="tipo_examen[]">
+			<option value="p" @if($t8Detalle->tipo_examen == "p") selected @endif>P</option>
+			<option value="e" @if($t8Detalle->tipo_examen == "e") selected @endif>E</option>
+			<option value="i" @if($t8Detalle->tipo_examen == "i") selected @endif>I</option>
+			<option value="na" @if($t8Detalle->tipo_examen == "na") selected @endif>N/A</option>
+		</select>
+		<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000"><input class="" placeholder="fecha" type="date"  name="fecha_examen[]" value="{{ $t8Detalle->fecha_examen}}"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle ><font face="Arial"><textarea class="campo" placeholder=""  name="musculo_esqueletico[]">{{$t8Detalle->musculo_esqueletico}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle ><font face="Arial"><textarea class="campo" placeholder=""  name="dermatologico[]">{{$t8Detalle->dermatologico}}</textarea><br></font></td>

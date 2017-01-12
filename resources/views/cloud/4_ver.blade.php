@@ -18,6 +18,8 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t4/{{$empresa->id}}">t4</a> / <a href="#">Agregar t4</a>
+<br/><br/><br/>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
@@ -124,11 +126,11 @@
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="22" align="center" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.1 Área / Proyecto:</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Área / Proyecto:</b></td>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="area" >{{$t4->area}}</textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.2 Procesos:</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Procesos:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="procesos" >{{$t4->procesos}}</textarea><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.3 Cargos asociados a la actividad:</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Cargos asociados a la actividad:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF">
 		<select id="cargo" class="form-control" name="cargos_id">
 			@foreach ($cargos as $cargo)
@@ -151,9 +153,9 @@
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="22" align="center" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.4 Fecha de elaboración:</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Fecha de elaboración:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><input class="codigo" placeholder="fecha" type="date" required name="fecha_elaboracion" value="{{$t4->fecha_elaboracion}}"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.5 Responsable elaboración y actualización:</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Responsable elaboración y actualización:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF">
 		<select id="cargo" class="form-control" name="responsable_elaboracion">
 			@foreach ($empleados as $empleado)
@@ -166,7 +168,7 @@
 			@endforeach
 		</select>
 		<br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>5.6 Fecha de Actualización:</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Fecha de Actualización:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><input class="codigo" placeholder="fecha" type="date" required name="fecha_actualizacion" value="{{$t4->fecha_actualizacion}}"><br></td>
 		</tr>
 	<tr>
@@ -179,44 +181,44 @@
 	<tr>
 		<td style="border-left: 1px solid #000000" height="50" align="center" valign=middle><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>Proceso</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>6.2 Zona / Lugar</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>6.3 Cargo</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>6.4 Actividad</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>6.5 Tarea</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>6.6 Rutinario Si /  No</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>6.7 Actividad  Propia o Contratada<br>P / C</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>6.11 Peligro</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.13 Controles Existentes</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 align="center" valign=middle bgcolor="#50b308"><b>6,17 Evaluación del riesgo</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>6,26 Valoración del riesgo</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 align="center" valign=middle bgcolor="#50b308"><b>6,28 Criterio para  establecer controles</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=6 align="center" valign=middle bgcolor="#50b308"><b>6.37 Medidas de intervención</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>Zona / Lugar</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>Cargo</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>Actividad</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>Tarea</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>Rutinario Si /  No</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>Actividad  Propia o Contratada<br>P / C</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=3 align="center" valign=middle bgcolor="#50b308"><b>Peligro</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Controles Existentes</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 align="center" valign=middle bgcolor="#50b308"><b>Evaluación del riesgo</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>Valoración del riesgo</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 align="center" valign=middle bgcolor="#50b308"><b>Criterio para  establecer controles</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=6 align="center" valign=middle bgcolor="#50b308"><b>Medidas de intervención</b></td>
 		</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="15" align="center" valign=middle><br></td>
 		
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.18 Nivel de deficiencia</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.19 Nivel de  exposición</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.20 Nivel de probabilidad<br>(ND x NE)<br> </b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308">6.21 Interpretación del  nivel de probabilidad</td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.22 Nivel de  consecuencia</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.23 Nivel de  riesgo (NR) e intervención<br>(NP x NC)</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.24 Interpretación del NR</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.25 Aceptabilida del riesgo</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6. 27 Nro. Expuestos</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.29 Riesgo Residual</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.30 Existencia de requisito legal especifico asociado                 (Sí o No)</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.31 Eliminación</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.32 Sustitución</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.33 Control de ingeniería</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.34  Señalización,<br>Advertencia , Controles<br>Administrativos</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.35 Equipos / elementos de<br>Protección Personal</b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>6.36 Controles adicionales</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Nivel de deficiencia</b><button type="button" class="btn btn-default btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_def">?</button></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Nivel de  exposición</b><button type="button" class="btn btn-default btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_exp">?</button></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Nivel de probabilidad<br>(ND x NE)<br> </b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308">Interpretación del  nivel de probabilidad</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Nivel de  consecuencia</b><button type="button" class="btn btn-default btn-block btn-xs" id="modalbtn" data-toggle="modal" data-target="#modal_con">?</button></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Nivel de  riesgo (NR) e intervención<br>(NP x NC)</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Interpretación del NR</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Aceptabilida del riesgo</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Nro. Expuestos</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Riesgo Residual</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Existencia de requisito legal especifico asociado                 (Sí o No)</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Eliminación</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Sustitución</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Control de ingeniería</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Señalización,<br>Advertencia , Controles<br>Administrativos</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Equipos / elementos de<br>Protección Personal</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Controles adicionales</b></td>
 	</tr>
 	<tr>
 		<td style="border-left: 1px solid #000000" height="45" align="center" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>6.14 Fuente </b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>6.15 Medio</b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>Fuente </b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>Medio</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>Charlas</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>Capacitaciones</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b>Epps</b></td>	
@@ -296,10 +298,19 @@
 				<h3 class="modal-title">Clasificación de peligros {{$i}}</h3>
 			</div>
 			<div class="modal-body">
+			<a name="Arriba">
+			<a href="#Biologico">Biologico</a> -
+			<a href="#Fisico">Fisico</a> -
+			<a href="#Quimico">Quimico</a> -
+			<a href="#Condiciones de seguridad">Condiciones de seguridad</a> -
+			<a href="#Psicosocial">Psicosocial</a> -
+			<a href="#Biomecanico">Biomecanico</a> -
+			<a href="#Fenomenos naturales">Fenomenos naturales</a> -
+			<a href="#Actividades recreativas">Actividades recreativas</a> -
 				<table align="center" cellspacing="0" border="0">
 				@foreach($riesgos as $riesgo)
 					<tr>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial">{{$riesgo->riesgo}}</font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial"><a name="{{$riesgo->riesgo}}"></a>{{$riesgo->riesgo}}<a href="#Arriba"> - Volver Arriba</a></font></td>
 					</tr>
 					@foreach($riesgo->descripciones as $descripcion)
 						<tr>
@@ -435,6 +446,66 @@
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 @endfor
+<!-- Modal def -->
+<div class="modal fade" id="modal_def">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 class="modal-title">Nivel de Deficiencia</h3>
+			</div>
+			<div class="modal-body">
+				<img style="width:500px; heigth:500px;" src="/images/def.png" />
+			</div>
+			<br>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default " onclick="graficar()"data-dismiss="modal">Close</button>
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal exp -->
+<div class="modal fade" id="modal_exp">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 class="modal-title">Nivel de Exposicion</h3>
+			</div>
+			<div class="modal-body">
+				<img style="width:500px; heigth:500px;" src="/images/exp.png" />
+			</div>
+			<br>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default " onclick="graficar()"data-dismiss="modal">Close</button>
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal con -->
+<div class="modal fade" id="modal_con">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 class="modal-title">Nivel de Consecuencia</h3>
+			</div>
+			<div class="modal-body">
+				<img style="width:500px; heigth:500px;" src="/images/cons.png" />
+			</div>
+			<br>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default " onclick="graficar()"data-dismiss="modal">Close</button>
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <!-- ************************************************************************** -->
 <hr>
 <div class="sign-up"><input type="submit" value="Guardar"/></div>

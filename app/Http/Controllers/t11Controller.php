@@ -105,6 +105,12 @@ class t11Controller extends Controller
         
 
         for ($j=0; $j < 4; $j++) {
+                if(isset($request['meta'][$T11Detalle->metodo_calculo][$T11Detalle->frecuencia_medicion_reporte][$j])){
+                    $meta = $request['meta'][$T11Detalle->metodo_calculo][$T11Detalle->frecuencia_medicion_reporte][$j];
+                }else{
+                    $meta = "";
+                } 
+
                 if(isset($request['valor1'][$t11detalle->metodo_calculo][$t11detalle->frecuencia_medicion_reporte][$j])){
                     $valor1 = $request['valor1'][$t11detalle->metodo_calculo][$t11detalle->frecuencia_medicion_reporte][$j];
                 }else{
@@ -129,7 +135,8 @@ class t11Controller extends Controller
                     $acciones_mejora = "";
                 }
 
-                $t11grafico = T11Grafico::find($request['t11grafico']);                
+                $t11grafico = T11Grafico::find($request['t11grafico']);  
+                $t11grafico->meta = $meta;              
                 $t11grafico->valor1 = $valor1;
                 $t11grafico->valor2 = $valor2;
                 $t11grafico->analisis = $analisis;
