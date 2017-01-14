@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	             <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -12,9 +16,7 @@
 		<style type="text/css">
 		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Courier"; font-size:small }
 	</style>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 </head>
 
 <body>
@@ -75,7 +77,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="30" align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="centrado" placeholder="Presupuesto" type="text" required name="presupuesto_anio"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="codigo" placeholder="fecha" type="date" required name="fecha_asignacion_presupuesto" value="{{ date('Y-m-d') }}"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><br>
-			<select id="cargo" class="form-control" name="responsable_planificacion_presupuesto">
+			<select id="cargo" class="form-control" name="responsable_planificacion_presupuesto" required>
 					@foreach ($empleados as $empleado)
 						<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
 					@endforeach
@@ -118,7 +120,7 @@
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2><input class="codigo" placeholder="fecha" type="date" required name="fecha_nota[]" value="{{ date('Y-m-d') }}"><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;General_)"><b><font face="Arial" size=2>
-		<select id="cargo" class="form-control" name="cargo[]">
+		<select id="cargo" class="form-control" name="cargo[]" required>
 			@foreach ($cargos as $cargo)
 				<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 			@endforeach
@@ -138,7 +140,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>
-		<select id="cargo" class="form-control" name="responsable_revision_presupuesto_primer_semestre">
+		<select id="cargo" class="form-control" name="responsable_revision_presupuesto_primer_semestre" required>
 			@foreach ($empleados as $empleado)
 				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
 			@endforeach
@@ -160,7 +162,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>
-		<select id="cargo" class="form-control" name="responsable_revision_presupuesto_segundo_semestre">
+		<select id="cargo" class="form-control" name="responsable_revision_presupuesto_segundo_semestre" required>
 			@foreach ($empleados as $empleado)
 				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
 			@endforeach
@@ -217,3 +219,4 @@ pagina" onclick="window.print()">
     }
 </script>
 </body>
+@endsection

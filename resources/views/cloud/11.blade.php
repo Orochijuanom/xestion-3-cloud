@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -7,9 +11,7 @@
             margin: 10px 5px 0 0;
           }
         </style>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<title></title>
 	
@@ -87,7 +89,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 height="43" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">Responsable del calculo y seguimiento del indicador</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=7 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial">
 		<select name="responsable_calculo_seguimiento">
-			<option value="-1">Seleccione</option>
+			
 			@foreach($empleados as $empleado)
 				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}}</option>
 			@endforeach
@@ -732,3 +734,4 @@ var myChart = new Chart(ctx, {
 }
 </script>
 </body>
+@endsection

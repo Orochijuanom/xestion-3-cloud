@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -14,9 +18,7 @@
 	<style type="text/css">
 		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:x-small }
 	</style>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 </head>
 
 <body>
@@ -86,14 +88,14 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" size=3><input class="campo" placeholder="fecha" type="date" required name="fecha_actualizacion" value="{{$t3->fecha_actualizacion}}"><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" size=3><textarea class="campo" placeholder=""  name="motivo_actualizacion">{{$t3->motivo_actualizacion}}</textarea><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" size=3>
-		<select id="cargo" class="form-control" name="responsable_actualizacion">
+		<select id="cargo" class="form-control" name="responsable_actualizacion" required>
 			@foreach ($empleados as $empleado)
 				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
 			@endforeach
 		</select>
 		<br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF"><b><font face="Arial" size=3>
-		<select id="cargo" class="form-control" name="revisado_por">
+		<select id="cargo" class="form-control" name="revisado_por" required>
 			@foreach ($empleados as $empleado)				
 				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>					
 			@endforeach
@@ -142,7 +144,7 @@
 		</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="como_cumple[]">{{$t3->como_cumple}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font face="Arial">
-		<select id="cargo" class="form-control" name="responsable_cumplimiento[]">
+		<select id="cargo" class="form-control" name="responsable_cumplimiento[]" required>
 			@foreach ($empleados as $empleado)
 			@if ($t3->responsable_cumplimiento == $empleado->id)
 				
@@ -189,3 +191,4 @@ pagina" onclick="window.print()">
 <!-- ************************************************************************** -->
  
 </body>
+@endsection

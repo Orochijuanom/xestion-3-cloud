@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
     <link href="/css/programa.css" rel="stylesheet" type="text/css"/><style>
           .thumb {
@@ -17,6 +21,7 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="#">t11</a>
 <table cellspacing="0" border="0">
 	<colgroup width="217"></colgroup>
 	<colgroup width="85"></colgroup>
@@ -53,3 +58,4 @@
 <input type="button" value="Imprime esta pagina" onclick="window.print()">
 
 </body>
+@endsection

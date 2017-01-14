@@ -1,3 +1,8 @@
+@extends('layouts.app')
+
+@section('content')
+
+
 <head>
             <link href="/css/programa.css" rel="stylesheet" type="text/css"/><style>
           .thumb {
@@ -25,6 +30,11 @@
 	<colgroup width="50"></colgroup>
 	<colgroup width="50"></colgroup>
 	<colgroup width="50"></colgroup>
+	<colgroup width="50"></colgroup>
+	<colgroup width="50"></colgroup>
+	<colgroup width="50"></colgroup>
+	<colgroup width="50"></colgroup>
+	<colgroup width="50"></colgroup>	
 	<colgroup width="50"></colgroup>
 	<colgroup width="50"></colgroup>
 	<colgroup width="50"></colgroup>
@@ -80,3 +90,4 @@
 <input type="button" value="Imprime esta pagina" onclick="window.print()">
 
 </body>
+@endsection

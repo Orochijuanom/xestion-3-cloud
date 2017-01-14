@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	             <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -12,9 +16,7 @@
 		<style type="text/css">
 		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Courier"; font-size:small }
 	</style>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 </head>
 
 <body>
@@ -78,7 +80,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="30" align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="centrado" placeholder="Presupuesto" type="text" required name="presupuesto_anio" value="{{$t2->presupuesto_anio}}"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdnum="1033;0;General_)"><font face="Arial"><br><input class="codigo" placeholder="fecha" type="date" required name="fecha_asignacion_presupuesto" value="{{$t2->fecha_asignacion_presupuesto}}"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2><br>
-		<select class="form-control" name="responsable_planificacion_presupuesto">
+		<select class="form-control" name="responsable_planificacion_presupuesto" required>
 			@foreach ($empleados as $empleado)
 				@if ($t2->responsable_planificacion_presupuesto == $empleado->id)
 				
@@ -109,12 +111,12 @@
 	<tr>
 		<input type="hidden" name="t2detalle[]" value="{{$t2Detalle->id}}" />
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="37" align="left" valign=middle sdnum="1033;0;General_)"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="actividad[]">{{$t2Detalle->actividad}}</textarea><br></font></td>
-        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;&quot;$&quot; #,##0;[RED]&quot;$&quot; #,##0"><b><font face="Arial" size=2 color="#0000FF"><textarea class="campo" placeholder=""  name="presupuesto[]">{{$t2Detalle->presupuesto}}</textarea></font></b></td>
-        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="ejecucion_primer_semestre[]" onchange="calcular_porcentaje({{$i}})" ondblclick="calcular_porcentaje({{$i}})">{{$t2Detalle->ejecucion_primer_semestre}}</textarea><br></font></td>
-		<td id="acumulado_uno_{{$i}}" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" bgcolor="#50b308" sdnum="1033;0;0.00%"><font face="Arial" size=2 color="#000000"></font></td>
-        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="ejecucion_segundo_semestre[]" id="ejecucion_segundo_semestre_{{$i}}" onchange="calcular_porcentaje2({{$i}})" ondblclick="calcular_porcentaje2({{$i}})">{{$t2Detalle->ejecucion_segundo_semestre}}</textarea><br></font></td>
-		<td id="acumulado_dos_{{$i}}" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" bgcolor="#50b308" sdnum="1033;0;0.00%"><font face="Arial" size=2 color="#000000"></font></td>
-		<td id="acumulado_total_{{$i}}" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle sdval="0" sdnum="1033;0;0"><b><font face="Arial" size=2></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;&quot;$&quot; #,##0;[RED]&quot;$&quot; #,##0"><b><font face="Arial" size=2 color="#0000FF"><textarea class="campo" placeholder=""  id="presupuesto_{{$loop->index}}"name="presupuesto[]">{{$t2Detalle->presupuesto}}</textarea></font></b></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  id="ejecucion_primer_semestre_{{$loop->index}}" name="ejecucion_primer_semestre[]" onchange="calcular_porcentaje({{$loop->index}})" ondblclick="calcular_porcentaje({{$loop->index}})">{{$t2Detalle->ejecucion_primer_semestre}}</textarea><br></font></td>
+		<td id="acumulado_uno_{{$loop->index}}" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" bgcolor="#50b308" sdnum="1033;0;0.00%"><font face="Arial" size=2 color="#000000"></font></td>
+        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle  sdnum="1033;0;&quot;$&quot;#,##0"><font face="Arial" size=2 color="#000000"><textarea class="campo" placeholder=""  name="ejecucion_segundo_semestre[]" id="ejecucion_segundo_semestre_{{$loop->index}}" onchange="calcular_porcentaje2({{$loop->index}})" ondblclick="calcular_porcentaje2({{$loop->index}})">{{$t2Detalle->ejecucion_segundo_semestre}}</textarea><br></font></td>
+		<td id="acumulado_dos_{{$loop->index}}" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="0" bgcolor="#50b308" sdnum="1033;0;0.00%"><font face="Arial" size=2 color="#000000"></font></td>
+		<td id="acumulado_total_{{$loop->index}}" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle sdval="0" sdnum="1033;0;0"><b><font face="Arial" size=2></font></b></td>
 	</tr>
 	@endforeach
 	<tr>
@@ -144,7 +146,7 @@
 		</tr>
 	<tr>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>
-		<select class="form-control" name="responsable_revision_presupuesto_primer_semestre">
+		<select class="form-control" name="responsable_revision_presupuesto_primer_semestre" required>
 			@foreach ($empleados as $empleado)
 				@if ($t2->responsable_revision_presupuesto_primer_s->id == $empleado->id)
 				
@@ -176,7 +178,7 @@
 	</tr>
 	<tr>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle sdnum="1033;0;General_)"><b><font face="Arial" size=2>
-		<select class="form-control" name="responsable_revision_presupuesto_segundo_semestre">
+		<select class="form-control" name="responsable_revision_presupuesto_segundo_semestre" required>
 			@foreach ($empleados as $empleado)
 				@if ($t2->responsable_revision_presupuesto_segundo_s->id == $empleado->id)				
 					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
@@ -236,3 +238,4 @@ pagina" onclick="window.print()">
     }
 </script>
 </body>
+@endsection

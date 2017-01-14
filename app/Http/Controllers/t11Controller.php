@@ -11,6 +11,11 @@ class t11Controller extends Controller
 {
     public function form11(Request $request){        
 
+        $this->validate($request, [
+        'responsable_calculo_seguimiento' => 'required',
+        
+        ]);
+        
         $t11 = T11::create([
             'codigo' => $request['codigo'],
             'version' => $request['version'],

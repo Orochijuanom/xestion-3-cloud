@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
     <link href="/css/programa.css" rel="stylesheet" type="text/css"/><style>
           .thumb {
@@ -52,3 +56,4 @@
 <input type="button" value="Imprime esta pagina" onclick="window.print()">
 
 </body>
+@endsection

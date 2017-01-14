@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::group(['middleware' => 'auth'], function () {
+
 Route::get('/cloud/create_empresa',function(){
     return view('cloud.create_empresa');
 });
@@ -516,8 +518,11 @@ Route::get('/cloud/form/12-1/ver/{id}', function($id) {
     Route::post('/cloud/form/13', 'EmpleadosController@crearempleado'); 
 /** END FORM 13 **/
 
+Route::get('/home', 'HomeController@index');
+});
+
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+

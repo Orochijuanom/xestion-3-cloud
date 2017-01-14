@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
             <link href="/css/programa.css" rel="stylesheet" type="text/css"/><style>
           .thumb {
@@ -82,7 +86,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=1>FICHA TECNICA DEL INDICADOR</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#50b308"><b><font size=1>RESPONSABLES</font></b></td>
 	</tr>
-	@for($i = 0; $i <= 4; $i++)
+	@for($i = 0; $i <= 11; $i++)
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="73" align="justify" valign=middle><font size=1><textarea class="campo" placeholder=""  name="politica_sistema_gestion[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><font size=1><textarea class="campo" placeholder=""  name="area[]"></textarea><br></font></td>
@@ -94,7 +98,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@">
 		<font size=1>
-			<select id="cargo" class="form-control" name="numero_indicador[]">
+			<select id="cargo" class="form-control" required name="numero_indicador[]">
 				@foreach ($t11s as $t11)
 					@foreach($t11->T11Detalle as $detalle)
 						<option value="{{$t11->id}}">{{$detalle->ficha_numero}} - {{$detalle->nombre_indicador}}</option>
@@ -114,3 +118,4 @@
 pagina" onclick="window.print()">
 </form> 									    
 </body>
+@endsection

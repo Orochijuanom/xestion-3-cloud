@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	<title>SOFTWARE XESTION3</title>
 	<link href="/css/style1.css" rel="stylesheet" type="text/css"/>
@@ -11,7 +15,7 @@
 	
 </head>
 <body>
-	<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/tcargo/{{$cargo->id}}">Cargos</a> / <a href="#">Agregar cargo</a>
+	<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/tcargo/{{$cargo->empresa->id}}">Cargos</a> / <a href="#">Cargo</a>
 	<div class="main-content">
 		<div class="form">
 			<div class="sap_tabs">	
@@ -47,3 +51,4 @@
 		</div>
 	</div>
 </body>
+@endsection

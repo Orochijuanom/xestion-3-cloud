@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
             <link href="/css/programa.css" rel="stylesheet" type="text/css"/><style>
           .thumb {
@@ -95,7 +99,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;0%"><font size=1><textarea class="campo" placeholder=""  name="meta[]">{{$detalle->meta}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@">
 		<font size=1>
-			<select id="cargo" class="form-control" name="numero_indicador[]">
+			<select id="cargo" class="form-control" required name="numero_indicador[]">
 				@foreach ($t11s as $t11)
 					@foreach($t11->T11Detalle as $detalle11)
 						@if($detalle->numero_indicador == $t11->id)
@@ -120,3 +124,4 @@
 pagina" onclick="window.print()">
 </form> 									    
 </body>
+@endsection

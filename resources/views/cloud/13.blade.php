@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 		            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -13,6 +17,7 @@
 </head>
 
 <body>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t13/{{$empresa->id}}">Empleados</a> / <a href="#">Agregar Empleado</a>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
 	<strong>Whoops!</strong> Hubo Algunos problemas con tu entrada.<br><br>
@@ -369,3 +374,4 @@
 pagina" onclick="window.print()"> 
 </form>
 </body>
+@endsection
