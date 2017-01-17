@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -87,7 +91,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=1><textarea class="campo" placeholder=""  name="temas_capacitacion[]">{{$t12Detalle->temas_capacitacion}}</textarea><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=8 colspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=1><textarea class="campo" placeholder=""  name="responsable[]">{{$t12Detalle->responsable}}</textarea><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b>
-            <select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]">
+            <select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]" required>
 				@foreach ($cargos as $cargo)
                     
                     @if($t12Detalle->T12Cargos[0]->cargo_id == $cargo->id)
@@ -102,7 +106,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b>
-			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]" required>
 				@if($t12Detalle->T12Cargos[1]->cargo_id == $cargo->id)
                         <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
                     @else
@@ -113,7 +117,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b>
-			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]" required>
 				@if($t12Detalle->T12Cargos[2]->cargo_id == $cargo->id)
                         <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
                     @else
@@ -124,7 +128,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b>
-			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]" required>
 				@if($t12Detalle->T12Cargos[3]->cargo_id == $cargo->id)
                         <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
                     @else
@@ -135,7 +139,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" bgcolor="#FFFFFF"><font size=1>
-			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]" required>
 				@if($t12Detalle->T12Cargos[4]->cargo_id == $cargo->id)
                         <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
                     @else
@@ -146,7 +150,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" bgcolor="#FFFFFF"><font size=1>
-			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]" required>
 				@if($t12Detalle->T12Cargos[5]->cargo_id == $cargo->id)
                         <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
                     @else
@@ -157,7 +161,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" bgcolor="#FFFFFF"><font size=1>
-			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]" required>
 				@if($t12Detalle->T12Cargos[6]->cargo_id == $cargo->id)
                         <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
                     @else
@@ -168,7 +172,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" bgcolor="#FFFFFF"><font size=1>
-			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$loop->index}}][]" required>
 				@if($t12Detalle->T12Cargos[7]->cargo_id == $cargo->id)
                         <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
                     @else
@@ -212,3 +216,4 @@ pagina" onclick="window.print()">
               document.getElementById('files').addEventListener('change', archivo, false);
       </script>
 </body>
+@endsection

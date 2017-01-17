@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -81,7 +85,7 @@
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=15 align="center" valign=middle bgcolor="#50b308"><b>
-			<select id="cargo" class="form-control" name="t12_id">
+			<select id="cargo" class="form-control" name="t12_id" required>
 				@foreach ($t12s as $t12)
 					@foreach($t12->t12Detalles as $detalle)
 						<option value="{{$t12->id}}">{{$detalle->capacitacion}}</option>
@@ -100,7 +104,7 @@
 	@for($i=0; $i < 11; $i++)
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" colspan=3 bgcolor="#FFFFFF">
-			<select id="cargo" class="form-control" name="apellidos_nombres[]">
+			<select id="cargo" class="form-control" name="apellidos_nombres[]" required>
 				@foreach ($empleados as $empleado)
 					<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cedula}} - {{$empleado->cargos->cargo}}</option>
 				@endforeach
@@ -148,4 +152,4 @@ pagina" onclick="window.print()">
               document.getElementById('files').addEventListener('change', archivo, false);
       </script>
 </body>
-
+@endsection

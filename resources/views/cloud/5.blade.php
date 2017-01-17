@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	    <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 <style>
@@ -274,9 +278,9 @@
 	<tr>
 		<td height="33" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><font color="#000000">
-			<select name="empleado_id[]">
-				@foreach($empresa->empleados as $empleado)
-					<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}}</option>
+			<select name="empleado_id[]" required>
+				@foreach($cargos as $cargo)
+					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 				@endforeach
 			</select>
 		<br></font></td>
@@ -313,34 +317,11 @@
 	</tr>
 	@endfor
 	
-	<tr>
-		<td height="29" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=13 align="center" valign=middle bgcolor="#50b308"><b><font color="#000000">CONDICIONANTE PARA LA ENTREGA DEL ELEMENTO DE PROTECCIÓN PERSONAL</font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=16 align="center" valign=middle bgcolor="#50b308"><b><font color="#000000">CONDICIONANTE PARA LA ENTREGA DEL ELEMENTO DE PROTECCIÓN PERSONAL</font></b></td>
-		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		</tr>
-	<tr>
-		<td height="40" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=13 align="center" valign=middle bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=16 align="center" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		</tr>
-	<tr>
-		<td height="40" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=13 align="center" valign=middle bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=16 align="center" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		</tr>
-	<tr>
-		<td height="40" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=13 align="center" valign=middle bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=16 align="center" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-	</tr>
+	
 </table>
 <div class="sign-up"><input type="submit" value="Guardar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()">
 </form> 
 </body>
+@endsection

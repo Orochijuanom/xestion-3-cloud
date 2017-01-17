@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	    <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		<style>
@@ -169,7 +173,7 @@
 		<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdval="1" sdnum="1033;"><b><font face="Arial" color="#000000"></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" color="#000000">
-		<select name="cargo_id[]">
+		<select name="cargo_id[]" required>
 			@foreach($cargos as $cargo)
 				<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 			@endforeach			
@@ -455,3 +459,4 @@
 pagina" onclick="window.print()"> 
 </form>
 </body>
+@endsection

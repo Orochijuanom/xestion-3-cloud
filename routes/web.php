@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -255,14 +253,17 @@ Route::get('/cloud/form/5/ver/{id}', function($id) {
                     ->with('empresa')
                     ->with('T5Detalles')                    
                     ->first();
-    $empleados = App\Empleados::where('empresa_id', '=', $t5->empresa->id)->get();                
-    return view('cloud.5_ver')->with(['t5' => $t5, 'empleados' => $empleados]);
+    $empleados = App\Empleados::where('empresa_id', '=', $t5->empresa->id)->get();
+    $cargos = App\Cargo::where('empresa_id', '=' , $id)->get();              
+    return view('cloud.5_ver')->with(['t5' => $t5, 'empleados' => $empleados, 'cargos' => $cargos]);
 });
 
 Route::get('/cloud/form/5/{id}', function($id) {
     $empresa = App\Empresa::find($id);
+    $cargos = App\Cargo::where('empresa_id', '=' , $id)->get();    
     return view('cloud.5')
-        ->with('empresa',$empresa);
+        ->with('empresa',$empresa)
+        ->with('cargos', $cargos);
 });
 
 Route::post('/cloud/form/5', 't5Controller@form5');
@@ -521,7 +522,12 @@ Route::get('/cloud/form/12-1/ver/{id}', function($id) {
 Route::get('/home', 'HomeController@index');
 });
 
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/', function () {
+        return view('auth.login');
+    });
 
+});
 
 Auth::routes();
 

@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -17,7 +21,7 @@
 </head>
 
 <body>
-<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t10/{{$t10->empresa->id}}">t8</a> / <a href="#">Ver editar t10</a>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t10/{{$t10->empresa->id}}">t10</a> / <a href="#">Ver editar t10</a>
 <br/><br/><br/>
 
 @if (count($errors) > 0)
@@ -117,7 +121,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="version[]">{{$t10Detalle->version}}</textarea></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><input class="" placeholder="fecha" type="date"  name="fecha_version[]" value="{{ $t10Detalle->fecha_version }}"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial">
-		<select class="form-control" name="aprobado_por[]">
+		<select class="form-control" name="aprobado_por[]" required>
 			@foreach ($empleados as $empleado)
 				@if ($t10Detalle->aprobado->id == $empleado->id)
 				
@@ -191,3 +195,4 @@ pagina" onclick="window.print()">
 </form>
 <!-- ************************************************************************** -->
 </body>
+@endsection

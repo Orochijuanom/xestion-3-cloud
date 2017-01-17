@@ -92,7 +92,7 @@
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=14   align="left" valign=middle><font size=3>
-			<select id="cargo" class="form-control" name="politicas_id" style="width:90%;">
+			<select id="cargo" class="form-control" name="politicas_id" style="width:90%;" required>
 				@foreach ($t1s as $t1)
 					@foreach($t1->T1Detalles as $t1detalle)
                         @if($t44->politicas_id == $t1detalle->id)
@@ -106,7 +106,7 @@
 			</select>
 		<br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=18  align="left" valign=middle><font size=3 color="#993300">
-			<select id="cargo" class="form-control" name="objetivos_est_id" style="width:90%;">
+			<select id="cargo" class="form-control" name="objetivos_est_id" style="width:90%;" required>
 				@foreach ($t1s as $t1)
 					@foreach($t1->T1Detalles as $t1detalle)
                         @if($t44->objetivos_est_id == $t1detalle->id)
@@ -148,7 +148,7 @@
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=14 height="13" align="center" valign=middle bgcolor="#50b308"><b><font size=3>Nombre apellidos y cargo</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=9 rowspan=3 align="justify" valign=middle><font size=3 color="#993300">
-			<select id="cargo" class="form-control" name="recurso_id" style="width:90%;">
+			<select id="cargo" class="form-control" name="recurso_id" style="width:90%;" required>
 				@foreach ($t2s as $t2)
                     @if($t2->id == $t44->recurso_id)
                         <option value="{{$t2->id}}" selected>{{$t2->codigo}} - {{$t2->version}} - {{$t2->fecha}}</option>
@@ -163,7 +163,7 @@
 		</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=14 rowspan=2  align="center" valign=middle bgcolor="#FFFFFF"><font size=3 color="#993300">
-			<select id="cargo" class="form-control" name="responsable_id" style="width:90%;">
+			<select id="cargo" class="form-control" name="responsable_id" style="width:90%;" required>
 				@foreach ($empleados as $empleado)
                     @if($empleado->id == $t44->responsable_id)
                         <option value="{{$empleado->id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
@@ -278,7 +278,7 @@
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_e_{{$i}}" name="dic_e[]" ondblclick="suma('dic_e')" onchange="suma('dic_e')">{{$t44->planificaciones[$i]->dic_e}}</textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="left" valign=middle><font size=3><a target="_blank" href="/images/{{$t44->planificaciones[$i]->evidencias}}">Ver</a><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000"  align="left" valign=middle><font size=3>
-					<select id="cargo" class="form-control" name="responsable_plan_id[]" style="width:90%;">
+					<select id="cargo" class="form-control" name="responsable_plan_id[]" style="width:90%;" required>
 						@foreach ($empleados as $empleado)
                             @if($t44->planificaciones[$i]->responsable_plan_id == $empleado->id)
                                 <option value="{{$empleado->id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
@@ -324,7 +324,7 @@
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" valign=middle><font size=3><textarea class="campo" placeholder="" id="dic_e_{{$i}}" name="dic_e[]" ondblclick="suma('dic_e')" onchange="suma('dic_e')">{{$t44->planificaciones[$i]->dic_e}}</textarea><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="left" valign=middle><font size=3><a target="_blank" href="/images/{{$t44->planificaciones[$i]->evidencias}}">Ver</a><br></font></td>
 				<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000"  align="left" valign=middle><font size=3>
-					<select id="cargo" class="form-control" name="responsable_plan_id[]" style="width:90%;">
+					<select id="cargo" class="form-control" name="responsable_plan_id[]" style="width:90%;" required>
 						@foreach ($empleados as $empleado)
                             @if($t44->planificaciones[$i]->responsable_plan_id == $empleado->id)
                                 <option value="{{$empleado->id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>

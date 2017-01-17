@@ -58,7 +58,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="left" valign=middle bgcolor="#50b308"><b><font color="#000000">EMPRESA</font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#50b308"><font color="#000000">{{$t13->empresa->nombre_empresa}}
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=middle bgcolor="#50b308"><font color="#000000">{{$t13->empresa->nombre_empresa}}
 		<input type="hidden" name="empresa_id" value="{{$t13->empresa->id}}">
 		<input type="hidden" name="id" value="{{$t13->id}}"></font></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
@@ -222,7 +222,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Lugar del Centro de trabajo</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><u><font color="#0563C1"><br><input  placeholder="Lugar" type="text" required name="lugar_centro_trabajo" value="{{$t13->lugar_centro_trabajo}}"></font></u></b></td>
 		<td style="border-top: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#50b308"><b><font color="#000000">Numero de licencia de conducción</font></b></td>
-		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br><input  placeholder="#l construccion" type="text"  name="n_licencia_conduccion" value="{{$t13->n_licencia_conduccion}}"></font></b></td>
+		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br><input  placeholder="licencia de conducción" type="text"  name="n_licencia_conduccion" value="{{$t13->n_licencia_conduccion}}"></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Horario de Trabajo</font></b></td>

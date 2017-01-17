@@ -57,7 +57,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="left" valign=middle bgcolor="#50b308"><b><font color="#000000">EMPRESA</font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#50b308"><font color="#000000">{{$empresa->nombre_empresa}}<input type="hidden" name="empresa_id" value="{{$empresa->id}}"></font></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=middle bgcolor="#50b308"><font color="#000000">{{$empresa->nombre_empresa}}<input type="hidden" name="empresa_id" value="{{$empresa->id}}"></font></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
 	</tr>
@@ -87,7 +87,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="22" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Fecha de Nacimiento:</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><font color="#000000"><br><input  placeholder="fecha" type="date" required name="fecha_nacimiento"></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><b><font color="#000000"><br><input  placeholder="fecha" type="date" required id="fecha_nacimiento" name="fecha_nacimiento" onchange="calcular_edad()"></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#50b308"><b><font color="#000000">Talla de overol</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b><font color="#000000"><br><input  placeholder="Talla" type="text" required name="talla_overol"></font></b></td>
 	</tr>
@@ -111,7 +111,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="19" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Edad</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br><input class="numeros" type="number" name="edad"></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br><input class="numeros" type="number" id="edad" name="edad"></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Talla de  guante (s)</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br><input  placeholder="Talla" type="text" required name="talla_guante"></font></b></td>
 	</tr>
@@ -214,7 +214,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Lugar del Centro de trabajo</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><u><font color="#0563C1"><br><input  placeholder="Lugar" type="text" required name="lugar_centro_trabajo"></font></u></b></td>
 		<td style="border-top: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#50b308"><b><font color="#000000">Numero de licencia de conducción</font></b></td>
-		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br><input  placeholder="#l construccion" type="text"  name="n_licencia_conduccion"></font></b></td>
+		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br><input  placeholder="licencia de conducción" type="text"  name="n_licencia_conduccion"></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Horario de Trabajo</font></b></td>
@@ -373,5 +373,32 @@
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()"> 
 </form>
+<script>
+	function calcular_edad(){
+
+		var fecha = document.getElementById('fecha_nacimiento').value;
+		var anio = fecha.substring(0, 4);
+		var mes = fecha.substring(5, 7);
+		var dia = fecha.substring(8, 10);
+		var fecha_hoy = new Date();
+		var anio_hoy = fecha_hoy.getFullYear();
+		var mes_hoy = fecha_hoy.getMonth()+1;
+		var dia_hoy = fecha_hoy.getDate();
+
+		var dif_anio = anio_hoy - anio;
+		var dif_mes = mes_hoy - mes;
+		var dif_dia = dia_hoy - dia;
+
+		if(dif_dia < 0 || dif_mes < 0){
+			dif_anio--;
+		}
+
+		document.getElementById('edad').value = dif_anio
+		
+
+
+		
+	}
+</script>
 </body>
 @endsection

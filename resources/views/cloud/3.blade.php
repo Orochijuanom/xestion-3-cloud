@@ -28,7 +28,7 @@
 <form method="POST" action="{{ url('/cloud/form/3') }}">
 {{ csrf_field() }}
 
-<table align="left" cellspacing="0" border="0">
+<table align="left" cellspacing="0" border="0" width="2000px">
 	<colgroup width="215"></colgroup>
 	<colgroup width="137"></colgroup>
 	<colgroup width="117"></colgroup>
@@ -99,7 +99,7 @@
 	</tr>
 	<tr>
 	</tr>
-	@for($i=0; $i < 11; $i++)
+	@for($i=0; $i < 5; $i++)
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="norma[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="numero_norma[]"></textarea><br></font></td>

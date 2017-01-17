@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	    <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 <style>
@@ -279,14 +283,14 @@
 		<input type="hidden" value="{{$detalle->id}}" name="t5detalle_id[]" />
 		<td height="33" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF"><font color="#000000">
-			<select name="empleado_id[]">
-				@foreach($empleados as $empleado)
-					@if ($detalle->empleado_id == $empleado->id)
+			<select name="empleado_id[]" required>
+				@foreach($cargos as $cargo)
+					@if ($detalle->empleado_id == $cargo->id)
 					
-						<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
+						<option value="{{$cargo -> id}}" selected>{{$cargo->cargo}}</option>
 					@else
 
-						<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cargos->cargo}}</option>
+						<option value="{{$cargo -> id}}">{{$cargo->cargo}}</option>
 
 					@endif
 				@endforeach
@@ -325,34 +329,11 @@
 	</tr>
 	@endforeach
 	
-	<tr>
-		<td height="29" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=13 align="center" valign=middle bgcolor="#50b308"><b><font color="#000000">CONDICIONANTE PARA LA ENTREGA DEL ELEMENTO DE PROTECCIÓN PERSONAL</font></b></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=16 align="center" valign=middle bgcolor="#50b308"><b><font color="#000000">CONDICIONANTE PARA LA ENTREGA DEL ELEMENTO DE PROTECCIÓN PERSONAL</font></b></td>
-		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		</tr>
-	<tr>
-		<td height="40" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=13 align="center" valign=middle bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=16 align="center" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		</tr>
-	<tr>
-		<td height="40" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=13 align="center" valign=middle bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=16 align="center" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		</tr>
-	<tr>
-		<td height="40" align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=13 align="center" valign=middle bgcolor="#FFFFFF"><font color="#000000"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 3px double #000000; border-right: 3px double #000000" colspan=16 align="center" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-		<td align="left" valign=middle bgcolor="#FFFFFF"><br></td>
-	</tr>
+	
 </table>
 <div class="sign-up"><input type="submit" value="Guardar"/></div>
 <input type="button" value="Imprime esta 
 pagina" onclick="window.print()">
 </form> 
 </body>
+@endsection

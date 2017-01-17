@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -41,7 +45,7 @@
 <form method="POST" action="{{ url('/cloud/form/8') }}">
 {{ csrf_field() }}
 
-<table cellspacing="0" border="0">
+<table cellspacing="0" border="0" width="6000px">
 	<colgroup width="19"></colgroup>
 	<colgroup width="57"></colgroup>
 	<colgroup width="167"></colgroup>
@@ -221,9 +225,9 @@
 		<td height="39" align="left" valign=middle ><font face="Arial" color="#000000"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle  sdval="1" sdnum="1033;"><b><font face="Arial" color="#000000"></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle ><font face="Arial" color="#000000">
-		<select id="cargo" class="form-control" name="apellidos_nombres[]">
+		<select id="cargo" class="form-control" name="apellidos_nombres[]" required>
 			@foreach ($empleados as $empleado)
-				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cedula}} - {{$empleado->cargos->cargo}}</option>
+				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cedula}}</option>
 			@endforeach
 		</select>
 		<br></font></td>
@@ -313,3 +317,4 @@ pagina" onclick="window.print()">
               document.getElementById('files').addEventListener('change', archivo, false);
       </script>
 </body>
+@endsection

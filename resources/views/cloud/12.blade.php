@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -86,7 +90,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=8 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=1><textarea class="campo" placeholder=""  name="temas_capacitacion[]"></textarea><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=8 colspan=2 align="center" valign=middle bgcolor="#FFFFFF"><b><font size=1><textarea class="campo" placeholder=""  name="responsable[]"></textarea><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b>
-			<select id="cargo" class="form-control" name="cargo[{{$i}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$i}}][]" required>
 				@foreach ($cargos as $cargo)
 					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 				@endforeach
@@ -95,7 +99,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b>
-			<select id="cargo" class="form-control" name="cargo[{{$i}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$i}}][]" required>
 				@foreach ($cargos as $cargo)
 					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 				@endforeach
@@ -104,7 +108,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b>
-			<select id="cargo" class="form-control" name="cargo[{{$i}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$i}}][]" required>
 				@foreach ($cargos as $cargo)
 					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 				@endforeach
@@ -113,7 +117,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b>
-			<select id="cargo" class="form-control" name="cargo[{{$i}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$i}}][]" required>
 				@foreach ($cargos as $cargo)
 					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 				@endforeach
@@ -122,7 +126,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" bgcolor="#FFFFFF"><font size=1>
-			<select id="cargo" class="form-control" name="cargo[{{$i}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$i}}][]" required>
 				@foreach ($cargos as $cargo)
 					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 				@endforeach
@@ -131,7 +135,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" bgcolor="#FFFFFF"><font size=1>
-			<select id="cargo" class="form-control" name="cargo[{{$i}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$i}}][]" required>
 				@foreach ($cargos as $cargo)
 					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 				@endforeach
@@ -140,7 +144,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" bgcolor="#FFFFFF"><font size=1>
-			<select id="cargo" class="form-control" name="cargo[{{$i}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$i}}][]" required>
 				@foreach ($cargos as $cargo)
 					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 				@endforeach
@@ -149,7 +153,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" bgcolor="#FFFFFF"><font size=1>
-			<select id="cargo" class="form-control" name="cargo[{{$i}}][]">
+			<select id="cargo" class="form-control" name="cargo[{{$i}}][]" required>
 				@foreach ($cargos as $cargo)
 					<option value="{{$cargo->id}}">{{$cargo->cargo}}</option>
 				@endforeach
@@ -191,3 +195,4 @@ pagina" onclick="window.print()">
               document.getElementById('files').addEventListener('change', archivo, false);
       </script>
 </body>
+@endsection

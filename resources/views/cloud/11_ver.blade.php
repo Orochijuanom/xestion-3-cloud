@@ -81,7 +81,7 @@
 	<tr>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=3 height="43" align="left" valign=middle bgcolor="#50b308"><b><font face="Arial">Fecha creación del indicador</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial"><input class="codigo" placeholder="fecha" type="date" required name="fecha_creacion_indicador" value="{{$t11->T11Detalle[0]->fecha_creacion_indicador}}"><br></font></td>
-		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle bgcolor="#50b308" sdnum="1033;1033;M/D/YYYY"><b><font face="Arial">Ficha Numero</font></b></td>
+		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle bgcolor="#50b308" sdnum="1033;1033;M/D/YYYY"><b><font face="Arial">Ficha tecnica de indicadores</font></b></td>
 		<td style="border-top: 3px double #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Arial"><textarea class="campo" placeholder=""  name="ficha_numero">{{$t11->T11Detalle[0]->ficha_numero}}</textarea><br></font></td>
 		</tr>
 	<tr>

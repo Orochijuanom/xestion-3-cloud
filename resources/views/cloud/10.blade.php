@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -114,7 +118,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><textarea class="campo" placeholder=""  name="version[]"></textarea></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial"><input class="" placeholder="fecha" type="date"  name="fecha_version[]" value="{{ date('Y-m-d') }}"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle  ><font face="Arial">
-		<select id="cargo" class="form-control" name="aprobado_por[]">
+		<select id="cargo" class="form-control" name="aprobado_por[]" required>
 			@foreach ($empleados as $empleado)
 				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}}</option>
 			@endforeach
@@ -206,3 +210,4 @@ pagina" onclick="window.print()">
               document.getElementById('files').addEventListener('change', archivo, false);
       </script>
 </body>
+@endsection

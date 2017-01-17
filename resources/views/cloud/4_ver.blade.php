@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -13,12 +17,10 @@
 		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Arial"; font-size:x-small }
 	</style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t4/{{$empresa->id}}">t4</a> / <a href="#">Agregar t4</a>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t4/{{$t4->empresa_id}}">t4</a> / <a href="#">Agregar t4</a>
 <br/><br/><br/>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
@@ -37,7 +39,7 @@
 	<br><br>            
 </div>
 @endif
-<form method="POST" action="/cloud/form/4/ver">
+<form method="POST" action="/cloud/form/4/ver" width="4000px">
 {{ csrf_field() }}
 {{ method_field('PUT') }}
 <table cellspacing="0" border="0">
@@ -132,7 +134,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="procesos" >{{$t4->procesos}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Cargos asociados a la actividad:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=4 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF">
-		<select id="cargo" class="form-control" name="cargos_id">
+		<select id="cargo" class="form-control" name="cargos_id" required>
 			@foreach ($cargos as $cargo)
                 @if($t4->cargos_id == $cargo->id)
                     <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
@@ -157,7 +159,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=7 rowspan=2 align="center" valign=middle bgcolor="#FFFFFF"><input class="codigo" placeholder="fecha" type="date" required name="fecha_elaboracion" value="{{$t4->fecha_elaboracion}}"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=3 rowspan=2 align="center" valign=middle bgcolor="#50b308"><b>Responsable elaboración y actualización:</b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=8 rowspan=2 align="justify" valign=middle bgcolor="#FFFFFF">
-		<select id="cargo" class="form-control" name="responsable_elaboracion">
+		<select id="cargo" class="form-control" name="responsable_elaboracion" required>
 			@foreach ($empleados as $empleado)
                 @if($t4->responsable_elaboracion == $empleado->id)
                     <option value="{{$empleado->id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
@@ -231,7 +233,7 @@
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="proceso[]" >{{$t4Detalle->proceso}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder="" name="zona[]" >{{$t4Detalle->zona}}</textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF">
-		<select id="cargo" class="form-control" name="cargo_id[]">
+		<select id="cargo" class="form-control" name="cargo_id[]" required>
 			@foreach ($cargos as $cargo)
                 @if($t4Detalle->cargo_id == $cargo->id)
                     <option value="{{$cargo->id}}" selected>{{$cargo->cargo}}</option>
@@ -288,7 +290,7 @@
 		@endforeach
 	
 </table>
-@for($i=0; $i < 11; $i++)
+@for($i=0; $i < 4; $i++)
 <!-- Modal clasificacion de peligros -->
 <div class="modal fade" id="modal_cl_{{$i}}">
 	<div class="modal-dialog">
@@ -298,19 +300,19 @@
 				<h3 class="modal-title">Clasificación de peligros {{$i}}</h3>
 			</div>
 			<div class="modal-body">
-			<a name="Arriba">
-			<a href="#Biologico">Biologico</a> -
-			<a href="#Fisico">Fisico</a> -
-			<a href="#Quimico">Quimico</a> -
-			<a href="#Condiciones de seguridad">Condiciones de seguridad</a> -
-			<a href="#Psicosocial">Psicosocial</a> -
-			<a href="#Biomecanico">Biomecanico</a> -
-			<a href="#Fenomenos naturales">Fenomenos naturales</a> -
-			<a href="#Actividades recreativas">Actividades recreativas</a> -
+			<a name="Arriba_{{$i}}">
+			<a href="#Biologico_{{$i}}">Biologico</a> -
+			<a href="#Fisico_{{$i}}">Fisico</a> -
+			<a href="#Quimico_{{$i}}">Quimico</a> -
+			<a href="#Condiciones de seguridad_{{$i}}">Condiciones de seguridad</a> -
+			<a href="#Psicosocial_{{$i}}">Psicosocial</a> -
+			<a href="#Biomecanico_{{$i}}">Biomecanico</a> -
+			<a href="#Fenomenos naturales_{{$i}}">Fenomenos naturales</a> -
+			<a href="#Actividades recreativas_{{$i}}">Actividades recreativas</a> -
 				<table align="center" cellspacing="0" border="0">
 				@foreach($riesgos as $riesgo)
 					<tr>
-						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial"><a name="{{$riesgo->riesgo}}"></a>{{$riesgo->riesgo}}<a href="#Arriba"> - Volver Arriba</a></font></td>
+						<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle bgcolor="#50b308"><font face="Arial"><a name="{{$riesgo->riesgo}}_{{$i}}"></a>{{$riesgo->riesgo}}<a href="#Arriba_{{$i}}"> - Volver Arriba</a></font></td>
 					</tr>
 					@foreach($riesgo->descripciones as $descripcion)
 						<tr>
@@ -564,3 +566,4 @@ function calcular_riesgo(id) {
 }
 </script>
 </body>
+@endsection

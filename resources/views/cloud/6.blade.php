@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -40,7 +44,7 @@
 <form method="POST" action="{{ url('/cloud/form/6') }}" enctype="multipart/form-data">
 {{ csrf_field() }}
 
-<table cellspacing="0" border="0">
+<table cellspacing="0" border="0" width="3000px">
 	<colgroup width="86"></colgroup>
 	<colgroup width="202"></colgroup>
 	<colgroup span="2" width="279"></colgroup>
@@ -133,7 +137,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="40" align="center" valign=middle bgcolor="#FFFFFF"><b><font size=3><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font size=3><input class="" placeholder="fecha" type="date"  name="fecha_t6[]" value="{{ date('Y-m-d') }}"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font size=3>
-		<select id="cargo" class="form-control" name="nombre_quien_reporta[]">
+		<select id="cargo" class="form-control" name="nombre_quien_reporta[]" required>
 			@foreach ($empleados as $empleado)
 				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
 			@endforeach
@@ -151,7 +155,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="ua[]"></textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><textarea class="campo" placeholder=""  name="c[]"></textarea><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF">
-		<select id="cargo" class="form-control" name="responsable_cierre[]">
+		<select id="cargo" class="form-control" name="responsable_cierre[]" required>
 			@foreach ($empleados as $empleado)
 				<option value="{{$empleado->id}}">{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
 			@endforeach
@@ -351,3 +355,4 @@ pagina" onclick="window.print()">
               document.getElementById('files').addEventListener('change', archivo, false);
       </script>
 </body>
+@endsection

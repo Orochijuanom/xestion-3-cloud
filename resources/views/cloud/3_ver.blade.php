@@ -46,7 +46,7 @@
 <form method="POST" action="{{ url('/cloud/form/3/ver') }}">
 {{ csrf_field() }}
 {{ method_field('PUT') }}
-<table align="left" cellspacing="0" border="0">
+<table align="left" cellspacing="0" border="0" width="2000px">
 	<colgroup width="215"></colgroup>
 	<colgroup width="137"></colgroup>
 	<colgroup width="117"></colgroup>

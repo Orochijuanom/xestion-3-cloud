@@ -47,7 +47,7 @@ class t10controller extends Controller
         return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
     }
 
-    public function edti(Request $request)
+    public function edit(Request $request)
     {
         $t10 = T10::find($request['id']);
         $t10->codigo = $request['codigo'];
@@ -59,7 +59,7 @@ class t10controller extends Controller
         $datos = count($request['proceso']);
 
         for ($i=0; $i < $datos; $i++) { 
-            $t10detalle = T10Detalle::create($request['t10detalle'][$i]);
+            $t10detalle = T10Detalle::find($request['t10detalle'][$i]);
 
             $t10detalle->proceso = $request['proceso'][$i];
             $t10detalle->tipo_documento = $request['tipo_documento'][$i];

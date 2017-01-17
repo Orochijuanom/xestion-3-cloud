@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
 	            <link href="/css/programa.css" rel="stylesheet" type="text/css"/>
 		            <style>
@@ -111,3 +115,4 @@
 pagina" onclick="window.print()"> 
 </form>
 </body>
+@endsection

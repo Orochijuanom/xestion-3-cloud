@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <head>
     <link href="/css/programa.css" rel="stylesheet" type="text/css"/><style>
           .thumb {
@@ -49,9 +53,9 @@
 	
 </table>
 <div class="sign-up"><a href="/cloud/form/5/{{$empresa_id}}"/>Nuevo</a></div>
-<div class="sign-up"><input type="submit" value="Editar"/></div>
-<div class="sign-up"><input type="submit" value="Eliminar"/></div>
+
 
 <input type="button" value="Imprime esta pagina" onclick="window.print()">
 
 </body>
+@endsection
