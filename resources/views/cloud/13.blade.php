@@ -235,11 +235,11 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="19" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">EPS</font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br>	
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br>
 		<select class="estado" name="eps">
-			<option value="1">cafesalud</option> 
-			<option value="2">saludtotal</option> 
-			<option value="3">nueva eps</option>
+			@foreach ($epss as $eps)
+						<option value="{{$eps->id}}">{{$eps->eps}}</option>
+			@endforeach
 		</select>
 		</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b><font color="#000000">Fiebre Amarilla
@@ -253,9 +253,9 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="19" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">ARL</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br>	
 		<select class="estado" name="arl">
-   			<option value="1">sura</option> 
-   		    <option value="2">positiva</option> 
-   			<option value="3">colpatria</option>
+   			@foreach ($arls as $arl)
+						<option value="{{$arl->id}}">{{$arl->arl}}</option>
+			@endforeach
 		</select>
 		</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000">Hepatitis B
@@ -270,9 +270,9 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="19" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">AFP</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br>	
 		<select class="estado" name="afp">
-			<option value="1">proteccion</option> 
-			<option value="2">porvenir</option> 
-			<option value="3">colfondos</option>
+			@foreach ($afps as $afp)
+						<option value="{{$afp->id}}">{{$afp->afp}}</option>
+			@endforeach
 		</select>
 		</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000">Antirrabica
@@ -286,9 +286,9 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Caja de compensación</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br>	
 		<select class="estado" name="caja_compensacion">
-   			<option value="1">cafam</option> 
-   			<option value="2">compensar</option> 
-   			<option value="3">colsubsidio</option>
+   			@foreach ($cajas as $caja)
+						<option value="{{$caja->id}}">{{$caja->caja}}</option>
+			@endforeach
 		</select>
 		</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000">Otra

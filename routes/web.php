@@ -506,13 +506,21 @@ Route::get('/cloud/form/12-1/ver/{id}', function($id) {
                     ->with('cargos')
                     ->first();
         $cargos = App\Cargo::where('empresa_id', '=', $t13->empresa->id)->get();
-        return view('cloud.13_ver')->with(['t13'=> $t13, 'cargos'=>$cargos]);
+        $afps = App\Afp::all();
+        $arls = App\Arl::all();
+        $cajas = App\Caja::all();
+        $epss = App\eps::all();
+        return view('cloud.13_ver')->with(['t13'=> $t13, 'cargos'=>$cargos, 'afps' => $afps, 'arls' => $arls, 'cajas' => $cajas, 'epss' => $epss]);
     });
 
     Route::get('/cloud/form/13/{id}', function($id) {
         $empresa = App\Empresa::find($id);
         $cargos = App\Cargo::where('empresa_id', '=', $empresa->id)->get();
-        return view('cloud.13')->with(['empresa' => $empresa, 'cargos' => $cargos]);
+        $afps = App\Afp::all();
+        $arls = App\Arl::all();
+        $cajas = App\Caja::all();
+        $epss = App\eps::all();
+        return view('cloud.13')->with(['empresa' => $empresa, 'cargos' => $cargos, 'afps' => $afps, 'arls' => $arls, 'cajas' => $cajas, 'epss' => $epss]);
     });
 
     Route::post('/cloud/form/13/ver/', 'EmpleadosController@edit');

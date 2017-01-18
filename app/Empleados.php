@@ -25,5 +25,21 @@ class Empleados extends Model
         return $this->belongsTo('App\Cargo', 'cargo');
     }
 
+    public function afps(){
+        return $this->belongsTo('App\Afp', 'afp');
+    }
+
+    public function arls(){
+        return $this->belongsTo('App\Arl', 'arl');
+    }
+
+    public function cajas(){
+        return $this->belongsTo('App\Caja', 'caja_compensacion');
+    }
+
+    public function epss(){
+        return $this->belongsTo('App\Eps', 'eps');
+    }
+
     
 }

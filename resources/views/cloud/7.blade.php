@@ -93,7 +93,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" size=3 color="#000000">ABIERTOS</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#50b308"><b><font face="Arial" size=3 color="#000000">CERRADOS</font></b></td>
 		</tr>
-	@for($i = 0; $i <= 9; $i++)	
+	@for($i = 0; $i <= 5; $i++)	
 	<tr>
 		<td style="border-right: 3px double #000000" height="33" align="left" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="comite[]"></textarea><br></font></td>
@@ -103,7 +103,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="abiertos[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="cerrados[]"></textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify" valign=middle bgcolor="#FFFFFF"><font face="Arial" size=3 color="#000000"><input class="codigo" placeholder="fecha" type="date" required name="fecha_prox_reunion[]" value="{{ date('Y-m-d') }}"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><textarea class="campo" placeholder=""  name="evidencia_reunion[]"></textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;1033;M/D/YYYY"><font face="Arial" size=3 color="#000000"><input type="file" class="campo" placeholder=""  name="evidencia_reunion[]" /><br></font></td>
 	</tr>	
 	@endfor
 </table>

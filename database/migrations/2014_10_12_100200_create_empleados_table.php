@@ -33,10 +33,6 @@ class CreateEmpleadosTable extends Migration
             $table->string('area_pertenece');
             $table->string('lugar_centro_trabajo');
             $table->string('horario_trabajo');
-            $table->string('eps');
-            $table->string('arl');
-            $table->string('afp');
-            $table->string('caja_compensacion');
             $table->string('grupo_sanguineo');
             $table->string('persona_contacto');
             $table->string('tel_contacto');
@@ -78,6 +74,30 @@ class CreateEmpleadosTable extends Migration
             $table->integer('empresa_id')->unsigned();
             $table->foreign('empresa_id')
                   ->references('id')->on('empresa')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
+            $table->integer('eps')->unsigned();
+            $table->foreign('eps')
+                  ->references('id')->on('eps')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
+            $table->integer('arl')->unsigned();
+            $table->foreign('arl')
+                  ->references('id')->on('arl')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
+            $table->integer('afp')->unsigned();
+            $table->foreign('afp')
+                  ->references('id')->on('afp')
+                  ->onUpdate('no action')
+                  ->onDelete('restrict');
+
+            $table->integer('caja_compensacion')->unsigned();
+            $table->foreign('caja_compensacion')
+                  ->references('id')->on('caja')
                   ->onUpdate('no action')
                   ->onDelete('restrict');
                 

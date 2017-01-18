@@ -245,9 +245,16 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="19" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">EPS</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br>	
 		<select class="estado" name="eps">
-			<option value="1">cafesalud</option> 
-			<option value="2">saludtotal</option> 
-			<option value="3">nueva eps</option>
+			@foreach ($epss as $eps)
+				@if ($t13->eps == $eps->id)
+				
+					<option value="{{$eps -> id}}" selected>{{$eps->eps}}</option>
+				@else
+
+					<option value="{{$eps -> id}}">{{$eps->eps}}</option>
+
+				@endif
+			@endforeach	
 		</select>
 		</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle bgcolor="#FFFFFF"><b><font color="#000000">Fiebre Amarilla
@@ -261,9 +268,16 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="19" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">ARL</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br>	
 		<select class="estado" name="arl">
-   			<option value="1">sura</option> 
-   		    <option value="2">positiva</option> 
-   			<option value="3">colpatria</option>
+   			@foreach ($arls as $arl)
+				@if ($t13->arl == $arl->id)
+				
+					<option value="{{$arl -> id}}" selected>{{$arl->arl}}</option>
+				@else
+
+					<option value="{{$arl -> id}}">{{$arl->arl}}</option>
+
+				@endif
+			@endforeach	
 		</select>
 		</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000">Hepatitis B
@@ -278,9 +292,16 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="19" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">AFP</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br>	
 		<select class="estado" name="afp">
-			<option value="1">proteccion</option> 
-			<option value="2">porvenir</option> 
-			<option value="3">colfondos</option>
+			@foreach ($afps as $afp)
+				@if ($t13->afp == $afp->id)
+				
+					<option value="{{$afp -> id}}" selected>{{$afp->afp}}</option>
+				@else
+
+					<option value="{{$afp -> id}}">{{$eps->afp}}</option>
+
+				@endif
+			@endforeach	
 		</select>
 		</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000">Antirrabica
@@ -294,9 +315,16 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" colspan=2 height="20" align="left" valign=bottom bgcolor="#50b308"><b><font color="#000000">Caja de compensación</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" colspan=2 align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000"><br>	
 		<select class="estado" name="caja_compensacion">
-   			<option value="1">cafam</option> 
-   			<option value="2">compensar</option> 
-   			<option value="3">colsubsidio</option>
+   			@foreach ($cajas as $caja)
+				@if ($t13->caja_compensacion == $caja->id)
+				
+					<option value="{{$caja -> id}}" selected>{{$caja->caja}}</option>
+				@else
+
+					<option value="{{$caja -> id}}">{{$caja->caja}}</option>
+
+				@endif
+			@endforeach	
 		</select>
 		</font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 3px double #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=bottom bgcolor="#FFFFFF"><b><font color="#000000">Otra
