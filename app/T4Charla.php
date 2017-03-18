@@ -12,4 +12,8 @@ class T4Charla extends Model
     public function charla(){
         return $this->belongsTo('App\Charla', 'charlas_id');
     }
+
+    public function T4Detalle(){
+        return $this->belongsTo('App\T4Detalle', 't4_detalle_id');
+    }
 }

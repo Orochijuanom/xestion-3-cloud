@@ -37,8 +37,8 @@ class t3Controller extends Controller
         ]);
 
         //Registramos el detalle de la actualizacion        
-        
-        for ($i=0; $i < 9; $i++){                                
+        $datosdetalle = count($request['norma']);
+        for ($i=0; $i < $datosdetalle; $i++){                                
             T3Detalle::create([
                 'norma' =>  $request["norma"][$i],
                 'numero_norma' =>  $request["numero_norma"][$i],
@@ -75,8 +75,8 @@ class t3Controller extends Controller
         $t3->fecha = $request['fecha'];
         $t3->save();
 
-
-        for ($i=0; $i < 9; $i++){
+        $datosdetalle = count($request['norma']);
+        for ($i=0; $i < $datosdetalle; $i++){
             $t3Detalle = T3Detalle::find($request['t3Detalle'][$i]); // buscamos el id                                 
             
             $t3Detalle->norma =  $request["norma"][$i];

@@ -29,7 +29,7 @@ class t1Controller extends Controller
             'logo' => $nombre,
             'usuario_id' => \Auth::user()->id
         ]);
-        return redirect()->back()->with('flash_message', 'Se ha creado el registro exitosamente');
+        return redirect()->back()->with('message', 'Se ha creado la empresa');
     }
 
 

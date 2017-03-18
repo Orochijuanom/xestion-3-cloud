@@ -9,6 +9,10 @@ class T4Detalle extends Model
     protected $table = 't4_detalle';
     protected $fillable = ['proceso', 'zona', 'cargo_id', 'actividad', 'tarea', 'rutinario', 'actividad_propia_contratada', 'fuente', 'medio', 'nivel_deficiencia', 'nivel_exposicion', 'nivel_consecuencia', 'aceptabilidad_riesgo', 'numero_expuestos', 'riesgo_residual', 'existencia_requisito_legal', 'eliminacion', 'sustitucion', 'control_ingenieria', 'senalizacion', 'equipos', 'controles_adicionales', 't4_id'];
 
+    public function cargo(){
+        return $this->belongsTo('App\Cargo');
+    }
+
     public function t4Clasificaciones(){
         return $this->hasMany('App\T4Clasificacion', 't4_detalle_id');
 

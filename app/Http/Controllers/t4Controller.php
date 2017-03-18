@@ -162,41 +162,49 @@ class t4Controller extends Controller
 
             if(isset($request['clasificacion'][$i])){
                 $datosClasificacion = count($request['clasificacion'][$i]);
-
+                T4Clasificacion::where('t4_detalle_id', '=', $t4detalle->id)->delete();
                 for ($j=0; $j < $datosClasificacion ; $j++) { 
-                    $t4clasificacion = T4Clasificacion::find($request['clasificacion'][$i][$j]);
-                    $t4clasificacion->descripcion_efecto_id = $request['clasificacion'][$i][$j];
-                    $t4clasificacion->save();    
+                   T4Clasificacion::create([
+                        'descripcion_efecto_id' => $request['clasificacion'][$i][$j],
+                        't4_detalle_id' => $t4detalle->id
+                        
+                        ]);    
                 }
             }
 
             if(isset($request['charla'][$i])){
                 $datosCharla = count($request['charla'][$i]);
-
+                T4Charla::where('t4_detalle_id', '=', $t4detalle->id)->delete();
                 for ($j=0; $j < $datosCharla ; $j++) { 
-                    $t4charla = T4Charla::find($request['charla'][$i][$j]);
-                    $t4charla->charlas_id = $request['charla'][$i][$j];                
-                    $t4charla->save();
+                    T4Charla::create([
+                        'charlas_id' => $request['charla'][$i][$j],
+                        't4_detalle_id' => $t4detalle->id
+                        
+                    ]);
                 }
             }
 
             if(isset($request['capacitacion'][$i])){
                 $datosCapacitacion = count($request['capacitacion'][$i]);
-
+                T4Capacitacion::where('t4_detalle_id', '=', $t4detalle->id)->delete();
                 for ($j=0; $j < $datosCapacitacion ; $j++) { 
-                    $t4capacitacion = T4Capacitacion::find($request['capacitacion'][$i][$j]);
-                    $t4capacitacion->capacitaciones_id = $request['capacitacion'][$i][$j];                    
-                    $t4capacitacion->save();
+                    T4Capacitacion::create([
+                        'capacitaciones_id' => $request['capacitacion'][$i][$j],
+                        't4_detalle_id' => $t4detalle->id
+                        
+                        ]);
                 }
             }
 
             if(isset($request['epps'][$i])){
                 $datosEpps = count($request['epps'][$i]);
-
+                T4Epp::where('t4_detalle_id', '=', $t4detalle->id)->delete();
                 for ($j=0; $j < $datosEpps ; $j++) { 
-                    $t4eps = T4Epp::find($request['epps'][$i][$j]);
-                    $t4eps->epps_id = $request['epps'][$i][$j];
-                    $t4eps->save();                                                                        
+                   T4Epp::create([
+                        'epps_id' => $request['epps'][$i][$j],
+                        't4_detalle_id' => $t4detalle->id
+                        
+                        ]);                                                                        
                 }
             }
 

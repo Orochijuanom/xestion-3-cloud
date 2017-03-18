@@ -22,7 +22,7 @@
 </head>
 
 <body>
-<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t1/{{$empresa->id}}">t5</a> / <a href="#">Ver editar t5</a>
+<a href="/cloud/form/l1">Inicio</a> / <a href="/cloud/form/t5/{{$empresa->id}}">t5</a> / <a href="#"> t5</a>
 
 @if (count($errors) > 0)
 <div class="alert alert-danger">

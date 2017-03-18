@@ -120,33 +120,33 @@
 	</tr>
 	<tr>
 	</tr>
-	@foreach($t3->detalles as $t3)
+	@foreach($t3->detalles as $t3s)
 	<tr>
-		<input type="hidden" name="t3Detalle[]" value="{{$t3->id}}" />
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="norma[]">{{$t3->norma}}</textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="numero_norma[]">{{$t3->numero_norma}}</textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><input class="campo" placeholder="fecha" type="date" required name="fecha_publicacion[]" value="{{$t3->fecha_publicacion}}"><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="emisor[]">{{$t3->emisor}}</textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="articulo[]">{{$t3->articulo}}</textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="descripcion_obligacion[]">{{$t3->descripcion_obligacion}}</textarea><br></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="palabra_clave[]">{{$t3->palabra_clave}}</textarea><br></font></td>
+		<input type="hidden" name="t3Detalle[]" value="{{$t3s->id}}" />
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 3px double #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="norma[]">{{$t3s->norma}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="numero_norma[]">{{$t3s->numero_norma}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><input class="campo" placeholder="fecha" type="date" required name="fecha_publicacion[]" value="{{$t3s->fecha_publicacion}}"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="emisor[]">{{$t3s->emisor}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="articulo[]">{{$t3s->articulo}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="descripcion_obligacion[]">{{$t3s->descripcion_obligacion}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="justify"><font face="Arial"><textarea class="campo" placeholder=""  name="palabra_clave[]">{{$t3s->palabra_clave}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font >
-		<select id="aplica_{{$t3->id}}" style="background:green;" name="aplica[]" onchange="cambiar_color(this.id)">
-			<option value="1"@if($t3->aplica == 1) selected @endif>1</option>
-			<option value="0" @if($t3->aplica == 0) selected @endif>0</option>
+		<select id="aplica_{{$t3s->id}}" style="background:green;" name="aplica[]" onchange="cambiar_color(this.id)">
+			<option value="1"@if($t3s->aplica == 1) selected @endif>1</option>
+			<option value="0" @if($t3s->aplica == 0) selected @endif>0</option>
 		</select>
 		</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><b><font >
-		<select id="cumple_{{$t3->id}}" name="cumple[]" style="background:green;" onchange="cambiar_color(this.id)">
-			<option value="1" @if($t3->aplica == 1) selected @endif>1</option>
-			<option value="0" @if($t3->aplica == 0) selected @endif>0</option>
+		<select id="cumple_{{$t3s->id}}" name="cumple[]" style="background:green;" onchange="cambiar_color(this.id)">
+			<option value="1" @if($t3s->aplica == 1) selected @endif>1</option>
+			<option value="0" @if($t3s->aplica == 0) selected @endif>0</option>
 		</select>
 		</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="como_cumple[]">{{$t3->como_cumple}}</textarea><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Arial"><textarea class="campo" placeholder=""  name="como_cumple[]">{{$t3s->como_cumple}}</textarea><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 3px double #000000" align="left" valign=middle><font face="Arial">
 		<select id="cargo" class="form-control" name="responsable_cumplimiento[]" required>
 			@foreach ($empleados as $empleado)
-			@if ($t3->responsable_cumplimiento == $empleado->id)
+			@if ($t3s->responsable_cumplimiento == $empleado->id)
 				
 					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cargos->cargo}}</option>
 				@else

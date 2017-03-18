@@ -12,4 +12,8 @@ class T4Epp extends Model
     public function epp(){
         return $this->belongsTo('App\Epp', 'epps_id');
     }
+
+    public function T4Detalle(){
+        return $this->belongsTo('App\T4Detalle', 't4_detalle_id');
+    }
 }

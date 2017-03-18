@@ -325,7 +325,8 @@
 										<input type="checkbox" name="clasificacion[{{$i}}][]" value="{{$efecto->id}}"   
 											@foreach($t4->t4Detalles[$i]->t4Clasificaciones as $clasificacion)  
 												@if($clasificacion->descripcion_efecto_id == $efecto->id) checked 
-												@endif @endforeach>{{$efecto->efecto->efecto}} />
+												@endif @endforeach>{{$efecto->efecto->efecto}} 
+										
 										</font>
 										</td>
 								</tr>

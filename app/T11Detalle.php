@@ -26,4 +26,8 @@ class T11Detalle extends Model
         return $this->hasMany('App\T11Grafico', 't11_detalle_id');
 
     }
+
+    public function empleado(){
+        return $this->belongsTo('App\Empleados', 'responsable_calculo_seguimiento');
+    }   
 }

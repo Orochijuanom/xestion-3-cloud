@@ -15,4 +15,8 @@ class T5Detalle extends Model
                             'guantes_de_nitrillo','guantes_carnaza','guantes_neopreno','guantes_vaquetas',
                             'impermeable','arnes_seguridad','eslinga','otros_elementos','pantalon','t5_id','empleado_id'];
  
+    public function empleado(){
+        return $this->belongsTo('App\Empleados', 'empleado_id');
+    }
+
 }

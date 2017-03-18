@@ -233,10 +233,10 @@
 			@foreach ($empleados as $empleado)
 				@if ($t8Detalle->empleado->id == $empleado->id)
 				
-					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{{{$empleado->cedula}}}}</option>
+					<option value="{{$empleado -> id}}" selected>{{$empleado->nombre_apellidos}} - {{$empleado->cedula}}</option>
 				@else
 
-					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{{{$empleado->cedula}}}}</option>
+					<option value="{{$empleado -> id}}">{{$empleado->nombres_apellidos}} - {{$empleado->cedula}}</option>
 
 				@endif
 			@endforeach

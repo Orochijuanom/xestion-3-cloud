@@ -13,4 +13,8 @@ class T4Clasificacion extends Model
         return $this->belongsTo('App\DescripcionEfecto', 'descripcion_efecto_id');
 
     }
+
+    public function T4Detalle(){
+        return $this->belongsTo('App\T4Detalle', 't4_detalle_id');
+    }
 }

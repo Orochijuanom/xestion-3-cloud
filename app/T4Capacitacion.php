@@ -12,4 +12,8 @@ class T4Capacitacion extends Model
     public function capacitacion(){
         return $this->belongsTo('App\Capacitacion', 'capacitaciones_id');
     }
+
+    public function T4Detalle(){
+        return $this->belongsTo('App\T4Detalle', 't4_detalle_id');
+    }
 }
